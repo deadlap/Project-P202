@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: Task1
   m_EditorClassIdentifier: 
   equationMath:
-    left: 2x-4
-    right: x+3
+    left:
+    - 2x
+    - -4
+    right:
+    - x
+    - +3
   solution: 7

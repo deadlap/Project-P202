@@ -5,10 +5,14 @@ using System;
 
 [Serializable]
 public class EquationMath {
-    public string left;
-    public string right;
-    public EquationMath(string _Item1, string _Item2){
-        left = _Item1;
-        right = _Item2;
+    public List<string> left;
+    public List<string> right;
+    public EquationMath(List<string> _left, List<string> _right){
+        left = _left;
+        right = _right;
+    }
+    public void CopyVariables(EquationMath _instance){
+        left = _instance.left;
+        right = _instance.right;
     }
 }
