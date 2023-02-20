@@ -43,8 +43,17 @@ public class Equation : ScriptableObject {
     }
 
     public void AddTerm(string _term){
-        equationMath.left.Add(_term);
-        equationMath.right.Add(_term);
+        switch (_term[0]){
+            case '+':
+            case '-':
+                equationMath.left.Add(_term);
+                equationMath.right.Add(_term);
+                break;
+            case '*':
+            case '/':
+                ApplyToEachTerm(_term);
+                break;
+        }
         equationMath.left = AppManager.solver.Shorten(equationMath.left);
         equationMath.right = AppManager.solver.Shorten(equationMath.right);
         ConvertToText();
@@ -56,5 +65,14 @@ public class Equation : ScriptableObject {
 
     public void Shorten(){
         
+    }
+
+    public void ApplyToEachTerm(string _input){
+        for (int i = 0; i < equationMath.left.Count; i++) {
+            equationMath.left[i] += _input;
+        }
+        for (int i = 0; i < equationMath.right.Count; i++) {
+            equationMath.right[i] += _input;            
+        }
     }
 }

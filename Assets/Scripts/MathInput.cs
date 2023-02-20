@@ -16,7 +16,9 @@ public class MathInput : MonoBehaviour {
 
     public void InsertAndSend(string input){
         output = input+output;
-        display.AddTerm(output);
+        if (output.Length > 1) {
+            display.AddTerm(output);
+        }
         Clear();
         UpdateText();
     }
