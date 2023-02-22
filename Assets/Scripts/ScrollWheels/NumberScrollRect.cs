@@ -7,32 +7,41 @@ using UnityEngine.UI;
 public class NumberScrollRect : MonoBehaviour
 {
     [SerializeField] GameObject content;
-    [SerializeField] float itemSize;
-    [SerializeField] float itemSpace;
+    [SerializeField] float elementSize;
+    [SerializeField] float elementSpacing;
 
-    [SerializeField] List<string> numbers;
+    [SerializeField] List<string> elements;
 
         void Start()
         {
-            foreach (string number in numbers)
-            {
-                GameObject item = new("Item");
-                item.transform.SetParent(content.transform);
-                item.transform.localScale = new Vector3(itemSize, itemSize, 0);
-
-                TextMeshProUGUI text = item.AddComponent<TextMeshProUGUI>();
-                text.color = Color.black;
-                text.autoSizeTextContainer = true;
-            }
-    
-            content.GetComponent<RectTransform>().sizeDelta = new Vector2(0, numbers.Count * itemSpace);
+            CreatElement();
         }
     
         void Update()
         {
-            for (int i = 0; i < numbers.Count; i++)
+            AssignStringToElement();
+        }
+
+        void CreatElement() 
+        {
+            foreach (string element in elements)
             {
-                content.transform.GetChild(i).GetComponent<TextMeshProUGUI>().text = numbers[i];
+                GameObject newElement = new("Element");
+                newElement.transform.SetParent(content.transform);
+                newElement.transform.localScale = new Vector3(elementSize, elementSize, 0);
+
+                TextMeshProUGUI text = newElement.AddComponent<TextMeshProUGUI>();
+                text.color = Color.black;
+                text.autoSizeTextContainer = true;
+            }
+            content.GetComponent<RectTransform>().sizeDelta = new Vector2(0, elements.Count * elementSpacing);
+        }
+
+        void AssignStringToElement() 
+        {
+            for (int i = 0; i < elements.Count; i++)
+            {
+                content.transform.GetChild(i).GetComponent<TextMeshProUGUI>().text = elements[i];
             }
         }
 }
