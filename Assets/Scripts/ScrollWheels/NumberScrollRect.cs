@@ -2,30 +2,24 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-namespace ScrollWheels
-{
-    public class NumberScrollRect : MonoBehaviour
-    {
+namespace ScrollWheels {
+    public class NumberScrollRect : MonoBehaviour {
         [SerializeField] GameObject content;
         [SerializeField] float elementSize;
         [SerializeField] float elementSpacing;
 
         [SerializeField] List<string> elements;
 
-        void Start()
-        {
+        void Start() {
             CreatElement();
         }
     
-        void Update()
-        {
+        void Update() {
             AssignStringToElement();
         }
 
-        void CreatElement() 
-        {
-            foreach (string element in elements)
-            {
+        void CreatElement() {
+            foreach (string element in elements) {
                 GameObject newElement = new("Element");
                 newElement.tag = "Element";
                 newElement.transform.SetParent(content.transform);
@@ -44,10 +38,8 @@ namespace ScrollWheels
             content.GetComponent<RectTransform>().sizeDelta = new Vector2(0, elements.Count * elementSpacing);
         }
 
-        void AssignStringToElement() 
-        {
-            for (int i = 0; i < elements.Count; i++)
-            {
+        void AssignStringToElement() {
+            for (int i = 0; i < elements.Count; i++) {
                 content.transform.GetChild(i).GetComponent<TextMeshProUGUI>().text = elements[i];
             }
         }

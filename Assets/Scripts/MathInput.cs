@@ -3,32 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using ScrollWheels;
 
 public class MathInput : MonoBehaviour {
-    string output;
-    [SerializeField] EquationDisplay display;
-    [SerializeField] TextMeshProUGUI textField;
-
-    public void Insert(string input){
-        output += input;
-        UpdateText();
-    }
-
-    public void InsertAndSend(string input){
-        output = input+output;
-        if (output.Length > 1) {
-            display.AddTerm(output);
-        }
-        Clear();
-        UpdateText();
-    }
-
-    public void Clear(){
-        output = "";
-        UpdateText();
-    }
     
-    public void UpdateText(){   
-        textField.text = output;
+    [SerializeField] EquationDisplay display;
+    [SerializeField] FindElement[] input;
+
+    string output;
+
+    private void FixedUpdate() {
+        output = "";
+        foreach (FindElement _selected in input) {
+            output += _selected.elementInfo;
+        }
+    }
+
+    public void Send(){
+        print(output);
+        // if (output.Length > 1) {
+        display.AddTerm(output);
+        // }
     }
 }
