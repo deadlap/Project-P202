@@ -1,17 +1,23 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace ScrollWheels {
-    public class NumberScrollRect : MonoBehaviour {
-        [SerializeField] GameObject content;
+    public class NumberScrollRect : MonoBehaviour
+    {
+        [SerializeField] ScrollRect scrollRect;
+        [SerializeField] RectTransform content;
         [SerializeField] float elementSize;
         [SerializeField] float elementSpacing;
-
         [SerializeField] List<string> elements;
+        GameObject newElement;
 
-        void Start() {
+        void Awake() {
             CreatElement();
+            Invoke(nameof(BeginAtTop), .01f); //Bliver invoket, ellers driller det.
         }
     
         void Update() {
@@ -20,7 +26,7 @@ namespace ScrollWheels {
 
         void CreatElement() {
             foreach (string element in elements) {
-                GameObject newElement = new("Element");
+                newElement = new("Element");
                 newElement.tag = "Element";
                 newElement.transform.SetParent(content.transform);
                 newElement.transform.localScale = new Vector3(elementSize, elementSize, 0);
@@ -42,6 +48,13 @@ namespace ScrollWheels {
             for (int i = 0; i < elements.Count; i++) {
                 content.transform.GetChild(i).GetComponent<TextMeshProUGUI>().text = elements[i];
             }
+        }
+
+        void BeginAtTop()
+        {
+            var elementIndex = newElement.transform.GetSiblingIndex();
+            var pos = scrollRect.content.transform.childCount / elementIndex;
+            scrollRect.verticalNormalizedPosition = pos;
         }
     }
 }
