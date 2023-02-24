@@ -6,7 +6,7 @@ namespace ScrollWheels {
     public class FindElement : MonoBehaviour {
 
         TextMeshProUGUI text;
-        public string elementInfo {get; private set;}
+        public string elementInfo {get; private set;} = "";
 
         void OnTriggerEnter2D(Collider2D other) {
             if (other.gameObject.CompareTag("Element")) {

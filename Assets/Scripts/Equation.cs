@@ -38,8 +38,6 @@ public class Equation : ScriptableObject {
         
         foreach(string _term in equationMath.right)
             eqToDisplay += _term;
-        
-        // eqToDisplay = equationMath.left + " = " + equationMath.right;
     }
 
     public void AddTerm(string _term){

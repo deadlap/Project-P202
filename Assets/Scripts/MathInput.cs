@@ -15,14 +15,17 @@ public class MathInput : MonoBehaviour {
     private void FixedUpdate() {
         output = "";
         foreach (FindElement _selected in input) {
+            // We check if we are trying to add the symbol x and if there is a number selected
+            // If there is a number selected we add the '*' symbol
+            if (_selected.elementInfo.Contains('x') && output.Length > 1) {
+                output += "*";
+            }
+            // We insert the selected symbol onto our output string.
             output += _selected.elementInfo;
         }
     }
 
     public void Send(){
-        print(output);
-        // if (output.Length > 1) {
         display.AddTerm(output);
-        // }
     }
 }
