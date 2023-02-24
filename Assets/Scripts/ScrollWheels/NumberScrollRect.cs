@@ -14,10 +14,11 @@ namespace ScrollWheels {
         [SerializeField] float elementSpacing;
         [SerializeField] List<string> elements;
         GameObject newElement;
+        bool isActive;
 
         void Start() {
-            CreatElement();
-            Invoke(nameof(BeginAtTop), .01f); //Bliver invoket, ellers driller det.
+            Invoke(nameof(CreatElement), .08f); //
+            Invoke(nameof(BeginAtTop), .09f); //Bliver invoket med delay, ellers driller det.
         }
     
         void Update() {
@@ -42,16 +43,17 @@ namespace ScrollWheels {
                 text.autoSizeTextContainer = true;
             }
             content.GetComponent<RectTransform>().sizeDelta = new Vector2(0, elements.Count * elementSpacing);
+            isActive = true; //Så update kun kører når BeginAtTop() har kørt.
         }
 
         void AssignStringToElement() {
+            if (!isActive) return;
             for (int i = 0; i < elements.Count; i++) {
                 content.transform.GetChild(i).GetComponent<TextMeshProUGUI>().text = elements[i];
             }
         }
 
-        void BeginAtTop()
-        {
+        void BeginAtTop() {
             var elementIndex = newElement.transform.GetSiblingIndex();
             var pos = scrollRect.content.transform.childCount / elementIndex;
             scrollRect.verticalNormalizedPosition = pos;

@@ -9,9 +9,6 @@ namespace ScrollWheels {
         public string elementInfo {get; private set;} = "";
         Color defaultColor = Color.grey;
 
-        private void Awake() {
-        }
-
         void OnTriggerEnter2D(Collider2D other) {
             if (other.gameObject.CompareTag("Element")) {
                 elementInfo = other.gameObject.GetComponent<TextMeshProUGUI>().text;

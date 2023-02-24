@@ -10,9 +10,10 @@ public class MathInput : MonoBehaviour {
     [SerializeField] EquationDisplay display;
     [SerializeField] FindElement[] input;
     [SerializeField] Animator animator;
+    [SerializeField] AudioSource source;
     string output;
 
-    private void FixedUpdate() {
+    void FixedUpdate() {
         output = "";
         foreach (FindElement _selected in input) {
             // We check if we are trying to add the symbol x and if there is a number selected
@@ -21,13 +22,19 @@ public class MathInput : MonoBehaviour {
                 output += "*";
             }
             // We insert the selected symbol onto our output string.
-            output += _selected.elementInfo;
+            else {
+                output += _selected.elementInfo;
+            }
         }
     }
 
     public void Send(){
-        if (output.Contains('x') && (output.Contains('/') || output.Contains('/'))) {
-            
+        if (output.Contains('x') && (output.Contains('/') || output.Contains('*'))) {
+            animator.Play("ErrorOnSign");
+            source.Play();
+        } else if (output.Length == 1) {
+            animator.SetTrigger("ErrorOnValues");
+            source.Play();
         } else {
             display.AddTerm(output);
         }
