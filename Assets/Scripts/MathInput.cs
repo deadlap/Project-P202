@@ -31,14 +31,11 @@ public class MathInput : MonoBehaviour {
             print(output);
             animator.Play("ErrorOnSign");
             source.Play();
-            print("Hej");
         } else if (output.Length == 1) {
             animator.SetTrigger("ErrorOnValues");
             source.Play();
-            print("Hej2");
         } else {
             display.AddTerm(output);
-            print("Hej3");
         }
     }
 }
