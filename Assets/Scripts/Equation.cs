@@ -7,7 +7,7 @@ using UnityEditor;
 public class Equation : ScriptableObject {
     
     [SerializeField] EquationMath equationMath;
-    [SerializeField] string solution;
+    [SerializeField] public string solution {get; private set;}
 
     [SerializeField] public string eqToDisplay {get; private set;}
     
@@ -52,8 +52,8 @@ public class Equation : ScriptableObject {
                 ApplyToEachTerm(_term);
                 break;
         }
-        equationMath.left = AppManager.solver.Shorten(equationMath.left);
-        equationMath.right = AppManager.solver.Shorten(equationMath.right);
+        equationMath.left = LevelManager.solver.Shorten(equationMath.left);
+        equationMath.right = LevelManager.solver.Shorten(equationMath.right);
         ConvertToText();
     }
 

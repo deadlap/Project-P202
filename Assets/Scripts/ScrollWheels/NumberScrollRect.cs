@@ -15,7 +15,7 @@ namespace ScrollWheels {
         [SerializeField] List<string> elements;
         GameObject newElement;
 
-        void Awake() {
+        void Start() {
             CreatElement();
             Invoke(nameof(BeginAtTop), .01f); //Bliver invoket, ellers driller det.
         }

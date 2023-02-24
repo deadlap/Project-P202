@@ -8,7 +8,7 @@ public class EquationDisplay : MonoBehaviour {
     [SerializeField] Equation equation;
     [SerializeField] TextMeshProUGUI textField;
     [SerializeField] Equation ogEquation;
-
+    
     void Start(){
         ogEquation = equation;
         equation = Instantiate(equation);

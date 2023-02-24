@@ -52,7 +52,7 @@ public class Solver {
             _temp = "x";
         } else if (_result != 0) {
             if (_result % 1 == 0) {
-                _temp = _result.ToString() + "*x";
+                _temp = _result.ToString();
             }
             _temp += "*x";
         }

@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelSelector : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+public class LevelSelector : MonoBehaviour {
+    [SerializeField] CurrentLevel levelObject;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void GoToLevel(string nextLevel){
+        levelObject.SetLevel(nextLevel);
+        SceneManagement.ChangeScene("SampleScene");
     }
 }
