@@ -51,7 +51,10 @@ public class Solver {
         if (_result == 1) {
             _temp = "x";
         } else if (_result != 0) {
-            _temp = _result.ToString() + "*x";
+            if (_result % 1 == 0) {
+                _temp = _result.ToString() + "*x";
+            }
+            _temp += "*x";
         }
         if (_result != 0) {
             _xTerms.Add(_temp);
