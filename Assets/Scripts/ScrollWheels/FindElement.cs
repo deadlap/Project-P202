@@ -7,6 +7,10 @@ namespace ScrollWheels {
 
         TextMeshProUGUI text;
         public string elementInfo {get; private set;} = "";
+        Color defaultColor = Color.grey;
+
+        private void Awake() {
+        }
 
         void OnTriggerEnter2D(Collider2D other) {
             if (other.gameObject.CompareTag("Element")) {
@@ -22,8 +26,16 @@ namespace ScrollWheels {
         void OnTriggerExit2D(Collider2D other) {
             if (other.gameObject.CompareTag("Element")) {
                 text = other.gameObject.GetComponent<TextMeshProUGUI>();
-                text.color = Color.grey;
+                text.color = defaultColor;
             }
+        }
+
+        public void SetColor(Color newColor) {
+            text.color = newColor;
+        }
+
+        public void ResetColor() {
+            text.color = default;
         }
     }
 }

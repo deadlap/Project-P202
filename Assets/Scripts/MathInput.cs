@@ -9,7 +9,7 @@ public class MathInput : MonoBehaviour {
     
     [SerializeField] EquationDisplay display;
     [SerializeField] FindElement[] input;
-
+    [SerializeField] Animator animator;
     string output;
 
     private void FixedUpdate() {
@@ -26,6 +26,10 @@ public class MathInput : MonoBehaviour {
     }
 
     public void Send(){
-        display.AddTerm(output);
+        if (output.Contains('x') && (output.Contains('/') || output.Contains('/'))) {
+            
+        } else {
+            display.AddTerm(output);
+        }
     }
 }
