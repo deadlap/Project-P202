@@ -18,25 +18,27 @@ public class MathInput : MonoBehaviour {
         foreach (FindElement _selected in input) {
             // We check if we are trying to add the symbol x and if there is a number selected
             // If there is a number selected we add the '*' symbol
-            if (_selected.elementInfo.Contains('x') && output.Length > 1) {
+            if (_selected.elementInfo.Contains("x") && output.Length > 1) {
                 output += "*";
             }
             // We insert the selected symbol onto our output string.
-            else {
-                output += _selected.elementInfo;
-            }
+            output += _selected.elementInfo;
         }
     }
 
     public void Send(){
-        if (output.Contains('x') && (output.Contains('/') || output.Contains('*'))) {
+        if (output.Contains("x") && !(output.Contains("+") || output.Contains("-"))) {
+            print(output);
             animator.Play("ErrorOnSign");
             source.Play();
+            print("Hej");
         } else if (output.Length == 1) {
             animator.SetTrigger("ErrorOnValues");
             source.Play();
+            print("Hej2");
         } else {
             display.AddTerm(output);
+            print("Hej3");
         }
     }
 }
