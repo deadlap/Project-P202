@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEditor;
 
@@ -20,6 +21,7 @@ public class Solver {
 
         if (_xTerms.Count != 0) {
             _shortened.AddRange(ShortenXTerms(_xTerms));
+            Debug.Log(_xTerms);
         }
 
         if (!string.IsNullOrEmpty(_temp)) {
@@ -46,8 +48,14 @@ public class Solver {
 
     public List<string> ShortenXTerms(List<string> _xTerms) {
         string _temp = string.Join("",_xTerms).Replace("x", "1");
+        
+        if (_temp[0] == '*' || _temp[0] == '+') {
+            _temp = _temp.Substring(1, _temp.Length-1);
+        }
+        
         ExpressionEvaluator.Evaluate(_temp, out float _result);
         _xTerms.Clear();
+        
         if (_result == 1) {
             _temp = "x";
         } else if (_result != 0) {
