@@ -51,6 +51,7 @@ namespace ScrollWheels {
             for (int i = 0; i < elements.Count; i++) {
                 content.transform.GetChild(i).GetComponent<TextMeshProUGUI>().text = elements[i];
             }
+            isActive = true;
         }
 
         void BeginAtTop() {
