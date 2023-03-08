@@ -457,5 +457,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: {fileID: 0}
-  EquationPrefab: {fileID: 5040631694997092586, guid: 0e3a545c2a2be2a44a60ea338e1c8cfe, type: 3}
+  equationPrefab: {fileID: 5040631694997092586, guid: 0e3a545c2a2be2a44a60ea338e1c8cfe, type: 3}
   equationDisplays: []
+  defaultLevel: Level_1
