@@ -90,7 +90,7 @@ public class Solver {
         }
         Debug.Log("index:"+_denomIndex+"length:"+(_term.Length-_denomIndex)+"lenght2"+_term.Length);
         if (_denomIndex+1 < _term.Length-1) {
-            string _temp = _term.Substring(_denomIndex+1, _term.Length-_denomIndex);
+            string _temp = _term.Substring(_denomIndex+1, _term.Length-_denomIndex+1);
             Debug.Log(":"+_temp);
             if (_temp[0] == '+')
                 _temp = _temp.Substring(1, _temp.Length-1);
