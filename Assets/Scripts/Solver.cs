@@ -75,22 +75,23 @@ public class Solver {
 
     public string CollapseToFraction(string _term) {
         int _index = _term.IndexOf('/');
-        string _numerator = _term.Substring(0,_index-1);
+        string _numerator = _term.Substring(0,_index);
         string _denominator = "";
         string _fraction = _term;
 
+        //at what index the denominator ends.
         int _denomIndex = _index;
         while (true) {
             _denomIndex += 1;
-            if (_denomIndex == _term.Length || _term[_denomIndex] == '-' || _term[_denomIndex] == '+') {
+            if (_denomIndex == _term.Length || _term[_denomIndex] == '-' || _term[_denomIndex] == '+' || _term[_denomIndex] == '*') {
                 _denomIndex -= 1;
                 break;
             }
             _denominator += _term[_denomIndex];
         }
-        Debug.Log("index:"+_denomIndex+"length:"+(_term.Length-_denomIndex)+"lenght2"+_term.Length);
-        if (_denomIndex+1 < _term.Length-1) {
-            string _temp = _term.Substring(_denomIndex+1, _term.Length-_denomIndex+1);
+
+        if (_denomIndex+1 < _term.Length-1) {    
+            string _temp = _term.Substring(_index+1, _denominator.Length);
             Debug.Log(":"+_temp);
             if (_temp[0] == '+')
                 _temp = _temp.Substring(1, _temp.Length-1);
@@ -100,6 +101,8 @@ public class Solver {
             ExpressionEvaluator.Evaluate(_fraction, out float _result);
 
             _fraction = _result + "/" + _denominator;
+        } else {
+            
         }
 
         return _fraction;
