@@ -18,7 +18,7 @@ public class Solver {
                 _temp += _term;
             }
         }
-
+        Debug.Log("1/2:"+CollapseToFraction("1/2*1"));
         if (_xTerms.Count != 0) {
             _shortened.AddRange(ShortenXTerms(_xTerms));
             Debug.Log(_xTerms);
@@ -56,7 +56,12 @@ public class Solver {
             _temp = _temp.Substring(1, _temp.Length-1);
         }
 
+        if (_temp.Contains('/')) {
+            _temp = CollapseToFraction(_temp);
+            Debug.Log(CollapseToFraction(_temp));
+        }
         ExpressionEvaluator.Evaluate(_temp, out float _result);
+
         _xTerms.Clear();
 
         if (_result == 1) {
@@ -91,18 +96,19 @@ public class Solver {
         }
 
         if (_denomIndex+1 < _term.Length-1) {    
-            string _temp = _term.Substring(_index+1, _denominator.Length);
-            Debug.Log(":"+_temp);
+            string _temp = _term.Substring(_denomIndex+1, _term.Length - (_denomIndex+1));
             if (_temp[0] == '+')
                 _temp = _temp.Substring(1, _temp.Length-1);
+            
+            if (_temp.Contains("*")) {
+                _numerator = _numerator+_temp;
+            } else {
+                _numerator = _denominator + "* (" + _temp + ")" + "+" +_numerator;
+            }
 
-            _fraction = _denominator + "* (" + _temp + ")" + "+" +_numerator;
-
-            ExpressionEvaluator.Evaluate(_fraction, out float _result);
+            Debug.Log("hej"+ExpressionEvaluator.Evaluate(_numerator, out float _result));
 
             _fraction = _result + "/" + _denominator;
-        } else {
-            
         }
 
         return _fraction;
