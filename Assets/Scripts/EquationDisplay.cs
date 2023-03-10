@@ -35,7 +35,11 @@ public class EquationDisplay : MonoBehaviour {
             textField.text = equationLevel.eqToDisplay;
         }
     }
-    
+
+    public void SetActiveDisplay(EquationLevel _equation) {
+        equationLevel = _equation;
+    }
+
     public void Reset() {
         equationLevel = Instantiate(ogEquation);
         textField.text = equationLevel.eqToDisplay;

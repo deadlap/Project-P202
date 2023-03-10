@@ -4,23 +4,26 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour {
     public static Solver solver = new Solver();
-    // {get; private set;}
+
     [SerializeField] Level level;
-    [SerializeField] GameObject equationPrefab; 
-    public List<EquationDisplay> equationDisplays;
+    [SerializeField] GameObject equationPrefab;
+    [SerializeField] MathInput mathInput;
+    public EquationDisplay equationDisplay;
     public string defaultLevel;
+
     void Awake() {
         if (CurrentLevel.levelName.Length == 0) {
             level = Instantiate(Resources.Load("Levels/" + defaultLevel) as Level);
+            ChangeActiveEquation(0);
         } else {
             level = Instantiate(Resources.Load("Levels/" + CurrentLevel.levelName) as Level);   
         }
-        CreateEquationDisplays();
     }
-
-    void CreateEquationDisplays() {
-        GameObject _temp = Instantiate(equationPrefab, this.transform);
-        // _temp.transform.SetParent(this.transform);
-        equationDisplays.Add(_temp.transform.GetComponentInChildren<EquationDisplay>());
+    
+    public void ChangeActiveEquation(int _index) {
+        equationDisplay.SetActiveDisplay(level.GetEquationLevel(_index));
+    }
+    public void ResetEquation(){
+        // level.GetEquationLevel().reset();
     }
 }

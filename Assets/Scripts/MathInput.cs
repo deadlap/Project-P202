@@ -38,4 +38,7 @@ public class MathInput : MonoBehaviour {
             display.AddTerm(output);
         }
     }
+    public void Undo(){
+        display.Previous();
+    }
 }

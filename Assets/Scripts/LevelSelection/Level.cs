@@ -4,7 +4,6 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "Level", menuName = "Project-P202/Level", order = 0)]
 public class Level : ScriptableObject {
-    // [SerializeField] public List<EquationLevel> equations {get; private set;}
     [SerializeField] List<EquationLevel> equations;
     public string solution {get; private set;} = "";
     
@@ -15,5 +14,9 @@ public class Level : ScriptableObject {
         foreach (EquationLevel _equation in equations) {
             solution += _equation.solution;
         }
+    }
+
+    public EquationLevel GetEquationLevel(int _index) {
+        return equations[_index];
     }
 }

@@ -10,6 +10,7 @@ public class EquationLevel : ScriptableObject {
     [SerializeField] Equation equation;
     [SerializeField] public string solution {get; private set;}
 
+    [SerializeField] public String equationName {get; private set;}
     [SerializeField] public string eqToDisplay {get; private set;}
     
     [SerializeField] public EquationLevel previous {get; private set;}
