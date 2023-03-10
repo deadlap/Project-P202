@@ -835,7 +835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f74255703f3babb46878bfd1bf51d2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equation: {fileID: 11400000, guid: fe853ca603ca8fe48a692d43d2d06664, type: 2}
+  equationLevel: {fileID: 11400000, guid: fe853ca603ca8fe48a692d43d2d06664, type: 2}
   textField: {fileID: 5040631694755240678}
   ogEquation: {fileID: 0}
 --- !u!1 &5040631694301377227

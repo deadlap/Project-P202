@@ -5,38 +5,37 @@ using TMPro;
 using UnityEngine.UI;
 
 public class EquationDisplay : MonoBehaviour {
-    [SerializeField] Equation equation;
+    [SerializeField] EquationLevel equationLevel;
     [SerializeField] TextMeshProUGUI textField;
-    [SerializeField] Equation ogEquation;
+    [SerializeField] EquationLevel ogEquation;
     
     void Start(){
-        ogEquation = equation;
-        equation = Instantiate(equation);
-        textField.text = equation.eqToDisplay;
+        ogEquation = equationLevel;
+        equationLevel = Instantiate(equationLevel);
+        textField.text = equationLevel.eqToDisplay;
     }
     
     void Update() {
-        textField.text = equation.eqToDisplay;
+        textField.text = equationLevel.eqToDisplay;
     }
 
     public void AddTerm(string _term){
-        Equation _temp = equation;
-        equation = Instantiate(equation);
-        equation.AddTerm(_term);
-        equation.SetPrevious(_temp);
-        equation.Shorten();
-        textField.text = equation.eqToDisplay;
+        EquationLevel _temp = equationLevel;
+        equationLevel = Instantiate(equationLevel);
+        equationLevel.AddTerm(_term);
+        equationLevel.SetPrevious(_temp);
+        textField.text = equationLevel.eqToDisplay;
     }
     
     public void Previous(){
-        if (equation.previous != null){
-            equation = equation.previous;
-            textField.text = equation.eqToDisplay;
+        if (equationLevel.previous != null){
+            equationLevel = equationLevel.previous;
+            textField.text = equationLevel.eqToDisplay;
         }
     }
     public void Reset() {
-        equation = Instantiate(ogEquation);
-        textField.text = equation.eqToDisplay;
+        equationLevel = Instantiate(ogEquation);
+        textField.text = equationLevel.eqToDisplay;
     }
 
     
