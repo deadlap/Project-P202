@@ -23,6 +23,8 @@ public class EquationDisplay : MonoBehaviour {
         EquationLevel _temp = equationLevel;
         equationLevel = Instantiate(equationLevel);
         equationLevel.AddTerm(_term);
+        equationLevel.Shorten();
+        equationLevel.ConvertToText();
         equationLevel.SetPrevious(_temp);
         textField.text = equationLevel.eqToDisplay;
     }
@@ -33,10 +35,9 @@ public class EquationDisplay : MonoBehaviour {
             textField.text = equationLevel.eqToDisplay;
         }
     }
+    
     public void Reset() {
         equationLevel = Instantiate(ogEquation);
         textField.text = equationLevel.eqToDisplay;
     }
-
-    
 }

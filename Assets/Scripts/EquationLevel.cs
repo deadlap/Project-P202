@@ -53,9 +53,12 @@ public class EquationLevel : ScriptableObject {
                 ApplyToEachTerm(_term);
                 break;
         }
+    }
+
+    public void Shorten(){
         equation.left = LevelManager.solver.Shorten(equation.left);
         equation.right = LevelManager.solver.Shorten(equation.right);
-        ConvertToText();
+
     }
 
     public void SetPrevious(EquationLevel _previous) {
