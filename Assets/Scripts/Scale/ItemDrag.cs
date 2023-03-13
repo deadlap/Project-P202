@@ -1,13 +1,13 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class NumberAndSignDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class ItemDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     RectTransform rect;
     CanvasGroup cg;
     Vector2 defPos;
-    bool inserted;
-        
+
     void Awake()
     {
         rect = GetComponent<RectTransform>();
