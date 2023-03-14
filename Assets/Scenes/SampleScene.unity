@@ -379,6 +379,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI elements
       objectReference: {fileID: 0}
+    - target: {fileID: 1408147047912898920, guid: 17a36636d6d43a049b9f881e1fea54a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1848793953}
+    - target: {fileID: 1408147047912898920, guid: 17a36636d6d43a049b9f881e1fea54a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Reset
+      objectReference: {fileID: 0}
     - target: {fileID: 1408147049186141018, guid: 17a36636d6d43a049b9f881e1fea54a1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

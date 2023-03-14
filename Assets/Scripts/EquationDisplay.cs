@@ -7,10 +7,8 @@ using UnityEngine.UI;
 public class EquationDisplay : MonoBehaviour {
     [SerializeField] EquationLevel equationLevel;
     [SerializeField] TextMeshProUGUI textField;
-    [SerializeField] EquationLevel ogEquation;
     
     void Start(){
-        ogEquation = equationLevel;
         equationLevel = Instantiate(equationLevel);
         textField.text = equationLevel.eqToDisplay;
     }
@@ -29,11 +27,13 @@ public class EquationDisplay : MonoBehaviour {
         textField.text = equationLevel.eqToDisplay;
     }
     
-    public void Previous(){
+    public bool Previous(){
         if (equationLevel.previous != null){
             equationLevel = equationLevel.previous;
             textField.text = equationLevel.eqToDisplay;
+            return true;
         }
+        return false;
     }
 
     public void SetActiveDisplay(EquationLevel _equation) {
@@ -41,7 +41,7 @@ public class EquationDisplay : MonoBehaviour {
     }
 
     public void Reset() {
-        equationLevel = Instantiate(ogEquation);
+        while(Previous());
         textField.text = equationLevel.eqToDisplay;
     }
 }
