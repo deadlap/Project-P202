@@ -4,33 +4,33 @@ using UnityEngine.EventSystems;
 
 public class ItemDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    RectTransform rect;
     CanvasGroup cg;
-    Vector2 defPos;
+    public Transform newParent;
 
     void Awake()
     {
-        rect = GetComponent<RectTransform>();
         cg = GetComponent<CanvasGroup>();
-        defPos = rect.anchoredPosition;
+        newParent = transform.parent;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        var tf = transform;
+        transform.SetParent(transform.root);
+        transform.SetAsLastSibling();
         cg.alpha = .7f;
         cg.blocksRaycasts = false;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        rect.anchoredPosition += eventData.delta;
+        transform.position += (Vector3)eventData.delta;
+        //rect.anchoredPosition += eventData.delta;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         cg.alpha = 1f;
         cg.blocksRaycasts = true;
-        rect.anchoredPosition = defPos;
+        transform.SetParent(newParent);
     }
 }
