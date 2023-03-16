@@ -23,7 +23,4 @@ public class LevelManager : MonoBehaviour {
     public void ChangeActiveEquation(int _index) {
         equationDisplay.SetActiveDisplay(level.GetEquationLevel(_index));
     }
-    public void ResetEquation(){
-        // level.GetEquationLevel().reset();
-    }
 }
