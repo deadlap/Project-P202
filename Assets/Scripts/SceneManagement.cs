@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneManagement : MonoBehaviour {
+    string RandomEquationSceneName = "EquationRandom";
     public static void StaticChangeScene(string scene){
         SceneManager.LoadScene(scene);
     }
@@ -12,5 +13,10 @@ public class SceneManagement : MonoBehaviour {
     }
     public void EndGame(){
         Application.Quit();
+    }
+    public void ChangeToRandomEquation(){
+        EquationLevel[] AllEquations =  (Resources.LoadAll<EquationLevel>("Equations/") as EquationLevel[]);
+        MathInput.equation = Instantiate(AllEquations[Random.Range(0,AllEquations.Length-1)]);
+        SceneManager.LoadScene(RandomEquationSceneName);
     }
 }

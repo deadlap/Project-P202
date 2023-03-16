@@ -1,17 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
 using ScrollWheels;
 
 public class MathInput : MonoBehaviour {
-    
+    public static EquationLevel equation;
     [SerializeField] EquationDisplay display;
     [SerializeField] FindElement[] input;
     [SerializeField] Animator animator;
     [SerializeField] AudioSource source;
     string output;
+
+    void Start() {
+        display.SetActiveDisplay(equation);
+    }
 
     void FixedUpdate() {
         output = "";
@@ -35,10 +35,14 @@ public class MathInput : MonoBehaviour {
             animator.SetTrigger("ErrorOnValues");
             source.Play();
         } else {
-            display.AddTerm(output);
+            equation = display.AddTerm(output);
         }
     }
     public void Undo(){
         display.Previous();
+    }
+
+    public void Reset() {
+        while(display.Previous());
     }
 }

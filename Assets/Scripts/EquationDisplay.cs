@@ -17,7 +17,7 @@ public class EquationDisplay : MonoBehaviour {
         textField.text = equationLevel.eqToDisplay;
     }
 
-    public void AddTerm(string _term){
+    public EquationLevel AddTerm(string _term){
         EquationLevel _temp = equationLevel;
         equationLevel = Instantiate(equationLevel);
         equationLevel.AddTerm(_term);
@@ -25,6 +25,7 @@ public class EquationDisplay : MonoBehaviour {
         equationLevel.ConvertToText();
         equationLevel.SetPrevious(_temp);
         textField.text = equationLevel.eqToDisplay;
+        return equationLevel;
     }
     
     public bool Previous(){
@@ -38,10 +39,5 @@ public class EquationDisplay : MonoBehaviour {
 
     public void SetActiveDisplay(EquationLevel _equation) {
         equationLevel = _equation;
-    }
-
-    public void Reset() {
-        while(Previous());
-        textField.text = equationLevel.eqToDisplay;
     }
 }
