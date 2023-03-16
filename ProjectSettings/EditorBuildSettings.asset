@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 19da26f8b29c3f641a42e48247afdf14
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/EquationScene.unity
     guid: 3fc8acdd13e6c734bafef6554d6fdbcd
   - enabled: 1
     path: Assets/Scenes/Theory.unity
