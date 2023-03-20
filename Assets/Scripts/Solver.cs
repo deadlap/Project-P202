@@ -131,8 +131,13 @@ public class Solver {
         return fraction;
     }
     
-    public static void Evaluate(String expression, out float _out) {
-        System.Data.DataTable table = new System.Data.DataTable();
-        _out = (float)Convert.ToDouble(table.Compute(expression, String.Empty));
+    public static bool Evaluate(String expression, out float result) {
+        try {
+            System.Data.DataTable table = new System.Data.DataTable();
+            result = (float)Convert.ToDouble(table.Compute(expression, String.Empty));
+            return true;
+        } catch {
+            return false;
+        }
     }
 }
