@@ -137,6 +137,7 @@ public class Solver {
             result = (float)Convert.ToDouble(table.Compute(expression, String.Empty));
             return true;
         } catch {
+            result = float.NaN;
             return false;
         }
     }
