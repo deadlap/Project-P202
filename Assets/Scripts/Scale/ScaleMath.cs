@@ -19,7 +19,7 @@ public class ScaleMath : MonoBehaviour
     }
 
     void Update(){
-        if (CalculateSum(out int sum)) {
+        if (CalculateSum(out float sum)) {
             sumText.text = ""+sum;
         } else {
             sumText.text = "";
@@ -28,12 +28,12 @@ public class ScaleMath : MonoBehaviour
     
     // returns false if length of the strings combined,
     // is less than what is required for each slot to be filled out, plus the '*' char
-    bool CalculateSum(out int sum){
+    public bool CalculateSum(out float sum){
         sum = 0;
         string calculation = numberValueOne.text+"*"+xValue.text+signValue.text+numberValueTwo.text;
         if (calculation.Length < charAmount)
             return false;
-        ExpressionEvaluator.Evaluate(calculation, out int _sum);
+        Solver.Evaluate(calculation, out float _sum);
         sum = _sum;
         return true;
     }

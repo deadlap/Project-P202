@@ -28,7 +28,7 @@ public class Solver {
                 _tempTerms = _tempTerms.Substring(1, _tempTerms.Length-1);
             }
 
-            ExpressionEvaluator.Evaluate(_tempTerms, out float _result);
+            Evaluate(_tempTerms, out float _result);
             // Tjekker om tallet er et heltal
             if (_result == 0.0f) {
                 if (_xTerms.Count == 0) {
@@ -67,7 +67,7 @@ public class Solver {
             _tempTerms = _tempTerms.Substring(1, _tempTerms.Length-1);
         }
 
-        ExpressionEvaluator.Evaluate(_tempTerms, out float _result);
+        Evaluate(_tempTerms, out float _result);
 
         _xTerms.Clear();
         _tempTerms = "";
@@ -129,5 +129,10 @@ public class Solver {
             fraction = integerPart + "+" + fraction;
         }
         return fraction;
+    }
+    
+    public static void Evaluate(String expression, out float _out) {
+        System.Data.DataTable table = new System.Data.DataTable();
+        _out = (float)Convert.ToDouble(table.Compute(expression, String.Empty));
     }
 }
