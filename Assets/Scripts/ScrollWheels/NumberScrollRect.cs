@@ -43,7 +43,7 @@ namespace ScrollWheels {
                 text.autoSizeTextContainer = true;
             }
             content.GetComponent<RectTransform>().sizeDelta = new Vector2(0, elements.Count * elementSpacing);
-            isActive = true; //Så update kun kører når BeginAtTop() har kørt.
+            isActive = true; //Så AssignStringToElement() kun kører når BeginAtTop() har kørt.
         }
 
         void AssignStringToElement() {
