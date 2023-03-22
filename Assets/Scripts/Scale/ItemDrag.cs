@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -7,6 +6,20 @@ public class ItemDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     CanvasGroup cg;
     public Transform newParent;
 
+    void OnEnable()
+    {
+        ScaleEvent.ItemSlotFull += OnItemSlotFull;
+    }
+
+    void OnItemSlotFull()
+    {
+        Debug.Log("cant put in");
+    }
+
+    void OnDisable()
+    {
+        ScaleEvent.ItemSlotFull -= OnItemSlotFull;
+    }
     void Awake()
     {
         cg = GetComponent<CanvasGroup>();
@@ -24,7 +37,6 @@ public class ItemDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     public void OnDrag(PointerEventData eventData)
     {
         transform.position += (Vector3)eventData.delta;
-        //rect.anchoredPosition += eventData.delta;
     }
 
     public void OnEndDrag(PointerEventData eventData)

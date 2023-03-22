@@ -9,31 +9,34 @@ public class ItemSlot : MonoBehaviour, IDropHandler
     ItemDrag[] slottedItems;
     ItemDrag itemDrag;
     TextMeshProUGUI textItem;
+    GameObject currentItem;
 
-    void Awake()
-    {
+    void Awake() {
         textItem = GetComponentInChildren<TextMeshProUGUI>();
         textItem.text = "";
     }
 
     public void OnDrop(PointerEventData eventData) {
         itemDrag = eventData.pointerDrag.GetComponent<ItemDrag>(); 
-        CorrectItem();
+        Invoke(nameof(CorrectItem), .01f);
     }
 
     void CorrectItem() {
-        if (!itemDrag.gameObject.CompareTag(gameObject.tag)) return;
-        string textOnItem = itemDrag.gameObject.GetComponentInChildren<TextMeshProUGUI>().text;
+        var itemGO = itemDrag.gameObject;
+        if (!itemGO.CompareTag(gameObject.tag)) return;
+        string textOnItem = itemGO.GetComponentInChildren<TextMeshProUGUI>().text;
 
         if (textItem.text == "") {
             textItem.text = textOnItem;
-            Debug.Log(textOnItem);
+            currentItem = itemGO;
+            currentItem.gameObject.SetActive(false);
         }
-        else {
-            Debug.Log("optaget");
+        else if (textItem.text != textOnItem) {
+            string newTextOnItem = itemGO.GetComponentInChildren<TextMeshProUGUI>().text;
+            textItem.text = newTextOnItem;
+            currentItem.gameObject.SetActive(true);
+            currentItem = itemGO;
+            itemGO.gameObject.SetActive(false);
         }
-        //itemDrag.gameObject.SetActive(true);
-        //Debug.Log("kom tilbage john");
     }
-    
 }

@@ -16,14 +16,12 @@ public class LevelManager : MonoBehaviour {
             level = Instantiate(Resources.Load("Levels/" + defaultLevel) as Level);
             ChangeActiveEquation(0);
         } else {
-            level = Instantiate(Resources.Load("Levels/" + CurrentLevel.levelName) as Level);   
+            level = Instantiate(Resources.Load("Levels/" + CurrentLevel.levelName) as Level);
+            ChangeActiveEquation(0);
         }
     }
     
     public void ChangeActiveEquation(int _index) {
-        equationDisplay.SetActiveDisplay(level.GetEquationLevel(_index));
-    }
-    public void ResetEquation(){
-        // level.GetEquationLevel().reset();
+        MathInput.equation = level.GetEquationLevel(_index);
     }
 }
