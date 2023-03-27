@@ -11,6 +11,7 @@ public class EquationDisplay : MonoBehaviour {
     
     void Start(){
         equationLevel = Instantiate(equationLevel);
+        equationLevel.ConvertToText();
         UpdateText();
     }
     

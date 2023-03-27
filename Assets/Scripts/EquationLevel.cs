@@ -14,13 +14,14 @@ public class EquationLevel : ScriptableObject {
     
     [SerializeField] public EquationLevel previous {get; private set;}
 
-    public EquationLevel(List<double> _terms){
-        equation = new Equation(_terms);
-    }
-
     void Awake() {
         eqToDisplay = new string[2];
         ConvertToText();
+    }
+
+    public void ResetTo(Equation _equation){
+        previous = null;
+        equation = _equation;
     }
 
     public void CopyVariables(EquationLevel _eqToCopy){

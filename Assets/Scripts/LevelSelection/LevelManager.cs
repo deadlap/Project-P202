@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour {
-    public static Solver solver = new Solver();
-
     [SerializeField] Level level;
     [SerializeField] GameObject equationPrefab;
     [SerializeField] MathInput mathInput;

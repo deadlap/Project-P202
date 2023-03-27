@@ -3,10 +3,11 @@ using UnityEngine;
 
 public class ValueOfX : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI xText;
-    void Awake()
-    {
+    [SerializeField] TextMeshProUGUI xLeftText;
+    [SerializeField] TextMeshProUGUI xRightText;
+    void Awake() {
         int xValue = Random.Range(1, 9);
-        xText.text = xValue.ToString();
+        xLeftText.text = xValue.ToString();
+        xRightText.text = xValue.ToString();
     }
 }

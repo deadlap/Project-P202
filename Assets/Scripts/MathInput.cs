@@ -10,7 +10,7 @@ public class MathInput : MonoBehaviour {
     [SerializeField] AudioSource source;
     string[] output;
 
-    void Start() {
+    void Awake() {
         display.SetActiveDisplay(equation);
         output = new string[3];
     }

@@ -5,8 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEditor;
 
-public class ScaleMath : MonoBehaviour
-{
+public class ScaleMath : MonoBehaviour {
     TextMeshProUGUI sumText;
     [SerializeField] TextMeshProUGUI numberValueOne;
     [SerializeField] TextMeshProUGUI xValue;
@@ -57,5 +56,25 @@ public class ScaleMath : MonoBehaviour
                 break;
         }
         return true;
+    }
+
+    public void returnTerms(out double xTerm, out double term){
+        xTerm = 0;
+        term = 0;
+        switch (signValue.text){
+            case "+":
+                xTerm = Convert.ToDouble(numberValueOne.text);
+                term = Convert.ToDouble(numberValueTwo.text);
+                break;
+            case "-":
+                xTerm = Convert.ToDouble(numberValueOne.text);
+                term = -1 * Convert.ToDouble(numberValueTwo.text);
+                break;
+            case "*":
+            case "/":
+                CalculateSum(out double sum);
+                xTerm = sum;
+                break;
+        }
     }
 }

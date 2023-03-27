@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneManagement : MonoBehaviour {
-    string RandomEquationSceneName = "EquationRandom";
+    static string RandomEquationSceneName = "EquationRandom";
     public static void StaticChangeScene(string scene){
         SceneManager.LoadScene(scene);
     }
@@ -17,6 +17,13 @@ public class SceneManagement : MonoBehaviour {
     public void ChangeToRandomEquation(){
         EquationLevel[] AllEquations =  (Resources.LoadAll<EquationLevel>("Equations/") as EquationLevel[]);
         MathInput.equation = Instantiate(AllEquations[Random.Range(0,AllEquations.Length-1)]);
+        SceneManager.LoadScene(RandomEquationSceneName);
+    }
+    public static void ChangeToEquation(Equation equation){
+        // CompleteEquation
+        EquationLevel eq = Instantiate(Resources.Load("CompleteEquation") as EquationLevel);
+        eq.ResetTo(equation);
+        MathInput.equation = Instantiate(eq);
         SceneManager.LoadScene(RandomEquationSceneName);
     }
 }
