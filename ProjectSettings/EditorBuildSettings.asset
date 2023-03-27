@@ -20,13 +20,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scale.unity
     guid: 2886c5dc71a880d4684dfa36c2ba680f
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/LevelSelect.unity
     guid: d7e5e490088ec8446b60ccf6d4398580
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/EquationLevelScene.unity
     guid: 3fc8acdd13e6c734bafef6554d6fdbcd
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Theory.unity
     guid: e363289ae1129a742a74eb4ff53307f2
   - enabled: 0
