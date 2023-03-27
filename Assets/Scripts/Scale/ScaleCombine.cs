@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEditor;
 
 public class ScaleCombine : MonoBehaviour {
     [SerializeField] ScaleMath left;
@@ -21,6 +20,7 @@ public class ScaleCombine : MonoBehaviour {
         float rotationOffset = 0;
         if(left.CalculateSum(out double leftSum) && right.CalculateSum(out double rightSum)) {
             finishButton.SetActive(leftSum == rightSum);
+            curRotation
             curRotation = -rotationMax+(float)(leftSum/rightSum)*rotationMax;
             curRotation = (curRotation > rotationMax ? rotationMax : curRotation);
             curRotation = (curRotation < -rotationMax ? -rotationMax : curRotation);

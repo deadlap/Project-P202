@@ -2,8 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
-using System.Text.RegularExpressions;
 
 [CreateAssetMenu(fileName = "EquationLevel", menuName = "Project-P202/EquationLevel", order = 0)]
 public class EquationLevel : ScriptableObject {
