@@ -25,7 +25,4 @@ public class ScaleCombine : MonoBehaviour {
         Equation equation = new Equation(_leftXTerm, leftTerm, _rightXTerm, rightTerm);
         SceneManagement.ChangeToEquation(equation);
     }
-
-
-
 }

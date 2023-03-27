@@ -20,7 +20,6 @@ public class SceneManagement : MonoBehaviour {
         SceneManager.LoadScene(RandomEquationSceneName);
     }
     public static void ChangeToEquation(Equation equation){
-        // CompleteEquation
         EquationLevel eq = Instantiate(Resources.Load("CompleteEquation") as EquationLevel);
         eq.ResetTo(equation);
         MathInput.equation = Instantiate(eq);
