@@ -12,29 +12,50 @@ public class ScaleMath : MonoBehaviour
     [SerializeField] TextMeshProUGUI xValue;
     [SerializeField] TextMeshProUGUI signValue;
     [SerializeField] TextMeshProUGUI numberValueTwo;
-    int charAmount = 5; // ___________ Find bedre navn maybe?
-    // Is the amount of chars needed for all 
     void Awake(){
         sumText = GetComponentInChildren<TextMeshProUGUI>();
     }
 
     void Update(){
-        if (CalculateSum(out float sum)) {
+        if (CalculateSum(out double sum)) {
+            if (sum % 1 != 0) {
+                sumText.text = EquationLevel.ConvertToFraction(sum);
+                return;
+            }
             sumText.text = ""+sum;
         } else {
             sumText.text = "";
         }
     }
     
-    // returns false if length of the strings combined,
-    // is less than what is required for each slot to be filled out, plus the '*' char
-    public bool CalculateSum(out float sum){
+    bool ViableExpression(){
+        return (HasItem(numberValueOne)&&HasItem(signValue)&&HasItem(numberValueTwo));
+    }
+
+    bool HasItem(TextMeshProUGUI textSlot){
+        return !(String.IsNullOrEmpty(textSlot.text));
+    }
+    
+
+    public bool CalculateSum(out double sum){
         sum = 0;
-        string calculation = numberValueOne.text+"*"+xValue.text+signValue.text+numberValueTwo.text;
-        if (calculation.Length < charAmount)
+        if (!ViableExpression())
             return false;
-        Solver.Evaluate(calculation, out float _sum);
-        sum = _sum;
+        sum += Convert.ToDouble(numberValueOne.text)*Convert.ToDouble(xValue.text);
+        switch (signValue.text){
+            case "+":
+                sum += Convert.ToDouble(numberValueTwo.text);
+                break;
+            case "-":
+                sum -= Convert.ToDouble(numberValueTwo.text);
+                break;
+            case "*":
+                sum *= Convert.ToDouble(numberValueTwo.text);
+                break;
+            case "/":
+                sum /= Convert.ToDouble(numberValueTwo.text);
+                break;
+        }
         return true;
     }
 }

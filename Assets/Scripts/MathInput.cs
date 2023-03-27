@@ -1,5 +1,6 @@
 using UnityEngine;
 using ScrollWheels;
+using System;
 
 public class MathInput : MonoBehaviour {
     public static EquationLevel equation;
@@ -7,37 +8,41 @@ public class MathInput : MonoBehaviour {
     [SerializeField] FindElement[] input;
     [SerializeField] Animator animator;
     [SerializeField] AudioSource source;
-    string output;
+    string[] output;
 
     void Start() {
         display.SetActiveDisplay(equation);
+        output = new string[3];
     }
 
     void FixedUpdate() {
-        output = "";
-        foreach (FindElement _selected in input) {
-            // We check if we are trying to add the symbol x and if there is a number selected
-            // If there is a number selected we add the '*' symbol
-            if (_selected.elementInfo.Contains("x") && output.Length > 1) {
-                output += "*";
-            }
-            // We insert the selected symbol onto our output string.
-            output += _selected.elementInfo;
+        output = new string[3];
+        for (int i = 0; i < input.Length; i++) {
+            output[i] = input[i].elementInfo;
         }
     }
 
-    public void Send(){
-        if (output.Contains("x") && !(output.Contains("+") || output.Contains("-"))) {
-            print(output);
-            animator.Play("ErrorOnSign");
-            source.Play();
-        } else if (output.Length == 1) {
-            animator.SetTrigger("ErrorOnValues");
-            source.Play();
-        } else {
-            equation = display.AddTerm(output);
+    public void Send() {
+        if (ViableOutput()) {
+            equation = display.Apply(output);
         }
     }
+
+    public bool ViableOutput(){
+        if (output[2].Contains("x")  && !(output[0].Contains('+') || output[0].Contains('-'))) {
+            animator.Play("ErrorOnSign");
+            source.Play();
+            return false;
+        } else if (String.Join("", output).Length == 1) {
+            animator.SetTrigger("ErrorOnValues");
+            source.Play();
+            return false;
+        }
+        if (output[1].Length == 0)
+            output[1] = "1";
+        return true;
+    }
+
     public void Undo(){
         display.Previous();
     }

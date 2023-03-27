@@ -19,3 +19,7 @@ MonoBehaviour:
     right:
     - x
     - +3
+    leftXTerm: 2
+    leftTerm: -4
+    rightXTerm: 1
+    rightTerm: 3

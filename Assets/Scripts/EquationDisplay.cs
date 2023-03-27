@@ -3,35 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-
+using System;
 public class EquationDisplay : MonoBehaviour {
     [SerializeField] EquationLevel equationLevel;
-    [SerializeField] TextMeshProUGUI textField;
+    [SerializeField] TextMeshProUGUI leftText;
+    [SerializeField] TextMeshProUGUI rightText;
     
     void Start(){
         equationLevel = Instantiate(equationLevel);
-        textField.text = equationLevel.eqToDisplay;
+        UpdateText();
     }
     
-    void Update() {
-        textField.text = equationLevel.eqToDisplay;
+    void UpdateText(){
+        leftText.text = equationLevel.eqToDisplay[0];
+        rightText.text = equationLevel.eqToDisplay[1];
     }
+        
 
-    public EquationLevel AddTerm(string _term){
+    public EquationLevel Apply(string[] input){
         EquationLevel _temp = equationLevel;
         equationLevel = Instantiate(equationLevel);
-        equationLevel.AddTerm(_term);
-        equationLevel.Shorten();
+        equationLevel.Apply(
+            input[0],
+            Convert.ToDouble(input[1]),
+            input[2].Contains("x"));
         equationLevel.ConvertToText();
         equationLevel.SetPrevious(_temp);
-        textField.text = equationLevel.eqToDisplay;
+        UpdateText();
         return equationLevel;
     }
     
     public bool Previous(){
         if (equationLevel.previous != null){
             equationLevel = equationLevel.previous;
-            textField.text = equationLevel.eqToDisplay;
+            UpdateText();
             return true;
         }
         return false;
