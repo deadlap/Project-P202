@@ -1287,7 +1287,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   left: {fileID: 1925008610}
   right: {fileID: 2146158261}
+  pole: {fileID: 2000749601}
   finishButton: {fileID: 1574015886}
+  rotationMax: 15
 --- !u!114 &361640276
 MonoBehaviour:
   m_ObjectHideFlags: 0
