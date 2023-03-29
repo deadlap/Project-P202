@@ -549,7 +549,7 @@ GameObject:
   - component: {fileID: 6954586918824838162}
   - component: {fileID: 6954586918824838167}
   - component: {fileID: 6954586918824838166}
-  - component: {fileID: 4673610848984080324}
+  - component: {fileID: 6587005326976900612}
   m_Layer: 0
   m_Name: Options
   m_TagString: Untagged
@@ -602,8 +602,8 @@ MonoBehaviour:
   optionsMenu: {fileID: 6954586920270648893}
   resetButton: {fileID: 6954586919864122161}
   mathInput: {fileID: 0}
-  audioSource: {fileID: 4673610848984080324}
---- !u!82 &4673610848984080324
+  musicSource: {fileID: 6587005326976900612}
+--- !u!82 &6587005326976900612
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
