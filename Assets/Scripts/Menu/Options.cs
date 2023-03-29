@@ -8,13 +8,14 @@ public class Options : MonoBehaviour {
     [SerializeField] GameObject resetButton;
     [SerializeField] MathInput mathInput;
     [SerializeField] AudioSource musicSource;
-    public static bool soundState {get; private set;}
+    public static bool soundState {get; private set;} = true;
     string equationSceneName = "EquationRandom";
     string mainMenuName = "MainMenu";
 
     void Start(){
         if (SceneManager.GetActiveScene().name != equationSceneName)
             resetButton.SetActive(false);
+        AudioListener.volume = Convert.ToSingle(soundState);
     }
 
     public void ToggleMenu() {
