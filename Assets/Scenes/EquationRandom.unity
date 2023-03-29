@@ -392,10 +392,6 @@ PrefabInstance:
       propertyPath: display
       value: 
       objectReference: {fileID: 2138923319}
-    - target: {fileID: 1408147047877633057, guid: 17a36636d6d43a049b9f881e1fea54a1, type: 3}
-      propertyPath: errorSource
-      value: 
-      objectReference: {fileID: 934060793}
     - target: {fileID: 1408147047877633062, guid: 17a36636d6d43a049b9f881e1fea54a1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -484,13 +480,32 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI elements
       objectReference: {fileID: 0}
+    - target: {fileID: 1408147047912898920, guid: 17a36636d6d43a049b9f881e1fea54a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1414773436}
+    - target: {fileID: 1408147047912898920, guid: 17a36636d6d43a049b9f881e1fea54a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Undo
+      objectReference: {fileID: 0}
+    - target: {fileID: 1408147047912898920, guid: 17a36636d6d43a049b9f881e1fea54a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MathInput, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1408147049186141018, guid: 17a36636d6d43a049b9f881e1fea54a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1414773436}
+    - target: {fileID: 1408147049186141018, guid: 17a36636d6d43a049b9f881e1fea54a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Undo
+      objectReference: {fileID: 0}
+    - target: {fileID: 1408147049186141018, guid: 17a36636d6d43a049b9f881e1fea54a1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MathInput, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17a36636d6d43a049b9f881e1fea54a1, type: 3}
---- !u!82 &934060793 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 2383366803757346145, guid: 17a36636d6d43a049b9f881e1fea54a1, type: 3}
-  m_PrefabInstance: {fileID: 934060792}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1180470593
 GameObject:
   m_ObjectHideFlags: 0

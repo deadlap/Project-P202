@@ -188,7 +188,7 @@ MonoBehaviour:
   - {fileID: 1408147048016455029}
   - {fileID: 1408147049174776015}
   animator: {fileID: 7508814849729148762}
-  source: {fileID: 2383366803757346145}
+  errorSource: {fileID: 2383366803757346145}
 --- !u!1 &1408147047912898926
 GameObject:
   m_ObjectHideFlags: 0
