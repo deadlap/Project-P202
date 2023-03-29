@@ -20,10 +20,14 @@ public class ScaleCombine : MonoBehaviour {
         float rotationOffset = 0;
         if(left.CalculateSum(out double leftSum) && right.CalculateSum(out double rightSum)) {
             finishButton.SetActive(leftSum == rightSum);
-            curRotation = (float)(leftSum/rightSum)*rotationMax;
-            if (curRotation < 0)
-                curRotation *= -1;
-            curRotation += -rotationMax;
+            curRotation = (float)(leftSum/rightSum)*rotationMax; print(curRotation);
+            curRotation = (leftSum > rightSum ? (float)(rightSum/leftSum)*rotationMax : curRotation);
+            curRotation = (rightSum > leftSum ? -(float)(leftSum/rightSum)*rotationMax : curRotation);
+
+            if (leftSum < 0 || rightSum < 0)
+                curRotation = -curRotation;
+                
+            // curRotation -= rotationMax;
             curRotation = (curRotation > rotationMax ? rotationMax : curRotation);
             curRotation = (curRotation < -rotationMax ? -rotationMax : curRotation);
             rotationOffset = -curRotation;
