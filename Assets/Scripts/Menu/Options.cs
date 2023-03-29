@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using System;
 public class Options : MonoBehaviour {
     [SerializeField] GameObject optionsMenu;
     [SerializeField] GameObject resetButton;
@@ -23,7 +23,7 @@ public class Options : MonoBehaviour {
 
     public static void ToggleSound() {
         soundState = !soundState;
-        AudioListener.pause = soundState;
+        AudioListener.volume = Convert.ToSingle(soundState);
     }
 
     public void CallReset(){

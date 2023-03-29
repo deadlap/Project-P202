@@ -8,6 +8,7 @@ public class MathInput : MonoBehaviour {
     [SerializeField] EquationDisplay display;
     [SerializeField] FindElement[] input;
     [SerializeField] Animator animator;
+    [SerializeField] AudioSource errorSource;
     string[] output;
 
     void Awake() {
@@ -31,12 +32,11 @@ public class MathInput : MonoBehaviour {
     public bool ViableOutput(){
         if (output[2].Contains("x")  && !(output[0].Contains('+') || output[0].Contains('-'))) {
             animator.Play("ErrorOnSign");
+            errorSource.Play();
             return false;
         } else if (String.Join("", output).Length == 1) {
             animator.SetTrigger("ErrorOnValues");
-            
-            //audioSource.PlayOneShot(errorSound);
-            
+            errorSource.Play();
             return false;
         }
         if (output[1].Length == 0)
