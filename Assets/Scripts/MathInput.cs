@@ -1,13 +1,13 @@
 using UnityEngine;
 using ScrollWheels;
 using System;
+using System.Collections.Generic;
 
 public class MathInput : MonoBehaviour {
     public static EquationLevel equation;
     [SerializeField] EquationDisplay display;
     [SerializeField] FindElement[] input;
     [SerializeField] Animator animator;
-    [SerializeField] AudioSource source;
     string[] output;
 
     void Awake() {
@@ -31,11 +31,12 @@ public class MathInput : MonoBehaviour {
     public bool ViableOutput(){
         if (output[2].Contains("x")  && !(output[0].Contains('+') || output[0].Contains('-'))) {
             animator.Play("ErrorOnSign");
-            source.Play();
             return false;
         } else if (String.Join("", output).Length == 1) {
             animator.SetTrigger("ErrorOnValues");
-            source.Play();
+            
+            //audioSource.PlayOneShot(errorSound);
+            
             return false;
         }
         if (output[1].Length == 0)
