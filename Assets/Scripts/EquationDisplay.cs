@@ -4,16 +4,17 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System;
+
 public class EquationDisplay : MonoBehaviour {
     [SerializeField] EquationLevel equationLevel;
     [SerializeField] TextMeshProUGUI leftText;
     [SerializeField] TextMeshProUGUI rightText;
     
-    void Start(){
-        equationLevel = Instantiate(equationLevel);
-        equationLevel.ConvertToText();
-        UpdateText();
-    }
+    // void Start(){
+    //     equationLevel = Instantiate(equationLevel);
+    //     equationLevel.ConvertToText();
+    //     UpdateText();
+    // }
     
     void UpdateText(){
         leftText.text = equationLevel.eqToDisplay[0];
@@ -45,5 +46,7 @@ public class EquationDisplay : MonoBehaviour {
 
     public void SetActiveEquation(EquationLevel _equation) {
         equationLevel = _equation;
+        equationLevel.ConvertToText();
+        UpdateText();
     }
 }
