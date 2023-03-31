@@ -43,7 +43,7 @@ public class EquationDisplay : MonoBehaviour {
         return false;
     }
 
-    public void SetActiveDisplay(EquationLevel _equation) {
+    public void SetActiveEquation(EquationLevel _equation) {
         equationLevel = _equation;
     }
 }
