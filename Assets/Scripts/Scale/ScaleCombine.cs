@@ -11,44 +11,61 @@ public class ScaleCombine : MonoBehaviour {
     [SerializeField] GameObject finishButton;
     [SerializeField] float rotationMax;
     [SerializeField] float rotationModifier;
+    [SerializeField] float rotationPerSecond;
+    [SerializeField] float targetRotation = 0;
+    [SerializeField] float rotationThreshold;
     void Start(){
         finishButton.SetActive(false);
     }
 
     void Update(){
-        float curRotation = 0;
         float rotationOffset = 0;
         if(left.CalculateSum(out double leftSum) && right.CalculateSum(out double rightSum)) {
             finishButton.SetActive(leftSum == rightSum);
 
             switch (leftSum, rightSum) {
                 case (0, 0):
-                    curRotation = 0;
+                    targetRotation = 0;
+                    break;
+                case (_,_) when leftSum == rightSum:
+                    targetRotation = 0;
                     break;
                 case (0, _):
-                    curRotation = (leftSum > rightSum ? (float)(1/rightSum)*rotationModifier : curRotation);
-                    curRotation = (leftSum < rightSum ? -(float)(rightSum/1)*rotationModifier : curRotation);
+                    targetRotation = (leftSum > rightSum ? (float)(1/rightSum)*rotationModifier : targetRotation);
+                    targetRotation = (leftSum < rightSum ? -(float)(rightSum/1)*rotationModifier : targetRotation);
                     break;
                 case (_, 0):
-                    curRotation = (leftSum > rightSum ? (float)(leftSum/1)*rotationModifier : curRotation);
-                    curRotation = (leftSum < rightSum ? -(float)(1/leftSum)*rotationModifier : curRotation);
+                    targetRotation = (leftSum > rightSum ? (float)(leftSum/1)*rotationModifier : targetRotation);
+                    targetRotation = (leftSum < rightSum ? -(float)(1/leftSum)*rotationModifier : targetRotation);
+                    break;
                     break;
                 default:
-                    curRotation = (leftSum > rightSum ? (float)(leftSum/rightSum)*rotationModifier : curRotation);
-                    curRotation = (leftSum < rightSum ? -(float)(rightSum/leftSum)*rotationModifier : curRotation);
+                    targetRotation = (leftSum > rightSum ? (float)(leftSum/rightSum)*rotationModifier : targetRotation);
+                    targetRotation = (leftSum < rightSum ? -(float)(rightSum/leftSum)*rotationModifier : targetRotation);
                     break;
             }
-            if (leftSum < 0 || rightSum < 0)
-                curRotation = -curRotation;
-                
-            curRotation = (curRotation > rotationMax ? rotationMax : curRotation);
-            curRotation = (curRotation < -rotationMax ? -rotationMax : curRotation);
-            rotationOffset = -curRotation;
+            if (leftSum < 0 || rightSum < 0) {
+                targetRotation = -targetRotation;
+            }
+            
+            targetRotation = (targetRotation > rotationMax ? rotationMax : targetRotation);
+            targetRotation = (targetRotation < -rotationMax ? -rotationMax : targetRotation);
         }
+        float currentRotation = pole.transform.localEulerAngles.z > 180 ? -360+pole.transform.localEulerAngles.z : pole.transform.localEulerAngles.z;
+        if (rotationThreshold >= Math.Abs(targetRotation-currentRotation)) {
+            currentRotation = targetRotation;
+        } else {
+            if (currentRotation < targetRotation) {
+                currentRotation += rotationPerSecond*Time.deltaTime;
+            } else {
+                currentRotation -= rotationPerSecond*Time.deltaTime;
+            }
+        }
+        rotationOffset = -currentRotation;
         pole.transform.eulerAngles = new Vector3(
             0,
             0,
-            curRotation
+            currentRotation
         );
         foreach (Transform child in pole.transform) {
             child.transform.localEulerAngles = new Vector3(

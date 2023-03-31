@@ -12,7 +12,7 @@ public class MathInput : MonoBehaviour {
     string[] output;
 
     void Awake() {
-        display.SetActiveDisplay(equation);
+        SetActiveEquation(equation);
         output = new string[3];
     }
 
@@ -42,6 +42,11 @@ public class MathInput : MonoBehaviour {
         if (output[1].Length == 0)
             output[1] = "1";
         return true;
+    }
+
+    public void SetActiveEquation(EquationLevel _equation){
+        equation = _equation;
+        display.SetActiveDisplay(_equation);
     }
 
     public void Undo(){

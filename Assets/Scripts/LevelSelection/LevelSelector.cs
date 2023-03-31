@@ -7,6 +7,6 @@ public class LevelSelector : MonoBehaviour {
 
     public void GoToLevel(string nextLevel){
         levelObject.SetLevel(nextLevel);
-        SceneManagement.StaticChangeScene("SampleScene");
+        SceneManagement.StaticChangeScene("EquationLevelScene");
     }
 }

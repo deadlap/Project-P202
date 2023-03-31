@@ -1141,6 +1141,9 @@ MonoBehaviour:
   finishButton: {fileID: 1574015886}
   rotationMax: 15
   rotationModifier: 5
+  rotationPerSecond: 2
+  targetRotation: 0
+  rotationThreshold: 5
 --- !u!114 &361640276
 MonoBehaviour:
   m_ObjectHideFlags: 0

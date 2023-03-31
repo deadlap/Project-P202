@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour {
-    [SerializeField] Level level;
+    public static Level level {get; private set;}
+    [SerializeField] Level defaultLevel;
     [SerializeField] GameObject equationPrefab;
     [SerializeField] MathInput mathInput;
     public EquationDisplay equationDisplay;
-    public string defaultLevel;
 
     void Awake() {
-        if (CurrentLevel.levelName.Length == 0) {
-            level = Instantiate(Resources.Load("Levels/" + defaultLevel) as Level);
+        if (level == null) {
+            level = Instantiate(defaultLevel);
             ChangeActiveEquation(0);
         } else {
-            level = Instantiate(Resources.Load("Levels/" + CurrentLevel.levelName) as Level);
+            level = Instantiate(level);
             ChangeActiveEquation(0);
         }
     }
