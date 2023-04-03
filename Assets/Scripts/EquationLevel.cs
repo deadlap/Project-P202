@@ -13,8 +13,6 @@ public class EquationLevel : ScriptableObject {
     [SerializeField] int[] stepsPerStar;
     [SerializeField] public EquationLevel previous {get; private set;}
 
-    public double solution {get; private set;}
-
     void Awake() {
         // eqToDisplay = new string[2];
         ConvertToText();
@@ -31,9 +29,18 @@ public class EquationLevel : ScriptableObject {
         previous = _eqToCopy.previous;
     }
     
-    public bool Solved(out double _solution){
-        _solution = solution;
-        return !(solution == null);
+    public bool Solution(out double _solution){
+        _solution = 0;
+        switch ((equation.leftXTerm, equation.rightXTerm)){
+            case (>0, 0):
+                _solution = equation.rightTerm;
+                return true;
+            case (0, >0):
+                _solution = equation.leftTerm;
+                return true;
+            default:
+                return false;
+        }
     }
 
     public void Apply(string operation, double input, bool containsX){
@@ -60,15 +67,6 @@ public class EquationLevel : ScriptableObject {
             case "/":
                 ApplyToEachTerm(operation, input);
                 break;
-        }
-
-        switch (equation.leftXTerm, equation.rightXTerm){
-            case (>0, 0):
-                solution = equation.rightTerm;
-                break;
-            case (0, >0):
-                solution = equation.leftTerm;
-               break;
         }
     }
 
