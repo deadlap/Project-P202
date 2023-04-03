@@ -9,17 +9,20 @@ public class Options : MonoBehaviour {
     [SerializeField] MathInput mathInput;
     [SerializeField] AudioSource musicSource;
     public static bool soundState {get; private set;} = true;
-    string equationSceneName = "EquationRandom";
     string mainMenuName = "MainMenu";
 
     void Start(){
-        if (SceneManager.GetActiveScene().name != equationSceneName)
+        if (mathInput == null)
             resetButton.SetActive(false);
         AudioListener.volume = Convert.ToSingle(soundState);
     }
 
+    // void Update(){
+    // }
+
     public void ToggleMenu() {
         optionsMenu.SetActive(!optionsMenu.activeSelf);
+        resetButton.SetActive(mathInput != null && mathInput.gameObject.activeSelf);
     }
 
     public static void ToggleSound() {
