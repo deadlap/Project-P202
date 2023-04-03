@@ -12,15 +12,32 @@ public class EquationLevel : ScriptableObject {
     [SerializeField] string[] eqToDisplay;
     [SerializeField] int[] stepsPerStar;
     [SerializeField] public EquationLevel previous {get; private set;}
+    
+    [SerializeField] int steps;
 
     void Awake() {
-        // eqToDisplay = new string[2];
         ConvertToText();
     }
 
     public void ResetTo(Equation _equation){
         previous = null;
         equation = _equation;
+    }
+    
+    public void Reset(){
+        while(Previous());
+        steps = 0;
+    }
+
+    public bool Previous(){
+        if (previous is not null){
+            steps += 1;
+            equation = previous.equation;
+            previous = previous.previous;
+            ConvertToText();
+            return true;
+        }
+        return false;
     }
 
     public void CopyVariables(EquationLevel _eqToCopy){
@@ -44,6 +61,7 @@ public class EquationLevel : ScriptableObject {
     }
 
     public void Apply(string operation, double input, bool containsX){
+        steps += 1;
         switch (operation){
             case "+":
                 if (containsX){

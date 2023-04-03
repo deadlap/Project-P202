@@ -50,11 +50,9 @@ public class MathInput : MonoBehaviour {
 
     public void Undo(){
         display.Previous();
-        equation = display.equationLevel;
     }
 
     public void Reset() {
-        while(display.Previous());
-        equation = display.equationLevel;
+        equation.Reset();
     }
 }

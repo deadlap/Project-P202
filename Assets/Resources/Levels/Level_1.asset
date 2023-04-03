@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equations:
   - {fileID: 11400000, guid: fe853ca603ca8fe48a692d43d2d06664, type: 2}
+  - {fileID: 11400000, guid: fe853ca603ca8fe48a692d43d2d06664, type: 2}
