@@ -64,8 +64,8 @@ public class EquationLevel : ScriptableObject {
 
         switch (equation.leftXTerm, equation.rightXTerm){
             case (>0, 0):
-                break;
                 solution = equation.rightTerm;
+                break;
             case (0, >0):
                 solution = equation.leftTerm;
                break;

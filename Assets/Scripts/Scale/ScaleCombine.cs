@@ -38,7 +38,6 @@ public class ScaleCombine : MonoBehaviour {
                     targetRotation = (leftSum > rightSum ? (float)(leftSum/1)*rotationModifier : targetRotation);
                     targetRotation = (leftSum < rightSum ? -(float)(1/leftSum)*rotationModifier : targetRotation);
                     break;
-                    break;
                 default:
                     targetRotation = (leftSum > rightSum ? (float)(leftSum/rightSum)*rotationModifier : targetRotation);
                     targetRotation = (leftSum < rightSum ? -(float)(rightSum/leftSum)*rotationModifier : targetRotation);
