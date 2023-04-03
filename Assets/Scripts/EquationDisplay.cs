@@ -11,8 +11,8 @@ public class EquationDisplay : MonoBehaviour {
     [SerializeField] TextMeshProUGUI rightText;
     
     void UpdateText(){
-        leftText.text = equationLevel.eqToDisplay[0];
-        rightText.text = equationLevel.eqToDisplay[1];
+        leftText.text = equationLevel.LeftText();
+        rightText.text = equationLevel.RightText();
     }
         
 

@@ -13,13 +13,11 @@ MonoBehaviour:
   m_Name: Task1
   m_EditorClassIdentifier: 
   equation:
-    left:
-    - 2*x
-    - -4
-    right:
-    - x
-    - +3
     leftXTerm: 2
     leftTerm: -4
     rightXTerm: 1
     rightTerm: 3
+  eqToDisplay:
+  - 
+  - 
+  stepsPerStar: 

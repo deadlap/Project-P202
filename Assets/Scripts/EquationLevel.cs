@@ -9,12 +9,12 @@ public class EquationLevel : ScriptableObject {
     
     [SerializeField] Equation equation;
 
-    [SerializeField] public string[] eqToDisplay {get; private set;}
-    
+    [SerializeField] string[] eqToDisplay;
+    [SerializeField] int[] stepsPerStar;
     [SerializeField] public EquationLevel previous {get; private set;}
 
     void Awake() {
-        eqToDisplay = new string[2];
+        // eqToDisplay = new string[2];
         ConvertToText();
     }
 
@@ -68,7 +68,6 @@ public class EquationLevel : ScriptableObject {
                 ApplyToEachTerm(operation, input);
                 break;
         }
-
     }
 
     public void ApplyToEachTerm(string operation, double input){
@@ -90,6 +89,14 @@ public class EquationLevel : ScriptableObject {
 
     public void SetPrevious(EquationLevel _previous) {
         previous = _previous;
+    }
+
+    public string LeftText(){
+        return eqToDisplay[0];
+    }
+
+    public string RightText(){
+        return eqToDisplay[1];
     }
 
     public void ConvertToText(){
