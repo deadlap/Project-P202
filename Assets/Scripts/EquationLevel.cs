@@ -10,7 +10,7 @@ public class EquationLevel : ScriptableObject {
     [SerializeField] Equation equation;
 
     [SerializeField] string[] eqToDisplay;
-    
+    [SerializeField] int[] stepsPerStar;
     [SerializeField] public EquationLevel previous {get; private set;}
 
     public double solution {get; private set;}
