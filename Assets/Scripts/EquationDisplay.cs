@@ -6,15 +6,9 @@ using UnityEngine.UI;
 using System;
 
 public class EquationDisplay : MonoBehaviour {
-    [SerializeField] EquationLevel equationLevel;
+    [SerializeField] public EquationLevel equationLevel {get; private set;}
     [SerializeField] TextMeshProUGUI leftText;
     [SerializeField] TextMeshProUGUI rightText;
-    
-    // void Start(){
-    //     equationLevel = Instantiate(equationLevel);
-    //     equationLevel.ConvertToText();
-    //     UpdateText();
-    // }
     
     void UpdateText(){
         leftText.text = equationLevel.eqToDisplay[0];
