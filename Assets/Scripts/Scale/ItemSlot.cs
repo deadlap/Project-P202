@@ -7,54 +7,38 @@ using UnityEngine.Serialization;
 
 public class ItemSlot : MonoBehaviour, IDropHandler
 {
-    List<GameObject> slottedItems;
     ItemDrag draggedItem;
     TextMeshProUGUI textItem;
     GameObject currentItem;
-
-    void Awake()
-    {
-        textItem = GetComponentInChildren<TextMeshProUGUI>();
-        textItem.text = "";
-    }
+    GameObject prevItem;
 
     public void OnDrop(PointerEventData eventData) {
         draggedItem = eventData.pointerDrag.GetComponent<ItemDrag>(); 
         Invoke(nameof(CorrectItemType), .01f);
-        draggedItem.newParent = transform;
     }
 
     void CorrectItemType() {
-        var itemGO = draggedItem.gameObject;
-        itemGO = new GameObject();
-        itemGO.transform.SetParent(draggedItem.newParent);
-        if (!itemGO.CompareTag(gameObject.tag)) return;
-        //string textOnItem = itemGO.GetComponentInChildren<TextMeshProUGUI>().text;
+        if (!draggedItem.CompareTag(gameObject.tag)) return;
+        
 
-        if (slottedItems.Count >= 0)
+        switch (gameObject.transform.childCount)
         {
-            Debug.Log("der er ikke plads");
+            case 0:
+                draggedItem.newParent = transform;
+                currentItem = draggedItem.gameObject;
+                currentItem.transform.SetParent(draggedItem.newParent);
+                draggedItem.pleaseHelpMeThisIsNotAGoodSolution = 1;
+                Debug.Log("kom bar do");
+                break;
+            case 1:
+                currentItem.transform.SetParent(draggedItem.originalParent);
+                draggedItem.newParent = transform;
+                draggedItem.transform.SetParent(draggedItem.newParent);
+                draggedItem.pleaseHelpMeThisIsNotAGoodSolution = 1;
+                Debug.Log("byt");
+                break;
         }
-        else
-        {
-            Debug.Log("kom bar do");
-        }
-        
-        
-        
-        
-        
-        // if (textItem.text == "") {
-        //     textItem.text = textOnItem;
-        //     currentItem = itemGO;
-        //     currentItem.gameObject.SetActive(false);
-        // }
-        // else if (textItem.text != textOnItem) {
-        //     string newTextOnItem = itemGO.GetComponentInChildren<TextMeshProUGUI>().text;
-        //     textItem.text = newTextOnItem;
-        //     currentItem.gameObject.SetActive(true);
-        //     currentItem = itemGO;
-        //     itemGO.gameObject.SetActive(false);
-        // }
     }
 }
+                //potentiel fix: destroy current item og spawn en ny ¯\_(ツ)_/¯
+//TODO lav prefabs af gameobjects med itemslot.cs på og smid dem i et grid
