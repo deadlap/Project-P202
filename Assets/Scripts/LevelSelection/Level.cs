@@ -4,18 +4,14 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "Level", menuName = "Project-P202/Level", order = 0)]
 public class Level : ScriptableObject {
-    [SerializeField] List<EquationLevel> equations;
+    [SerializeField] public EquationLevel equation;
+    [SerializeField] public List<string> numbersForScale;
 
     void Awake(){
-        for (int i = 0; i < equations.Count; i++) {
-            equations[i] = Instantiate(equations[i]);
-        }
+        // equation = Instantiate(equation);
     }
 
-    public EquationLevel GetEquationLevel(int _index) {
-        return equations[_index];
-    }
-    public void SetEquation(int _index, EquationLevel _equation) {
-        equations[_index] = _equation;
+    public void SetEquation(EquationLevel _equation) {
+        equation = _equation;
     }
 }
