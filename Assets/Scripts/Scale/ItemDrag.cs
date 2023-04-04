@@ -37,6 +37,7 @@ public class ItemDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     public void OnDrag(PointerEventData eventData)
     {
         transform.position += (Vector3)eventData.delta;
+        
     }
 
     public void OnEndDrag(PointerEventData eventData)
