@@ -6,14 +6,14 @@ public class GenerateNumberSlot : MonoBehaviour
 {
     [SerializeField] GameObject slot;
     [SerializeField] GameObject content;
-    [SerializeField] List<string> numberInSlot;
+    [SerializeField] public List<string> numberInSlot;
     
     void Start()
     {
-        CreatElement();
+        CreateElement();
     }
 
-    void CreatElement() {
+    public void CreateElement() {
         foreach (string number in numberInSlot)
         {
             slot = Instantiate(slot, content.transform, true);

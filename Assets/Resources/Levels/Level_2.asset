@@ -10,7 +10,12 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 15e10de5e36644a4db15cf58af1cd53b, type: 3}
-  m_Name: Level_1
+  m_Name: Level_2
   m_EditorClassIdentifier: 
-  equation: {fileID: 11400000, guid: fe853ca603ca8fe48a692d43d2d06664, type: 2}
-  numbersForScale: []
+  equation: {fileID: 0}
+  numbersForScale:
+  - 1
+  - 3
+  - 5
+  - 7
+  - 9

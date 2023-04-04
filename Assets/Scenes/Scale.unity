@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 27775055}
   - component: {fileID: 27775054}
   - component: {fileID: 27775058}
+  - component: {fileID: 27775059}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -242,6 +243,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd92b5ec02be9384e8f36d79c133013d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &27775059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27775053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74757ca08cd915741a4b8a230616add2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultLevel: {fileID: 11400000, guid: ffcf78677f78f7145b8f8a4dbed70296, type: 2}
+  mathInput: {fileID: 0}
+  equationDisplay: {fileID: 0}
+  numberGenerator: {fileID: 1253057721}
+  scaleIsActive: 1
 --- !u!1 &33988888
 GameObject:
   m_ObjectHideFlags: 0
@@ -5348,12 +5366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slot: {fileID: 2641137542171633090, guid: 60b17d4ec4a8ba143bd53f635498d8da, type: 3}
   content: {fileID: 1253057716}
-  numberInSlot:
-  - 6
-  - 9
-  - 9
-  - 6
-  - 9
+  numberInSlot: []
 --- !u!1 &1263138807
 GameObject:
   m_ObjectHideFlags: 0

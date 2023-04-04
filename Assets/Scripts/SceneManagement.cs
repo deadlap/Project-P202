@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneManagement : MonoBehaviour {
-    static string RandomEquationSceneName = "EquationRandom";
-    static string LevelHubName = "EquationLevel";
+    static string EquationSceneName = "EquationRandom";
+    static string ScaleSceneName = "Scale";
+
     public static void StaticChangeScene(string scene) {
         SceneManager.LoadScene(scene);
     }
@@ -18,17 +19,22 @@ public class SceneManagement : MonoBehaviour {
     public void ChangeToRandomEquation() {
         EquationLevel[] AllEquations =  (Resources.LoadAll<EquationLevel>("Equations/") as EquationLevel[]);
         MathInput.equation = Instantiate(AllEquations[Random.Range(0,AllEquations.Length-1)]);
-        SceneManager.LoadScene(RandomEquationSceneName);
+        SceneManager.LoadScene(EquationSceneName);
     }
     public static void ChangeToEquation(Equation equation) {
         EquationLevel eq = Instantiate(Resources.Load("CompleteEquation") as EquationLevel);
         eq.ResetTo(equation);
         MathInput.equation = Instantiate(eq);
-        SceneManager.LoadScene(RandomEquationSceneName);
+        SceneManager.LoadScene(EquationSceneName);
     }
     
     public void GoToLevel(Level level) {
         LevelManager.SetActiveLevel(level);
-        SceneManager.LoadScene(LevelHubName);
+        if (level.equation) {
+            MathInput.equation = Instantiate(level.equation);
+            SceneManager.LoadScene(EquationSceneName);
+        } else {
+            SceneManager.LoadScene(ScaleSceneName);
+        }
     }
 }
