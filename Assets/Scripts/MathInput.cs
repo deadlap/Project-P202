@@ -1,7 +1,6 @@
 using UnityEngine;
 using ScrollWheels;
 using System;
-using System.Collections.Generic;
 
 public class MathInput : MonoBehaviour {
     public static EquationLevel equation;

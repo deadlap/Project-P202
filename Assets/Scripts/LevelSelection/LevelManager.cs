@@ -1,15 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour {
     public static Level ActiveLevel {get; private set;}
     [SerializeField] Level defaultLevel;
     [SerializeField] MathInput mathInput;
     [SerializeField] EquationDisplay equationDisplay;
-    [SerializeField] GenerateNumberSlot numberGenerator;
+    [SerializeField] GenerateDraggableItem numberGenerator;
 
     void Awake() {
         if (ActiveLevel == null) {
@@ -22,7 +18,7 @@ public class LevelManager : MonoBehaviour {
             MathInput.equation = ActiveLevel.equation;
             mathInput.SetActiveEquation();
         } else {
-            numberGenerator.numberInSlot = ActiveLevel.numbersForScale;
+            numberGenerator.numberInItem = ActiveLevel.numbersForScale;
         }
         
     }

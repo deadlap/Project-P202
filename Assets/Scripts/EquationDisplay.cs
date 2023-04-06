@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
 using System;
 
 public class EquationDisplay : MonoBehaviour {
-    [SerializeField] public EquationLevel equationLevel {get; private set;}
+    public EquationLevel equationLevel {get; private set;}
     [SerializeField] TextMeshProUGUI leftText;
     [SerializeField] TextMeshProUGUI rightText;
     

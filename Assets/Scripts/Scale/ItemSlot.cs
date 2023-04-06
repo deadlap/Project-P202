@@ -1,44 +1,54 @@
-using System;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.Serialization;
 
 public class ItemSlot : MonoBehaviour, IDropHandler
 {
     ItemDrag draggedItem;
-    TextMeshProUGUI textItem;
     GameObject currentItem;
-    GameObject prevItem;
+    TextMeshProUGUI itemValue;
+    [SerializeField] TextMeshProUGUI currentValue;
+    public GameObject correctParent;
+    bool noChildren;
+
 
     public void OnDrop(PointerEventData eventData) {
-        draggedItem = eventData.pointerDrag.GetComponent<ItemDrag>(); 
+        draggedItem = eventData.pointerDrag.GetComponent<ItemDrag>();
         Invoke(nameof(CorrectItemType), .01f);
     }
 
-    void CorrectItemType() {
-        if (!draggedItem.CompareTag(gameObject.tag)) return;
-        
+    void Update()
+    {
+        if (transform.childCount == 0 && !noChildren) {
+            currentValue.text = "";
+            noChildren = true;
+        }
+    }
 
-        switch (gameObject.transform.childCount)
-        {
+    void CorrectItemType() {
+        if (!draggedItem.CompareTag(tag)) return;
+        switch (transform.childCount) {
             case 0:
-                draggedItem.newParent = transform;
-                currentItem = draggedItem.gameObject;
-                currentItem.transform.SetParent(draggedItem.newParent);
-                draggedItem.pleaseHelpMeThisIsNotAGoodSolution = 1;
+                InsertItem();
                 Debug.Log("kom bar do");
                 break;
             case 1:
-                currentItem.transform.SetParent(draggedItem.originalParent);
-                draggedItem.newParent = transform;
-                draggedItem.transform.SetParent(draggedItem.newParent);
-                draggedItem.pleaseHelpMeThisIsNotAGoodSolution = 1;
+                currentItem.transform.SetParent(correctParent.transform);
+                InsertItem();
                 Debug.Log("byt");
                 break;
         }
     }
+
+    public void InsertItem() {
+        noChildren = false;
+        currentItem = draggedItem.gameObject;
+        draggedItem.newParent = transform;
+        draggedItem.transform.SetParent(draggedItem.newParent);
+        itemValue = draggedItem.GetComponentInChildren<TextMeshProUGUI>();
+        currentValue.text = itemValue.text;
+        correctParent = GameObject.FindGameObjectWithTag(itemValue.text);
+        draggedItem.count = 1;
+    }
 }
-                //potentiel fix: destroy current item og spawn en ny ¯\_(ツ)_/¯
 //TODO lav prefabs af gameobjects med itemslot.cs på og smid dem i et grid

@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,7 +15,7 @@ namespace ScrollWheels {
         bool isActive;
 
         void Start() {
-            Invoke(nameof(CreatElement), .08f); //
+            Invoke(nameof(CreateElement), .08f); //
             Invoke(nameof(BeginAtTop), .09f); //Bliver invoket med delay, ellers driller det.
         }
     
@@ -25,7 +23,7 @@ namespace ScrollWheels {
             AssignStringToElement();
         }
 
-        void CreatElement() {
+        void CreateElement() {
             foreach (string element in elements) {
                 newElement = new("Element");
                 newElement.tag = "Element";
