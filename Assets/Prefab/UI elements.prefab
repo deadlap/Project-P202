@@ -225,7 +225,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 40, y: 40}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!50 &1408147048016455028
 Rigidbody2D:
@@ -284,7 +284,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 40, y: 40}
+  m_Size: {x: 80, y: 80}
   m_EdgeRadius: 0
 --- !u!1 &1408147048022050563
 GameObject:
@@ -617,7 +617,7 @@ MonoBehaviour:
   m_MovementType: 0
   m_Elasticity: 0.1
   m_Inertia: 1
-  m_DecelerationRate: 0.135
+  m_DecelerationRate: 0
   m_ScrollSensitivity: 3
   m_Viewport: {fileID: 0}
   m_HorizontalScrollbar: {fileID: 0}
@@ -653,16 +653,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c940cb71706094fa6a8a641f623c3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollRect: {fileID: 1408147048318593437}
   content: {fileID: 1408147048521922249}
   center: {fileID: 1408147049174776013}
   elementSize: 3
-  snapMultiplier: 10
+  snapMultiplier: 30
   elementValue:
   - ...
   - x
   elements: []
-  distance: []
 --- !u!1 &1408147048432900319
 GameObject:
   m_ObjectHideFlags: 0
@@ -715,10 +713,10 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: 40
-    m_Bottom: 60
+    m_Top: 0
+    m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 150
+  m_Spacing: 130
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
@@ -778,8 +776,8 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: 30
-    m_Bottom: 40
+    m_Top: 0
+    m_Bottom: 0
   m_ChildAlignment: 4
   m_Spacing: 150
   m_ChildForceExpandWidth: 0
@@ -901,7 +899,7 @@ MonoBehaviour:
   m_MovementType: 0
   m_Elasticity: 0.1
   m_Inertia: 1
-  m_DecelerationRate: 0.135
+  m_DecelerationRate: 0
   m_ScrollSensitivity: 3
   m_Viewport: {fileID: 0}
   m_HorizontalScrollbar: {fileID: 0}
@@ -937,11 +935,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c940cb71706094fa6a8a641f623c3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollRect: {fileID: 1408147048527884486}
   content: {fileID: 1408147048855128573}
   center: {fileID: 1408147048016454923}
   elementSize: 3
-  snapMultiplier: 10
+  snapMultiplier: 30
   elementValue:
   - ...
   - 1
@@ -955,7 +952,6 @@ MonoBehaviour:
   - 9
   - 10
   elements: []
-  distance: []
 --- !u!1 &1408147048769829336
 GameObject:
   m_ObjectHideFlags: 0
@@ -1126,7 +1122,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 290}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1408147048855128572
 MonoBehaviour:
@@ -1143,8 +1139,8 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: 150
-    m_Bottom: 160
+    m_Top: 0
+    m_Bottom: 0
   m_ChildAlignment: 4
   m_Spacing: 150
   m_ChildForceExpandWidth: 0
@@ -1191,7 +1187,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 40, y: 40}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!50 &1408147048975572150
 Rigidbody2D:
@@ -1250,7 +1246,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 40, y: 40}
+  m_Size: {x: 80, y: 80}
   m_EdgeRadius: 0
 --- !u!1 &1408147049022084493
 GameObject:
@@ -1424,7 +1420,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 40, y: 40}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!50 &1408147049174776014
 Rigidbody2D:
@@ -1483,7 +1479,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 40, y: 40}
+  m_Size: {x: 80, y: 80}
   m_EdgeRadius: 0
 --- !u!1 &1408147049186141016
 GameObject:
@@ -1731,7 +1727,7 @@ MonoBehaviour:
   m_MovementType: 0
   m_Elasticity: 0.1
   m_Inertia: 1
-  m_DecelerationRate: 0.135
+  m_DecelerationRate: 0
   m_ScrollSensitivity: 3
   m_Viewport: {fileID: 0}
   m_HorizontalScrollbar: {fileID: 0}
@@ -1755,15 +1751,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c940cb71706094fa6a8a641f623c3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollRect: {fileID: 1408147049626091649}
   content: {fileID: 1408147048432900318}
   center: {fileID: 1408147048975572149}
   elementSize: 3
-  snapMultiplier: 10
+  snapMultiplier: 30
   elementValue:
   - +
   - '-'
   - '*'
   - /
   elements: []
-  distance: []

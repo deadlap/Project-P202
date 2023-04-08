@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 namespace ScrollWheels {
     public class NumberScrollRect : MonoBehaviour, IBeginDragHandler, IEndDragHandler
@@ -18,22 +17,14 @@ namespace ScrollWheels {
         float[] distance;
         int closestElement;
         bool scrolling;
-        
-        //Scroll rect snap code inspiration: Respect Studios - https://www.youtube.com/watch?v=jWbAaBEQpvE
-        void Start() {
-            Invoke(nameof(CreateElement), .01f); //
+
+        void Start()
+        {
+            CreateElement();
         }
 
         void Update() {
-            var minDistance = Mathf.Min(distance);
-            for (int i = 0; i < elements.Count; i++)
-            {
-                distance[i] = Mathf.Abs(center.GetComponent<RectTransform>().position.y -
-                                        elements[i].GetComponent<RectTransform>().position.y);
-                if (Math.Abs(minDistance - distance[i]) < 0.1f) 
-                    closestElement = i;
-            }
-            SnapToElement(-elements[closestElement].GetComponent<RectTransform>().anchoredPosition.y);
+            FindClosestElement();
         }
 
         void CreateElement() {
@@ -62,22 +53,29 @@ namespace ScrollWheels {
             distance = new float[elements.Count];
         }
 
-        void SnapToElement(float pos)
-        {
+        //FindClosestElement() and SnapToElement() inspiration from: Respect Studios - https://www.youtube.com/watch?v=jWbAaBEQpvE
+        void FindClosestElement() {
+            var minDistance = Mathf.Min(distance);
+            for (int i = 0; i < elements.Count; i++) {
+                distance[i] = Mathf.Abs(center.transform.position.y - elements[i].transform.position.y);
+                if (Math.Abs(minDistance - distance[i]) < 0.01f) 
+                    closestElement = i;
+            }
+            SnapToElement(-elements[closestElement].GetComponent<RectTransform>().anchoredPosition.y);
+        }
+        void SnapToElement(float pos) {
             if (scrolling) return;
             var newY = Mathf.Lerp(content.anchoredPosition.y, pos, Time.deltaTime * snapMultiplier);
             var newPos = new Vector2(0, newY);
             content.anchoredPosition = newPos;
         }
 
-        public void OnBeginDrag(PointerEventData eventData)
-        {
+        public void OnBeginDrag(PointerEventData eventData) {
             scrolling = true;
             Debug.Log("a");
         }
 
-        public void OnEndDrag(PointerEventData eventData)
-        {
+        public void OnEndDrag(PointerEventData eventData) {
             scrolling = false;
             Debug.Log("b");
         }
