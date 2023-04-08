@@ -33,7 +33,7 @@ public class MathInput : MonoBehaviour {
             animator.Play("ErrorOnSign");
             errorSource.Play();
             return false;
-        } else if (String.Join("", output).Length == 1) {
+        } if (String.Join("", output).Length == 1) {
             animator.SetTrigger("ErrorOnValues");
             errorSource.Play();
             return false;

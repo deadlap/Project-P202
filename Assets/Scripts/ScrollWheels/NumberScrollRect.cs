@@ -1,35 +1,48 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace ScrollWheels {
-    public class NumberScrollRect : MonoBehaviour
+    public class NumberScrollRect : MonoBehaviour, IBeginDragHandler, IEndDragHandler
     {
-        [SerializeField] ScrollRect scrollRect;
         [SerializeField] RectTransform content;
-        [SerializeField] float elementSize;
-        [SerializeField] float elementSpacing;
-        [SerializeField] List<string> elements;
+        [SerializeField] RectTransform center;
+        [SerializeField] int elementSize;
+        [SerializeField] float snapMultiplier;
+        [SerializeField] string[] elementValue;
+        [SerializeField] List<GameObject> elements;
         GameObject newElement;
-        bool isActive;
-
+        float[] distance;
+        int closestElement;
+        bool scrolling;
+        
+        //Scroll rect snap code inspiration: Respect Studios - https://www.youtube.com/watch?v=jWbAaBEQpvE
         void Start() {
-            Invoke(nameof(CreateElement), .08f); //
-            Invoke(nameof(BeginAtTop), .09f); //Bliver invoket med delay, ellers driller det.
+            Invoke(nameof(CreateElement), .01f); //
         }
-    
+
         void Update() {
-            AssignStringToElement();
+            var minDistance = Mathf.Min(distance);
+            for (int i = 0; i < elements.Count; i++)
+            {
+                distance[i] = Mathf.Abs(center.GetComponent<RectTransform>().position.y -
+                                        elements[i].GetComponent<RectTransform>().position.y);
+                if (Math.Abs(minDistance - distance[i]) < 0.1f) 
+                    closestElement = i;
+            }
+            SnapToElement(-elements[closestElement].GetComponent<RectTransform>().anchoredPosition.y);
         }
 
         void CreateElement() {
-            foreach (string element in elements) {
+            foreach (var element in elementValue) {
                 newElement = new("Element");
                 newElement.tag = "Element";
                 newElement.transform.SetParent(content.transform);
                 newElement.transform.localScale = new Vector3(elementSize, elementSize, 0);
-
+                
                 Rigidbody2D rb = newElement.AddComponent<Rigidbody2D>();
                 rb.bodyType = RigidbodyType2D.Static;
 
@@ -39,23 +52,34 @@ namespace ScrollWheels {
                 TextMeshProUGUI text = newElement.AddComponent<TextMeshProUGUI>();
                 text.color = Color.grey;
                 text.autoSizeTextContainer = true;
+                text.alignment = TextAlignmentOptions.Center;
+                text.enableWordWrapping = false;
+                elements.Add(newElement);
             }
-            content.GetComponent<RectTransform>().sizeDelta = new Vector2(0, elements.Count * elementSpacing);
-            isActive = true; //Så AssignStringToElement() kun kører når BeginAtTop() har kørt.
+            for (int i = 0; i < elementValue.Length; i++) {
+                content.transform.GetChild(i).GetComponent<TextMeshProUGUI>().text = elementValue[i];
+            }
+            distance = new float[elements.Count];
         }
 
-        void AssignStringToElement() {
-            if (!isActive) return;
-            for (int i = 0; i < elements.Count; i++) {
-                content.transform.GetChild(i).GetComponent<TextMeshProUGUI>().text = elements[i];
-            }
-            isActive = true;
+        void SnapToElement(float pos)
+        {
+            if (scrolling) return;
+            var newY = Mathf.Lerp(content.anchoredPosition.y, pos, Time.deltaTime * snapMultiplier);
+            var newPos = new Vector2(0, newY);
+            content.anchoredPosition = newPos;
         }
 
-        void BeginAtTop() {
-            var elementIndex = newElement.transform.GetSiblingIndex();
-            var pos = scrollRect.content.transform.childCount / elementIndex;
-            scrollRect.verticalNormalizedPosition = pos;
+        public void OnBeginDrag(PointerEventData eventData)
+        {
+            scrolling = true;
+            Debug.Log("a");
+        }
+
+        public void OnEndDrag(PointerEventData eventData)
+        {
+            scrolling = false;
+            Debug.Log("b");
         }
     }
 }
