@@ -8,8 +8,7 @@ public class GenerateDraggableItem : MonoBehaviour
     [SerializeField] GameObject content;
     [SerializeField] public List<string> numberInItem;
     
-    void Start()
-    {
+    void Start() {
         CreateElement();
     }
 

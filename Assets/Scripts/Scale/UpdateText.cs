@@ -6,8 +6,7 @@ public class UpdateText : MonoBehaviour
     [SerializeField] TextMeshProUGUI textToMimic;
     TextMeshProUGUI thisText;
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         thisText = GetComponent<TextMeshProUGUI>();
         thisText.text = textToMimic.text;
     }

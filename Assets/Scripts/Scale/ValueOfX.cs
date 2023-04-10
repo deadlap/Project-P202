@@ -7,14 +7,12 @@ public class ValueOfX : MonoBehaviour
     [SerializeField] TextMeshProUGUI xRightText;
     [SerializeField] string xValue;
     void Awake() {
-        if (xValue == "")
-        {
+        if (xValue == "") {
             int newXValue = Random.Range(1, 9);
             xLeftText.text = newXValue.ToString();
             xRightText.text = newXValue.ToString();
         }
-        else
-        {
+        else {
             string newXValue = xValue;
             xLeftText.text = newXValue;
             xRightText.text = newXValue;

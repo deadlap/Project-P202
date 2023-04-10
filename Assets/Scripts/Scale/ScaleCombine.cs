@@ -46,7 +46,6 @@ public class ScaleCombine : MonoBehaviour {
             if (leftSum < 0 || rightSum < 0) {
                 targetRotation = -targetRotation;
             }
-            
             targetRotation = (targetRotation > rotationMax ? rotationMax : targetRotation);
             targetRotation = (targetRotation < -rotationMax ? -rotationMax : targetRotation);
         }
