@@ -5,9 +5,19 @@ public class ValueOfX : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI xLeftText;
     [SerializeField] TextMeshProUGUI xRightText;
+    [SerializeField] string xValue;
     void Awake() {
-        int xValue = Random.Range(1, 9);
-        xLeftText.text = xValue.ToString();
-        xRightText.text = xValue.ToString();
+        if (xValue == "")
+        {
+            int newXValue = Random.Range(1, 9);
+            xLeftText.text = newXValue.ToString();
+            xRightText.text = newXValue.ToString();
+        }
+        else
+        {
+            string newXValue = xValue;
+            xLeftText.text = newXValue;
+            xRightText.text = newXValue;
+        }
     }
 }

@@ -1470,6 +1470,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xLeftText: {fileID: 1781275977}
   xRightText: {fileID: 2073957017}
+  xValue: 
 --- !u!114 &361640277
 MonoBehaviour:
   m_ObjectHideFlags: 0
