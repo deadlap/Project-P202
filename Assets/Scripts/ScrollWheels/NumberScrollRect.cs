@@ -74,12 +74,10 @@ namespace ScrollWheels {
 
         public void OnBeginDrag(PointerEventData eventData) {
             scrolling = true;
-            Debug.Log("a");
         }
 
         public void OnEndDrag(PointerEventData eventData) {
             scrolling = false;
-            Debug.Log("b");
         }
     }
 }

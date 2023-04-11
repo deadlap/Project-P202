@@ -1,14 +1,13 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ItemDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
-{
-    ItemSlot itemSlot;
+public class ItemDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
     CanvasGroup cg;
     [HideInInspector] public Transform newParent;
     [SerializeField] public Transform originalParent;
     public int count;
-    
+
     void Awake() {
         cg = GetComponent<CanvasGroup>();
         var parent= transform.parent;
@@ -35,7 +34,7 @@ public class ItemDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         ReturnToOriginalParent();
     }
 
-    public void ReturnToOriginalParent() {
+    void ReturnToOriginalParent() {
         newParent = originalParent;
         transform.SetParent(newParent);
         count = 0;

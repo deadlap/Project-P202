@@ -4387,7 +4387,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   draggableItem: {fileID: 2641137542171633090, guid: 60b17d4ec4a8ba143bd53f635498d8da, type: 3}
   content: {fileID: 1253057716}
-  numberInItem: []
+  numberInItem:
+  - 5
+  - 5
+  - 5
+  - 5
+  - 5
 --- !u!1 &1263138807
 GameObject:
   m_ObjectHideFlags: 0
@@ -4541,7 +4546,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxChildAmount: 1
-  stepParent: {fileID: 1962957775}
+  potentialStepParent: []
+  testStepParent: {fileID: 0}
 --- !u!1 &1279480065
 GameObject:
   m_ObjectHideFlags: 0
@@ -6115,7 +6121,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxChildAmount: 1
-  stepParent: {fileID: 1670401509}
+  potentialStepParent: []
+  testStepParent: {fileID: 1670401509}
 --- !u!1 &1621865946
 GameObject:
   m_ObjectHideFlags: 0
@@ -6401,7 +6408,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxChildAmount: 1
-  stepParent: {fileID: 1603563253}
+  potentialStepParent: []
+  testStepParent: {fileID: 1603563253}
 --- !u!1 &1756671083
 GameObject:
   m_ObjectHideFlags: 0
@@ -7006,7 +7014,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxChildAmount: 1
-  stepParent: {fileID: 1277601642}
+  potentialStepParent: []
+  testStepParent: {fileID: 0}
 --- !u!1 &1964906767
 GameObject:
   m_ObjectHideFlags: 0

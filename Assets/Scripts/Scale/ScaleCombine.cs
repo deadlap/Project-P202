@@ -1,7 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class ScaleCombine : MonoBehaviour {
@@ -19,7 +16,6 @@ public class ScaleCombine : MonoBehaviour {
     }
 
     void Update(){
-        float rotationOffset = 0;
         if(left.CalculateSum(out double leftSum) && right.CalculateSum(out double rightSum)) {
             finishButton.SetActive(leftSum == rightSum);
 
@@ -59,7 +55,7 @@ public class ScaleCombine : MonoBehaviour {
                 currentRotation -= rotationPerSecond*Time.deltaTime;
             }
         }
-        rotationOffset = -currentRotation;
+        var rotationOffset = -currentRotation;
         pole.transform.eulerAngles = new Vector3(
             0,
             0,

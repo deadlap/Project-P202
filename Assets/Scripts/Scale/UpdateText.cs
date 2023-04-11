@@ -1,8 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class UpdateText : MonoBehaviour
-{
+public class UpdateText : MonoBehaviour {
     [SerializeField] TextMeshProUGUI textToMimic;
     TextMeshProUGUI thisText;
     // Start is called before the first frame update

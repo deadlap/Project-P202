@@ -10,6 +10,28 @@ public class MathInput : MonoBehaviour {
     [SerializeField] AudioSource errorSource;
     string[] output;
 
+    void OnEnable()
+    {
+        HandleEvents.LeftHandlePulled += LeftHandlePulled;
+        HandleEvents.RightHandlePulled += RightHandlePulled;
+    }
+
+    void RightHandlePulled()
+    {
+        Send();
+    }
+
+    void LeftHandlePulled()
+    {
+        Undo();
+    }
+
+    void OnDisable()
+    {
+        HandleEvents.LeftHandlePulled -= LeftHandlePulled;
+        HandleEvents.RightHandlePulled -= RightHandlePulled;
+    }
+
     void Awake() {
         SetActiveEquation();
         output = new string[3];

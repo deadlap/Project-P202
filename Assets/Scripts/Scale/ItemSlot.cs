@@ -2,8 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ItemSlot : MonoBehaviour, IDropHandler
-{
+public class ItemSlot : MonoBehaviour, IDropHandler {
     ItemDrag draggedItem;
     GameObject currentItem;
     TextMeshProUGUI itemValue;
@@ -14,11 +13,10 @@ public class ItemSlot : MonoBehaviour, IDropHandler
 
     public void OnDrop(PointerEventData eventData) {
         draggedItem = eventData.pointerDrag.GetComponent<ItemDrag>();
-        Invoke(nameof(CorrectItemType), .01f);
+        Invoke(nameof(CorrectItemType), .0000000000000001f); //Needs delay to get component. 
     }
 
-    void Update()
-    {
+    void Update() {
         if (transform.childCount == 0 && !noChildren) {
             currentValue.text = "";
             noChildren = true;
@@ -30,12 +28,10 @@ public class ItemSlot : MonoBehaviour, IDropHandler
         switch (transform.childCount) {
             case 0:
                 InsertItem();
-                Debug.Log("kom bar do");
                 break;
             case 1:
                 currentItem.transform.SetParent(correctParent.transform);
                 InsertItem();
-                Debug.Log("byt");
                 break;
         }
     }
@@ -51,4 +47,3 @@ public class ItemSlot : MonoBehaviour, IDropHandler
         draggedItem.count = 1;
     }
 }
-//TODO lav prefabs af gameobjects med itemslot.cs på og smid dem i et grid
