@@ -4,7 +4,8 @@ using UnityEngine;
 namespace ScrollWheels {
     public class FindElement : MonoBehaviour
     {
-        [SerializeField] AudioSource click;
+        [SerializeField] AudioSource audioSource;
+        [SerializeField] AudioClip scrollWheelClick;
         TextMeshProUGUI text;
         float oldAlpha;
         public string elementInfo {get; private set;} = "";
@@ -24,7 +25,7 @@ namespace ScrollWheels {
             if (!other.gameObject.CompareTag("Element")) return;
             text = other.gameObject.GetComponent<TextMeshProUGUI>();
             text.alpha = oldAlpha; 
-            click.Play();
+            audioSource.PlayOneShot(scrollWheelClick);
         }
     }
 }

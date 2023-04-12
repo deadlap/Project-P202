@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 public class EquationLevel : ScriptableObject {
     
     [SerializeField] Equation equation;
-
+    
     [SerializeField] string[] eqToDisplay;
     [SerializeField] int[] stepsPerStar;
     [SerializeField] public EquationLevel previous {get; private set;}
@@ -45,14 +45,18 @@ public class EquationLevel : ScriptableObject {
         eqToDisplay = _eqToCopy.eqToDisplay;
         previous = _eqToCopy.previous;
     }
-    
+
     public bool Solution(out double _solution){
         _solution = 0;
-        switch ((equation.leftXTerm, equation.rightXTerm)){
+        switch (equation.leftXTerm, equation.rightXTerm){
             case (>0, 0):
+                if (equation.leftTerm != 0)
+                    return false;
                 _solution = equation.rightTerm;
                 return true;
             case (0, >0):
+                if (equation.rightTerm != 0)
+                    return false;
                 _solution = equation.leftTerm;
                 return true;
             default:

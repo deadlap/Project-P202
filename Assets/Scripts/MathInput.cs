@@ -2,13 +2,14 @@ using UnityEngine;
 using ScrollWheels;
 using System;
 
-public class MathInput : MonoBehaviour {
+public class MathInput : MonoBehaviour
+{
     public static EquationLevel Equation;
-    [HideInInspector] public HandleInteraction handleInteraction;
+    [SerializeField] GameObject equationSolvedScreen;
     [SerializeField] EquationDisplay display;
     [SerializeField] FindElement[] input;
     [SerializeField] Animator animator;
-    [SerializeField] AudioSource mathAudioSource;
+    [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip[] audioClip;
     string[] output;
 
@@ -42,21 +43,32 @@ public class MathInput : MonoBehaviour {
         }
     }
 
-    public void Send() {
-        if (ViableOutput()) {
-            mathAudioSource.PlayOneShot(audioClip[1]);
+    public void Send()
+    {
+        if (ViableOutput())
+        {
+            audioSource.PlayOneShot(audioClip[1]);
             Equation = display.Apply(output);
+        }
+
+        if (Equation.Solution(out _)) {
+            Invoke(nameof(EquationSolved), 1f);
         }
     }
 
+    void EquationSolved() {
+        equationSolvedScreen.SetActive(true);
+        audioSource.PlayOneShot(audioClip[2]);
+        audioSource.PlayOneShot(audioClip[3]);
+    }
     public bool ViableOutput(){
         if (output[2].Contains("x")  && !(output[0].Contains('+') || output[0].Contains('-'))) {
             animator.Play("ErrorOnSign");
-            mathAudioSource.PlayOneShot(audioClip[0]);
+            audioSource.PlayOneShot(audioClip[0]);
             return false;
         } if (String.Join("", output).Length == 1) {
             animator.SetTrigger("ErrorOnValues");
-            mathAudioSource.PlayOneShot(audioClip[0]);
+            audioSource.PlayOneShot(audioClip[0]);
             return false;
         }
         if (output[1].Length == 0)
