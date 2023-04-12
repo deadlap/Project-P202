@@ -3,31 +3,29 @@ using ScrollWheels;
 using System;
 
 public class MathInput : MonoBehaviour {
-    public static EquationLevel equation;
+    public static EquationLevel Equation;
+    [HideInInspector] public HandleInteraction handleInteraction;
     [SerializeField] EquationDisplay display;
     [SerializeField] FindElement[] input;
     [SerializeField] Animator animator;
-    [SerializeField] AudioSource errorSource;
+    [SerializeField] AudioSource mathAudioSource;
+    [SerializeField] AudioClip[] audioClip;
     string[] output;
 
-    void OnEnable()
-    {
+    void OnEnable() {
         HandleEvents.LeftHandlePulled += LeftHandlePulled;
         HandleEvents.RightHandlePulled += RightHandlePulled;
     }
 
-    void RightHandlePulled()
-    {
+    void RightHandlePulled() {
         Send();
     }
 
-    void LeftHandlePulled()
-    {
+    void LeftHandlePulled() {
         Undo();
     }
 
-    void OnDisable()
-    {
+    void OnDisable() {
         HandleEvents.LeftHandlePulled -= LeftHandlePulled;
         HandleEvents.RightHandlePulled -= RightHandlePulled;
     }
@@ -46,18 +44,19 @@ public class MathInput : MonoBehaviour {
 
     public void Send() {
         if (ViableOutput()) {
-            equation = display.Apply(output);
+            mathAudioSource.PlayOneShot(audioClip[1]);
+            Equation = display.Apply(output);
         }
     }
 
     public bool ViableOutput(){
         if (output[2].Contains("x")  && !(output[0].Contains('+') || output[0].Contains('-'))) {
             animator.Play("ErrorOnSign");
-            errorSource.Play();
+            mathAudioSource.PlayOneShot(audioClip[0]);
             return false;
         } if (String.Join("", output).Length == 1) {
             animator.SetTrigger("ErrorOnValues");
-            errorSource.Play();
+            mathAudioSource.PlayOneShot(audioClip[0]);
             return false;
         }
         if (output[1].Length == 0)
@@ -66,7 +65,7 @@ public class MathInput : MonoBehaviour {
     }
 
     public void SetActiveEquation(){
-        display.SetActiveEquation(equation);
+        display.SetActiveEquation(Equation);
     }
 
     public void Undo(){
@@ -74,6 +73,6 @@ public class MathInput : MonoBehaviour {
     }
 
     public void Reset() {
-        equation.Reset();
+        Equation.Reset();
     }
 }

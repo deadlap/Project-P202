@@ -7,6 +7,9 @@ public class HandleInteraction : MonoBehaviour, IDragHandler, IEndDragHandler {
     [SerializeField] float returnSpeed = 200f;
     [SerializeField] int maxRotation = 60;
     [SerializeField] int minRotation = 0;
+    [SerializeField] public AudioSource audioSource;
+    [SerializeField] public AudioClip[] audioClip;
+    
     RectTransform handle;
     float mousePos;
     bool dragEnded;
@@ -14,8 +17,7 @@ public class HandleInteraction : MonoBehaviour, IDragHandler, IEndDragHandler {
         handle = GetComponent<RectTransform>();
     }
 
-    void Update()
-    {
+    void Update() {
         ResetHandlePosition();
     }
     
@@ -29,13 +31,13 @@ public class HandleInteraction : MonoBehaviour, IDragHandler, IEndDragHandler {
         HandleAction();
     }
     
-    void ResetHandlePosition()
-    {
+    void ResetHandlePosition() {
         Quaternion curPos = handle.rotation;
         if(!dragEnded) return;
         Quaternion newPos = Quaternion.Euler(0, 0, 0);
         handle.rotation = Quaternion.RotateTowards(curPos,newPos, Time.deltaTime * returnSpeed);
         if (handle.rotation != Quaternion.Euler(0, 0, 0)) return;
+        audioSource.PlayOneShot(audioClip[0]);
         dragEnded = false;
     }
 
