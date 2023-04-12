@@ -19,6 +19,7 @@ public class ItemSlot : MonoBehaviour, IDropHandler {
     void Update() {
         if (transform.childCount == 0 && !noChildren) {
             currentValue.text = "";
+            currentValue.alpha = 0;
             noChildren = true;
         }
     }

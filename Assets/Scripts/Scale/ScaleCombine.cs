@@ -1,9 +1,10 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ScaleCombine : MonoBehaviour {
-    [SerializeField] ScaleMath left;
-    [SerializeField] ScaleMath right;
+    [SerializeField] ScaleMath leftValueOfTerm;
+    [SerializeField] ScaleMath rightValueOfTerm;
     [SerializeField] GameObject pole;
     [SerializeField] GameObject finishButton;
     [SerializeField] float rotationMax;
@@ -16,7 +17,7 @@ public class ScaleCombine : MonoBehaviour {
     }
 
     void Update(){
-        if(left.CalculateSum(out double leftSum) && right.CalculateSum(out double rightSum)) {
+        if(leftValueOfTerm.CalculateSum(out double leftSum) && rightValueOfTerm.CalculateSum(out double rightSum)) {
             finishButton.SetActive(leftSum == rightSum);
 
             switch (leftSum, rightSum) {
@@ -71,8 +72,8 @@ public class ScaleCombine : MonoBehaviour {
     }
 
     public void CreateEquation(){
-        left.returnTerms(out double _leftXTerm, out double leftTerm);
-        right.returnTerms(out double _rightXTerm, out double rightTerm);
+        leftValueOfTerm.returnTerms(out double _leftXTerm, out double leftTerm);
+        rightValueOfTerm.returnTerms(out double _rightXTerm, out double rightTerm);
         Equation equation = new Equation(_leftXTerm, leftTerm, _rightXTerm, rightTerm);
         SceneManagement.ChangeToEquation(equation);
     }
