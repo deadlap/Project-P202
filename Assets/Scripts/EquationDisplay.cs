@@ -18,13 +18,14 @@ public class EquationDisplay : MonoBehaviour {
     }
 
     public EquationLevel Apply(string[] input){
-        EquationLevel _temp = equationLevel;
-        equationLevel = Instantiate(equationLevel);
+        EquationLevel _temp = Instantiate(equationLevel);
+        _temp.CopyVariables(equationLevel);
+        equationLevel.SetPrevious(_temp);
+        print(_temp.previous);
         equationLevel.Apply(
             input[0],
             Convert.ToDouble(input[1]),
             input[2].Contains("x"));
-        equationLevel.SetPrevious(_temp);
         return equationLevel;
     }
     

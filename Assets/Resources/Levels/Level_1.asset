@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15e10de5e36644a4db15cf58af1cd53b, type: 3}
   m_Name: Level_1
   m_EditorClassIdentifier: 
+  equationToLoad: Task1
   equation: {fileID: 11400000, guid: fe853ca603ca8fe48a692d43d2d06664, type: 2}
   numbersForScale: []
+  unlocked: 1
+  score: 0

@@ -10,8 +10,6 @@ public class LevelManager : MonoBehaviour {
     void Awake() {
         if (ActiveLevel == null) {
             ActiveLevel = Instantiate(defaultLevel);
-        } else {
-            ActiveLevel = Instantiate(ActiveLevel);
         }
 
         if (ActiveLevel.equation){

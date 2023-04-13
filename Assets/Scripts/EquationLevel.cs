@@ -8,12 +8,11 @@ using System.Text.RegularExpressions;
 public class EquationLevel : ScriptableObject {
     
     [SerializeField] Equation equation;
-
     [SerializeField] string[] eqToDisplay;
-    [SerializeField] int[] stepsPerStar;
+    [SerializeField] public int[] stepsPerStar;
     [SerializeField] public EquationLevel previous {get; private set;}
     
-    [SerializeField] int steps;
+    [SerializeField] public int steps {get; private set;}
 
     void Awake() {
         ConvertToText();
@@ -44,15 +43,20 @@ public class EquationLevel : ScriptableObject {
         equation = _eqToCopy.equation.Copy();
         eqToDisplay = _eqToCopy.eqToDisplay;
         previous = _eqToCopy.previous;
+        steps = _eqToCopy.steps;
     }
     
     public bool Solution(out double _solution){
         _solution = 0;
         switch ((equation.leftXTerm, equation.rightXTerm)){
             case (>0, 0):
+                if (equation.leftTerm != 0)
+                    return false;
                 _solution = equation.rightTerm;
                 return true;
             case (0, >0):
+                if (equation.rightTerm != 0)
+                    return false;
                 _solution = equation.leftTerm;
                 return true;
             default:

@@ -28,13 +28,13 @@ public class SceneManagement : MonoBehaviour {
         SceneManager.LoadScene(EquationSceneName);
     }
     
-    public void GoToLevel(Level level) {
+    public static void GoToLevel(Level level) {
         LevelManager.SetActiveLevel(level);
-        if (level.equation) {
-            MathInput.equation = Instantiate(level.equation);
-            SceneManager.LoadScene(EquationSceneName);
-        } else {
+        if (level.numbersForScale.Count != 0) {
             SceneManager.LoadScene(ScaleSceneName);
+        } else {
+            MathInput.equation = level.equation;
+            SceneManager.LoadScene(EquationSceneName);
         }
     }
 }

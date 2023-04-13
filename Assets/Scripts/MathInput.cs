@@ -24,7 +24,7 @@ public class MathInput : MonoBehaviour {
 
     public void Send() {
         if (ViableOutput()) {
-            equation = display.Apply(output);
+            display.Apply(output);
         }
     }
 

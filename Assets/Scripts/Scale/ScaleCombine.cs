@@ -49,6 +49,8 @@ public class ScaleCombine : MonoBehaviour {
             
             targetRotation = (targetRotation > rotationMax ? rotationMax : targetRotation);
             targetRotation = (targetRotation < -rotationMax ? -rotationMax : targetRotation);
+        } else {
+            targetRotation = 0;
         }
         float currentRotation = pole.transform.localEulerAngles.z > 180 ? -360+pole.transform.localEulerAngles.z : pole.transform.localEulerAngles.z;
         if (rotationThreshold >= Math.Abs(targetRotation-currentRotation)) {
