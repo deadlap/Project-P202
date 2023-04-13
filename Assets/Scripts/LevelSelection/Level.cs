@@ -8,7 +8,7 @@ public class Level : ScriptableObject {
     [SerializeField] public string equationToLoad;
     [SerializeField] public EquationLevel equation {get; private set;}
     [SerializeField] public List<string> numbersForScale;
-    [SerializeField] public int xValue;
+    [SerializeField] public string xValue;
     [SerializeField] public bool unlocked = false;
     [SerializeField] public int score;
 

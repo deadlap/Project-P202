@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74757ca08cd915741a4b8a230616add2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultLevel: {fileID: 11400000, guid: ffcf78677f78f7145b8f8a4dbed70296, type: 2}
+  defaultLevel: {fileID: 11400000, guid: acf48f12a2ee46149ba789736600dfb9, type: 2}
   mathInput: {fileID: 0}
   equationDisplay: {fileID: 0}
   numberGenerator: {fileID: 1253057721}
@@ -1481,7 +1481,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xLeftText: {fileID: 1781275977}
   xRightText: {fileID: 2073957017}
-  xValue: 
 --- !u!114 &361640277
 MonoBehaviour:
   m_ObjectHideFlags: 0

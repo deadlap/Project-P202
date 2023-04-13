@@ -12,12 +12,12 @@ public class LevelManager : MonoBehaviour {
             ActiveLevel = Instantiate(defaultLevel);
         }
 
-        if (ActiveLevel.equation){
+        if (ActiveLevel.equation != null){
             MathInput.Equation = ActiveLevel.equation;
             mathInput.SetActiveEquation();
         } else {
             numberGenerator.numberInItem = ActiveLevel.numbersForScale;
-            ValueOfX.xValue = ActiveLevel.xValue.ToString();
+            ValueOfX.xValue = ActiveLevel.xValue;
         }
         
     }
