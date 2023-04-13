@@ -218,6 +218,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.035
       objectReference: {fileID: 0}
+    - target: {fileID: 9080435794401569037, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
+      propertyPath: level
+      value: 
+      objectReference: {fileID: 11400000, guid: ae65a7aac355aa046b35b25e0a9fe97d, type: 2}
+    - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
+      propertyPath: m_text
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
 --- !u!224 &744051918 stripped
@@ -441,7 +449,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 500, y: 500}
-  m_Spacing: {x: 0, y: 0}
+  m_Spacing: {x: 100, y: 100}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!1 &1294726683

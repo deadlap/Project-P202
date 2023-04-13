@@ -21,7 +21,6 @@ public class EquationDisplay : MonoBehaviour {
         EquationLevel _temp = Instantiate(equationLevel);
         _temp.CopyVariables(equationLevel);
         equationLevel.SetPrevious(_temp);
-        print(_temp.previous);
         equationLevel.Apply(
             input[0],
             Convert.ToDouble(input[1]),

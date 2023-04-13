@@ -33,7 +33,7 @@ public class SceneManagement : MonoBehaviour {
         if (level.numbersForScale.Count != 0) {
             SceneManager.LoadScene(ScaleSceneName);
         } else {
-            MathInput.equation = level.equation;
+            MathInput.Equation = level.equation;
             SceneManager.LoadScene(EquationSceneName);
         }
     }

@@ -17,9 +17,6 @@ public class Options : MonoBehaviour {
         AudioListener.volume = Convert.ToSingle(soundState);
     }
 
-    // void Update(){
-    // }
-
     public void ToggleMenu() {
         optionsMenu.SetActive(!optionsMenu.activeSelf);
         resetButton.SetActive(mathInput != null && mathInput.gameObject.activeSelf);
