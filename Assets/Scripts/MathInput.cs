@@ -2,13 +2,34 @@ using UnityEngine;
 using ScrollWheels;
 using System;
 
-public class MathInput : MonoBehaviour {
-    public static EquationLevel equation;
+public class MathInput : MonoBehaviour
+{
+    public static EquationLevel Equation;
+    [SerializeField] GameObject equationSolvedScreen;
     [SerializeField] EquationDisplay display;
     [SerializeField] FindElement[] input;
     [SerializeField] Animator animator;
-    [SerializeField] AudioSource errorSource;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip[] audioClip;
     string[] output;
+
+    void OnEnable() {
+        HandleEvents.LeftHandlePulled += LeftHandlePulled;
+        HandleEvents.RightHandlePulled += RightHandlePulled;
+    }
+
+    void RightHandlePulled() {
+        Send();
+    }
+
+    void LeftHandlePulled() {
+        Undo();
+    }
+
+    void OnDisable() {
+        HandleEvents.LeftHandlePulled -= LeftHandlePulled;
+        HandleEvents.RightHandlePulled -= RightHandlePulled;
+    }
 
     void Awake() {
         SetActiveEquation();
@@ -22,20 +43,32 @@ public class MathInput : MonoBehaviour {
         }
     }
 
-    public void Send() {
-        if (ViableOutput()) {
+    public void Send()
+    {
+        if (ViableOutput())
+        {
+            audioSource.PlayOneShot(audioClip[1]);
             display.Apply(output);
+        }
+
+        if (Equation.Solution(out _)) {
+            Invoke(nameof(EquationSolved), 1f);
         }
     }
 
+    void EquationSolved() {
+        equationSolvedScreen.SetActive(true);
+        audioSource.PlayOneShot(audioClip[2]);
+        audioSource.PlayOneShot(audioClip[3]);
+    }
     public bool ViableOutput(){
         if (output[2].Contains("x")  && !(output[0].Contains('+') || output[0].Contains('-'))) {
             animator.Play("ErrorOnSign");
-            errorSource.Play();
+            audioSource.PlayOneShot(audioClip[0]);
             return false;
         } if (String.Join("", output).Length == 1) {
             animator.SetTrigger("ErrorOnValues");
-            errorSource.Play();
+            audioSource.PlayOneShot(audioClip[0]);
             return false;
         }
         if (output[1].Length == 0)
@@ -44,7 +77,7 @@ public class MathInput : MonoBehaviour {
     }
 
     public void SetActiveEquation(){
-        display.SetActiveEquation(equation);
+        display.SetActiveEquation(Equation);
     }
 
     public void Undo(){
@@ -52,6 +85,6 @@ public class MathInput : MonoBehaviour {
     }
 
     public void Reset() {
-        equation.Reset();
+        Equation.Reset();
     }
 }

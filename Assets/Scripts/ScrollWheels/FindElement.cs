@@ -1,38 +1,31 @@
-using System;
 using TMPro;
 using UnityEngine;
 
 namespace ScrollWheels {
-    public class FindElement : MonoBehaviour {
-
+    public class FindElement : MonoBehaviour
+    {
+        [SerializeField] AudioSource audioSource;
+        [SerializeField] AudioClip scrollWheelClick;
         TextMeshProUGUI text;
+        float oldAlpha;
         public string elementInfo {get; private set;} = "";
-        Color defaultColor = Color.grey;
-
-        void OnTriggerEnter2D(Collider2D other) {
-            if (other.gameObject.CompareTag("Element")) {
-                elementInfo = other.gameObject.GetComponent<TextMeshProUGUI>().text;
-                text = other.gameObject.GetComponent<TextMeshProUGUI>();
-                if (elementInfo == "...") {
-                    elementInfo = "";
-                }
-                text.color = Color.black;
-            }
+        void OnTriggerEnter2D(Collider2D other)
+        {
+            if (!other.gameObject.CompareTag("Element")) return;
+            
+            elementInfo = other.gameObject.GetComponent<TextMeshProUGUI>().text;
+            text = other.gameObject.GetComponent<TextMeshProUGUI>();
+            oldAlpha = text.alpha;
+            text.alpha = 1;
+            if (elementInfo != "_") return;
+            elementInfo = "";
         }
-
+        
         void OnTriggerExit2D(Collider2D other) {
-            if (other.gameObject.CompareTag("Element")) {
-                text = other.gameObject.GetComponent<TextMeshProUGUI>();
-                text.color = defaultColor;
-            }
-        }
-
-        public void SetColor(Color newColor) {
-            text.color = newColor;
-        }
-
-        public void ResetColor() {
-            text.color = default;
+            if (!other.gameObject.CompareTag("Element")) return;
+            text = other.gameObject.GetComponent<TextMeshProUGUI>();
+            text.alpha = oldAlpha; 
+            audioSource.PlayOneShot(scrollWheelClick);
         }
     }
 }

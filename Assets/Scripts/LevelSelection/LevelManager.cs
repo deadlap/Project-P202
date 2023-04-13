@@ -13,7 +13,7 @@ public class LevelManager : MonoBehaviour {
         }
 
         if (ActiveLevel.equation){
-            MathInput.equation = ActiveLevel.equation;
+            MathInput.Equation = ActiveLevel.equation;
             mathInput.SetActiveEquation();
         } else {
             numberGenerator.numberInItem = ActiveLevel.numbersForScale;

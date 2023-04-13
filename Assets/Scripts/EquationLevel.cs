@@ -45,10 +45,10 @@ public class EquationLevel : ScriptableObject {
         previous = _eqToCopy.previous;
         steps = _eqToCopy.steps;
     }
-    
+
     public bool Solution(out double _solution){
         _solution = 0;
-        switch ((equation.leftXTerm, equation.rightXTerm)){
+        switch (equation.leftXTerm, equation.rightXTerm){
             case (>0, 0):
                 if (equation.leftTerm != 0)
                     return false;

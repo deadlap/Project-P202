@@ -5,8 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace ScrollWheels {
-    public class NumberScrollRect : MonoBehaviour, IBeginDragHandler, IEndDragHandler
-    {
+    public class NumberScrollRect : MonoBehaviour, IBeginDragHandler, IEndDragHandler {
         [SerializeField] RectTransform content;
         [SerializeField] RectTransform center;
         [SerializeField] int elementSize;
@@ -14,12 +13,13 @@ namespace ScrollWheels {
         [SerializeField] string[] elementValue;
         [SerializeField] List<GameObject> elements;
         GameObject newElement;
-        float[] distance;
         int closestElement;
+        int elementSpacing;
+        float[] rawDistance;
+        float[] absDistance;
         bool scrolling;
-
-        void Start()
-        {
+    
+        void Start() {
             CreateElement();
         }
 
@@ -34,14 +34,13 @@ namespace ScrollWheels {
                 newElement.transform.SetParent(content.transform);
                 newElement.transform.localScale = new Vector3(elementSize, elementSize, 0);
                 
-                Rigidbody2D rb = newElement.AddComponent<Rigidbody2D>();
-                rb.bodyType = RigidbodyType2D.Static;
-
                 BoxCollider2D col = newElement.AddComponent<BoxCollider2D>();
                 col.isTrigger = true;
 
                 TextMeshProUGUI text = newElement.AddComponent<TextMeshProUGUI>();
-                text.color = Color.grey;
+                text.fontSize = 28;
+                text.color = Color.black;
+                text.alpha = 0.3f;
                 text.autoSizeTextContainer = true;
                 text.alignment = TextAlignmentOptions.Center;
                 text.enableWordWrapping = false;
@@ -50,15 +49,18 @@ namespace ScrollWheels {
             for (int i = 0; i < elementValue.Length; i++) {
                 content.transform.GetChild(i).GetComponent<TextMeshProUGUI>().text = elementValue[i];
             }
-            distance = new float[elements.Count];
+            rawDistance = new float[elements.Count];
+            absDistance = rawDistance;
         }
 
         //FindClosestElement() and SnapToElement() inspiration from: Respect Studios - https://www.youtube.com/watch?v=jWbAaBEQpvE
         void FindClosestElement() {
-            var minDistance = Mathf.Min(distance);
+            var minDistance = Mathf.Min(absDistance);
             for (int i = 0; i < elements.Count; i++) {
-                distance[i] = Mathf.Abs(center.transform.position.y - elements[i].transform.position.y);
-                if (Math.Abs(minDistance - distance[i]) < 0.01f) 
+                rawDistance[i] = center.transform.position.y - elements[i].transform.position.y;
+                absDistance[i] = Mathf.Abs(rawDistance[i]);
+                
+                if (Math.Abs(minDistance - absDistance[i]) < 0.01f) 
                     closestElement = i;
             }
             SnapToElement(-elements[closestElement].GetComponent<RectTransform>().anchoredPosition.y);
@@ -72,12 +74,10 @@ namespace ScrollWheels {
 
         public void OnBeginDrag(PointerEventData eventData) {
             scrolling = true;
-            Debug.Log("a");
         }
 
         public void OnEndDrag(PointerEventData eventData) {
             scrolling = false;
-            Debug.Log("b");
         }
     }
 }

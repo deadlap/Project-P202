@@ -18,13 +18,13 @@ public class SceneManagement : MonoBehaviour {
     }
     public void ChangeToRandomEquation() {
         EquationLevel[] AllEquations =  (Resources.LoadAll<EquationLevel>("Equations/") as EquationLevel[]);
-        MathInput.equation = Instantiate(AllEquations[Random.Range(0,AllEquations.Length-1)]);
+        MathInput.Equation = Instantiate(AllEquations[Random.Range(0,AllEquations.Length-1)]);
         SceneManager.LoadScene(EquationSceneName);
     }
     public static void ChangeToEquation(Equation equation) {
         EquationLevel eq = Instantiate(Resources.Load("CompleteEquation") as EquationLevel);
         eq.ResetTo(equation);
-        MathInput.equation = Instantiate(eq);
+        MathInput.Equation = Instantiate(eq);
         SceneManager.LoadScene(EquationSceneName);
     }
     

@@ -1,12 +1,10 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ScaleCombine : MonoBehaviour {
-    [SerializeField] ScaleMath left;
-    [SerializeField] ScaleMath right;
+    [SerializeField] ScaleMath leftValueOfTerm;
+    [SerializeField] ScaleMath rightValueOfTerm;
     [SerializeField] GameObject pole;
     [SerializeField] GameObject finishButton;
     [SerializeField] float rotationMax;
@@ -19,8 +17,7 @@ public class ScaleCombine : MonoBehaviour {
     }
 
     void Update(){
-        float rotationOffset = 0;
-        if(left.CalculateSum(out double leftSum) && right.CalculateSum(out double rightSum)) {
+        if(leftValueOfTerm.CalculateSum(out double leftSum) && rightValueOfTerm.CalculateSum(out double rightSum)) {
             finishButton.SetActive(leftSum == rightSum);
 
             switch (leftSum, rightSum) {
@@ -46,7 +43,6 @@ public class ScaleCombine : MonoBehaviour {
             if (leftSum < 0 || rightSum < 0) {
                 targetRotation = -targetRotation;
             }
-            
             targetRotation = (targetRotation > rotationMax ? rotationMax : targetRotation);
             targetRotation = (targetRotation < -rotationMax ? -rotationMax : targetRotation);
         } else {
@@ -62,7 +58,7 @@ public class ScaleCombine : MonoBehaviour {
                 currentRotation -= rotationPerSecond*Time.deltaTime;
             }
         }
-        rotationOffset = -currentRotation;
+        var rotationOffset = -currentRotation;
         pole.transform.eulerAngles = new Vector3(
             0,
             0,
@@ -78,8 +74,8 @@ public class ScaleCombine : MonoBehaviour {
     }
 
     public void CreateEquation(){
-        left.returnTerms(out double _leftXTerm, out double leftTerm);
-        right.returnTerms(out double _rightXTerm, out double rightTerm);
+        leftValueOfTerm.returnTerms(out double _leftXTerm, out double leftTerm);
+        rightValueOfTerm.returnTerms(out double _rightXTerm, out double rightTerm);
         Equation equation = new Equation(_leftXTerm, leftTerm, _rightXTerm, rightTerm);
         SceneManagement.ChangeToEquation(equation);
     }
