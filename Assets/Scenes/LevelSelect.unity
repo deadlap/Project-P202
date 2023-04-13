@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &24500010 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9080435795196603446, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
+  m_PrefabInstance: {fileID: 9080435793748602376}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &744051917
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -217,14 +222,6 @@ PrefabInstance:
     - target: {fileID: 9080435794401569033, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.035
-      objectReference: {fileID: 0}
-    - target: {fileID: 9080435794401569037, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
-      propertyPath: level
-      value: 
-      objectReference: {fileID: 11400000, guid: ae65a7aac355aa046b35b25e0a9fe97d, type: 2}
-    - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
-      propertyPath: m_text
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
@@ -698,6 +695,18 @@ PrefabInstance:
     - target: {fileID: 9080435794401569033, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.035
+      objectReference: {fileID: 0}
+    - target: {fileID: 9080435794401569037, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
+      propertyPath: level
+      value: 
+      objectReference: {fileID: 11400000, guid: ffcf78677f78f7145b8f8a4dbed70296, type: 2}
+    - target: {fileID: 9080435794401569037, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
+      propertyPath: playLevelButton
+      value: 
+      objectReference: {fileID: 24500010}
+    - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
+      propertyPath: m_text
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}

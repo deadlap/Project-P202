@@ -17,6 +17,7 @@ public class LevelManager : MonoBehaviour {
             mathInput.SetActiveEquation();
         } else {
             numberGenerator.numberInItem = ActiveLevel.numbersForScale;
+            ValueOfX.xValue = ActiveLevel.xValue.ToString();
         }
         
     }

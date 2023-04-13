@@ -30,11 +30,11 @@ public class SceneManagement : MonoBehaviour {
     
     public static void GoToLevel(Level level) {
         LevelManager.SetActiveLevel(level);
-        if (level.numbersForScale.Count != 0) {
-            SceneManager.LoadScene(ScaleSceneName);
-        } else {
+        if (level.equation) {
             MathInput.Equation = level.equation;
             SceneManager.LoadScene(EquationSceneName);
+        } else {
+            SceneManager.LoadScene(ScaleSceneName);
         }
     }
 }

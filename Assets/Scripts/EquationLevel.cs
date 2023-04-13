@@ -8,18 +8,31 @@ using System.Text.RegularExpressions;
 public class EquationLevel : ScriptableObject {
     
     [SerializeField] Equation equation;
-    [SerializeField] string[] eqToDisplay;
-    [SerializeField] public int[] stepsPerStar;
+    [SerializeField] string[] eqToDisplay = new string[2];
+    [SerializeField] public List<int> stepsPerStar;
     [SerializeField] public EquationLevel previous {get; private set;}
     
     [SerializeField] public int steps {get; private set;}
 
     void Awake() {
-        ConvertToText();
+        if (equation != null && stepsPerStar.Count != 0)
+            ConvertToText();
+    }
+
+    void Init(Equation _equation, List<int> _stepsPerStar){
+        equation = _equation;
+        stepsPerStar = _stepsPerStar;
+    }
+
+    public static EquationLevel CreateEquationLevel(Equation equation, List<int> stepsPerStar){
+        var equationLevel = ScriptableObject.CreateInstance<EquationLevel>();
+        equationLevel.Init(equation, stepsPerStar);
+        return equationLevel;
     }
 
     public void ResetTo(Equation _equation){
         previous = null;
+        steps = 0;
         equation = _equation;
     }
     
@@ -48,13 +61,13 @@ public class EquationLevel : ScriptableObject {
 
     public bool Solution(out double _solution){
         _solution = 0;
-        switch (equation.leftXTerm, equation.rightXTerm){
-            case (>0, 0):
+        switch ((equation.leftXTerm, equation.rightXTerm)){
+            case (1, 0):
                 if (equation.leftTerm != 0)
                     return false;
                 _solution = equation.rightTerm;
                 return true;
-            case (0, >0):
+            case (0, 1):
                 if (equation.rightTerm != 0)
                     return false;
                 _solution = equation.leftTerm;

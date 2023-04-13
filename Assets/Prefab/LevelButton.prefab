@@ -280,7 +280,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9080435794401569032}
-  m_LocalRotation: {x: 0.017452223, y: -0.017454883, z: -1.45519135e-11, w: 0.9996953}
+  m_LocalRotation: {x: 0.01745512, y: -0.017453074, z: -0.000000579108, w: 0.9996953}
   m_LocalPosition: {x: 0, y: 0, z: 0.9295}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -347,12 +347,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67165f6bdc8988e419a968a112dadb8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: {fileID: 11400000, guid: ffcf78677f78f7145b8f8a4dbed70296, type: 2}
+  level: {fileID: 11400000, guid: ae65a7aac355aa046b35b25e0a9fe97d, type: 2}
   stars:
   - {fileID: 9080435794442658222}
   - {fileID: 9080435793867177660}
   - {fileID: 9080435794123690598}
-  playLevelButton: {fileID: 9080435794442658222}
+  playLevelButton: {fileID: 9080435794239146722}
 --- !u!1 &9080435794442658222
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,7 +630,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

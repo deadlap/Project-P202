@@ -18,6 +18,6 @@ MonoBehaviour:
     rightXTerm: 1
     rightTerm: 3
   eqToDisplay:
-  - 0
-  - 0
-  stepsPerStar: 03000000050000000a000000
+  - 2x-4
+  - x+3
+  stepsPerStar: 0400000008000000

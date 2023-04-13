@@ -77,6 +77,7 @@ public class ScaleCombine : MonoBehaviour {
         leftValueOfTerm.returnTerms(out double _leftXTerm, out double leftTerm);
         rightValueOfTerm.returnTerms(out double _rightXTerm, out double rightTerm);
         Equation equation = new Equation(_leftXTerm, leftTerm, _rightXTerm, rightTerm);
-        SceneManagement.ChangeToEquation(equation);
+        LevelManager.ActiveLevel.SetEquation(equation);
+        SceneManagement.GoToLevel(LevelManager.ActiveLevel);
     }
 }
