@@ -99,7 +99,7 @@ public class EquationLevel : ScriptableObject {
                 }
                 break;
             case "*":
-            case "/":
+            case "÷":
                 ApplyToEachTerm(operation, input);
                 break;
         }
@@ -113,7 +113,7 @@ public class EquationLevel : ScriptableObject {
                 equation.leftTerm *= input;
                 equation.rightTerm *= input;
                 break;
-            case "/":
+            case "÷":
                 equation.leftXTerm /= input;
                 equation.rightXTerm /= input;
                 equation.leftTerm /= input;
