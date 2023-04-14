@@ -178,6 +178,8 @@ public class EquationLevel : ScriptableObject {
             ApplyXToEachTerm(split);
             if (term == 1) {
                 output = "x";
+            } else if (term == -1) {
+                output = "-x";
             } else if (term != 0 && split.Count == 0)
                 output += "x";
         }

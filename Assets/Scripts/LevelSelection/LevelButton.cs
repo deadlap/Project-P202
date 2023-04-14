@@ -9,6 +9,7 @@ public class LevelButton : MonoBehaviour
     public GameObject playLevelButton;
 
     void Start() {
+        Debug.Log(this.name + level.equation);
         if (level.equation == null)
             return;
         for (int i = 0; i < stars.Count; i++) {

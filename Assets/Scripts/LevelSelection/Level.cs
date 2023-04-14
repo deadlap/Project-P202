@@ -15,7 +15,7 @@ public class Level : ScriptableObject {
     [SerializeField] public static List<int> DefaultStepsPerStar = new List<int>() {4,8};
 
     void OnEnable() {
-        if (numbersForScale.Count == 0) {
+        if (equation == null && numbersForScale.Count == 0) {
             equation = Instantiate(Resources.Load("Equations/"+equationToLoad) as EquationLevel);
         }
     }
