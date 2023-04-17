@@ -19,6 +19,9 @@ public class LevelButton : MonoBehaviour
     }
 
     public void SendToLevel(){
+        if (level.CalculateScore() > 0) {
+            level.equation.Reset();
+        }
         SceneManagement.GoToLevel(level);
     }
 }

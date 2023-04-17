@@ -5,7 +5,7 @@ using System;
 public class MathInput : MonoBehaviour
 {
     public static EquationLevel Equation;
-    [SerializeField] GameObject equationSolvedScreen;
+    [SerializeField] SolvedScreen equationSolvedScreen;
     [SerializeField] EquationDisplay display;
     [SerializeField] FindElement[] input;
     [SerializeField] Animator animator;
@@ -43,10 +43,8 @@ public class MathInput : MonoBehaviour
         }
     }
 
-    public void Send()
-    {
-        if (ViableOutput())
-        {
+    public void Send(){
+        if (ViableOutput()) {
             audioSource.PlayOneShot(audioClip[1]);
             display.Apply(output);
         }
@@ -57,7 +55,8 @@ public class MathInput : MonoBehaviour
     }
 
     void EquationSolved() {
-        equationSolvedScreen.SetActive(true);
+        Equation.Solution(out double valueOfX);
+        equationSolvedScreen.ActiveScreen(Equation.CalculateScore(),valueOfX);
         audioSource.PlayOneShot(audioClip[2]);
         audioSource.PlayOneShot(audioClip[3]);
     }

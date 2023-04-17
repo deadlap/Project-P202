@@ -59,6 +59,21 @@ public class EquationLevel : ScriptableObject {
         steps = _eqToCopy.steps;
     }
 
+    public int CalculateScore(){
+        if (!Solution(out _))
+            return 0;
+        switch(steps) {
+            case var _ when steps>stepsPerStar[1]:
+                return 1;
+            case var _ when steps>stepsPerStar[0]:
+                return 2;
+            case var _ when steps>0:
+                return 3;
+            default:
+                return 0;
+        }
+    }
+
     public bool Solution(out double _solution){
         _solution = 0;
         switch ((equation.leftXTerm, equation.rightXTerm)){
