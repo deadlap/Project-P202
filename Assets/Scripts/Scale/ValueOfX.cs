@@ -5,7 +5,7 @@ public class ValueOfX : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI xLeftText;
     [SerializeField] TextMeshProUGUI xRightText;
-    [SerializeField] public static string xValue;
+    public static string xValue;
     void Awake() {
         if (xValue == "") {
             int newXValue = Random.Range(1, 9);

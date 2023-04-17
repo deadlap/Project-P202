@@ -16,7 +16,6 @@ public class Level : ScriptableObject {
 
     void OnEnable() {
         if (equation == null && numbersForScale.Count == 0) {
-            Debug.Log("test");
             equation = Instantiate(equationToLoad);
         }
     }
