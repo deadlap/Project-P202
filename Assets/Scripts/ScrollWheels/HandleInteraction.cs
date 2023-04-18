@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 
 public class HandleInteraction : MonoBehaviour, IDragHandler, IEndDragHandler {
     [SerializeField] bool isLeftHandle;
-    [SerializeField] int dragStabilizer = 10;
+    [SerializeField] int dragStabilizer = 5;
     [SerializeField] float returnSpeed = 200f;
     [SerializeField] int maxRotation = 60;
     [SerializeField] int minRotation = 0;
@@ -50,13 +50,14 @@ public class HandleInteraction : MonoBehaviour, IDragHandler, IEndDragHandler {
     
     void RightHandle(PointerEventData eventData) {
         if (isLeftHandle) return;
-        if (eventData.delta.y < 0)
+        //The handle can be dragged 'up' and 'down'.
+        if (eventData.delta is { x: > 0, y: < 0 }) //Merged pattern of x and y values of eventData.delta.
             mousePos = -eventData.delta.magnitude / dragStabilizer;
-        if (eventData.delta.y > 0)
+        if (eventData.delta is {x: < 0, y: > 0})
             mousePos = eventData.delta.magnitude / dragStabilizer;
 
         handle.Rotate(0,0,mousePos);
-        
+        //Stops the handle from going over or under its max and min rotation. 
         if (handle.rotation.z < Quaternion.Euler(0,0,-maxRotation).z)
             handle.rotation = Quaternion.Euler(0, 0, -maxRotation);
         if (handle.rotation.z > Quaternion.Euler(0,0,minRotation).z)
@@ -65,10 +66,10 @@ public class HandleInteraction : MonoBehaviour, IDragHandler, IEndDragHandler {
     
     void LeftHandle(PointerEventData eventData) {
         if (!isLeftHandle) return;
-        if (eventData.delta.y > 0)
-            mousePos = -eventData.delta.magnitude / dragStabilizer;
-        if (eventData.delta.y < 0)
+        if (eventData.delta is {x: < 0, y: < 0 })
             mousePos = eventData.delta.magnitude / dragStabilizer;
+        if (eventData.delta is {x: > 0, y: > 0})
+            mousePos = -eventData.delta.magnitude / dragStabilizer;
 
         handle.Rotate(0,0,mousePos);
         
