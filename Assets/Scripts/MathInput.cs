@@ -8,7 +8,7 @@ public class MathInput : MonoBehaviour
     [SerializeField] SolvedScreen equationSolvedScreen;
     [SerializeField] EquationDisplay display;
     [SerializeField] FindElement[] input;
-    [SerializeField] Animator animator;
+    [SerializeField] Animator errorAnimator;
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip[] audioClip;
     string[] output;
@@ -62,11 +62,11 @@ public class MathInput : MonoBehaviour
     }
     public bool ViableOutput(){
         if (output[2].Contains("x")  && !(output[0].Contains('+') || output[0].Contains('-'))) {
-            animator.Play("ErrorOnSign");
+            errorAnimator.Play("ErrorOnSign");
             audioSource.PlayOneShot(audioClip[0]);
             return false;
         } if (String.Join("", output).Length == 1) {
-            animator.SetTrigger("ErrorOnValues");
+            errorAnimator.SetTrigger("ErrorOnValues");
             audioSource.PlayOneShot(audioClip[0]);
             return false;
         }
