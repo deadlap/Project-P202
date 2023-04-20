@@ -25,4 +25,7 @@ public class LevelManager : MonoBehaviour {
     public static void SetActiveLevel(Level _level) {
         ActiveLevel = _level;
     }
+    public static void RemoveActiveLevel() {
+        ActiveLevel = null;
+    }
 }

@@ -10,6 +10,11 @@ public class SceneManagement : MonoBehaviour {
     public static void StaticChangeScene(string scene) {
         SceneManager.LoadScene(scene);
     }
+
+    public static void GoToCOOP(){
+        LevelManager.RemoveActiveLevel();
+        SceneManager.LoadScene(ScaleSceneName);
+    }
     public void ChangeScene(string scene) {
         SceneManager.LoadScene(scene);
     }
