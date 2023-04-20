@@ -511,7 +511,7 @@ ScriptedImporter:
     parentGroupIndex: -1
     uvTransform: {x: 1226, y: 7764}
     spritePosition: {x: 1001, y: 702}
-  - name: Tubeline
+  - name: Tubeline To Fill
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -522,7 +522,7 @@ ScriptedImporter:
       y: 2705
       width: 796
       height: 22
-    spriteID: ca6111fc4803d9742bb12a367dfa9f16
+    spriteID: b9723aad0d23ef94e951fc6e4b6b5d1e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -544,7 +544,7 @@ ScriptedImporter:
       y: 2735
       width: 796
       height: 22
-    spriteID: ae4adeadfd1b77b44b0826fa501974e6
+    spriteID: ca6111fc4803d9742bb12a367dfa9f16
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -554,6 +554,28 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 3212, y: 2735}
+    spritePosition: {x: 1201, y: 791}
+  - name: Tubeline
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3212
+      y: 2765
+      width: 796
+      height: 22
+    spriteID: ae4adeadfd1b77b44b0826fa501974e6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 3212, y: 2765}
     spritePosition: {x: 1201, y: 455}
   - name: HeaderLine
     originalName: 
@@ -2352,13 +2374,23 @@ ScriptedImporter:
     flatten: 0
     isImported: 0
     isVisible: 0
+  - name: Tubeline To Fill
+    spriteName: Tubeline To Fill
+    isGroup: 0
+    parentIndex: 27
+    spriteID: b9723aad0d23ef94e951fc6e4b6b5d1e
+    layerID: 793
+    mosaicPosition: {x: 3212, y: 2705}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   - name: Tubeline
     spriteName: Tubeline
     isGroup: 0
     parentIndex: 27
     spriteID: ca6111fc4803d9742bb12a367dfa9f16
     layerID: 538
-    mosaicPosition: {x: 3212, y: 2705}
+    mosaicPosition: {x: 3212, y: 2735}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -2368,7 +2400,7 @@ ScriptedImporter:
     parentIndex: 27
     spriteID: ae4adeadfd1b77b44b0826fa501974e6
     layerID: 537
-    mosaicPosition: {x: 3212, y: 2735}
+    mosaicPosition: {x: 3212, y: 2765}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -2405,7 +2437,7 @@ ScriptedImporter:
   - name: x
     spriteName: 
     isGroup: 0
-    parentIndex: 129
+    parentIndex: 130
     spriteID: ded77312ce74a4248aa2bef21cb188dc
     layerID: 533
     mosaicPosition: {x: 0, y: 0}
@@ -2415,7 +2447,7 @@ ScriptedImporter:
   - name: CloseButton
     spriteName: CloseButton
     isGroup: 0
-    parentIndex: 129
+    parentIndex: 130
     spriteID: 5c780082dd7f9f5439d15536d9daf647
     layerID: 751
     mosaicPosition: {x: 3958, y: 1072}
@@ -2425,7 +2457,7 @@ ScriptedImporter:
   - name: CloseButtonBorder
     spriteName: CloseButtonBorder
     isGroup: 0
-    parentIndex: 129
+    parentIndex: 130
     spriteID: 99708dcb9c54e2b4fb797765400a629b
     layerID: 752
     mosaicPosition: {x: 1638, y: 7764}
@@ -2455,7 +2487,7 @@ ScriptedImporter:
   - name: StarGroup1
     spriteName: 
     isGroup: 1
-    parentIndex: 134
+    parentIndex: 135
     spriteID: 80923950a44100c45a92451e86ace30b
     layerID: 326
     mosaicPosition: {x: 0, y: 0}
@@ -2465,7 +2497,7 @@ ScriptedImporter:
   - name: Star1Border
     spriteName: Star1Border
     isGroup: 0
-    parentIndex: 135
+    parentIndex: 136
     spriteID: 35b80e1a3a1bc4e45a485152a018317e
     layerID: 325
     mosaicPosition: {x: 3770, y: 1072}
@@ -2475,7 +2507,7 @@ ScriptedImporter:
   - name: Star
     spriteName: Star
     isGroup: 0
-    parentIndex: 135
+    parentIndex: 136
     spriteID: 9e895bccd72ca3a4fbea002b0afa0929
     layerID: 757
     mosaicPosition: {x: 3400, y: 2520}
@@ -2485,7 +2517,7 @@ ScriptedImporter:
   - name: Star1Background
     spriteName: Star1Background
     isGroup: 0
-    parentIndex: 135
+    parentIndex: 136
     spriteID: 88246097e1a3bac46ada659b8b5bc909
     layerID: 320
     mosaicPosition: {x: 3578, y: 2520}
@@ -2495,7 +2527,7 @@ ScriptedImporter:
   - name: Star2Border
     spriteName: Star2Border
     isGroup: 0
-    parentIndex: 135
+    parentIndex: 136
     spriteID: ee3134c112a755045a8aca800125da87
     layerID: 323
     mosaicPosition: {x: 1012, y: 7764}
@@ -2505,7 +2537,7 @@ ScriptedImporter:
   - name: Star2
     spriteName: Star2
     isGroup: 0
-    parentIndex: 135
+    parentIndex: 136
     spriteID: 48baefd08dbb5234785a4000c471e309
     layerID: 758
     mosaicPosition: {x: 1434, y: 7764}
@@ -2515,7 +2547,7 @@ ScriptedImporter:
   - name: Star2Background
     spriteName: Star2Background
     isGroup: 0
-    parentIndex: 135
+    parentIndex: 136
     spriteID: 7aa31d17dfdd9184e8aa87489123a5f9
     layerID: 318
     mosaicPosition: {x: 3212, y: 1072}
@@ -2525,7 +2557,7 @@ ScriptedImporter:
   - name: Star3Border
     spriteName: Star3Border
     isGroup: 0
-    parentIndex: 135
+    parentIndex: 136
     spriteID: 498c909c748a27044a84480efb528904
     layerID: 322
     mosaicPosition: {x: 3212, y: 2520}
@@ -2535,7 +2567,7 @@ ScriptedImporter:
   - name: Star3
     spriteName: Star3
     isGroup: 0
-    parentIndex: 135
+    parentIndex: 136
     spriteID: 144f61b1bd011174dba26b8e38dcc5c2
     layerID: 759
     mosaicPosition: {x: 3756, y: 2520}
@@ -2545,7 +2577,7 @@ ScriptedImporter:
   - name: Star3Background
     spriteName: Star3Background
     isGroup: 0
-    parentIndex: 135
+    parentIndex: 136
     spriteID: 5560924f66409a9449c342b2d35ef42a
     layerID: 319
     mosaicPosition: {x: 3212, y: 1273}
@@ -2555,7 +2587,7 @@ ScriptedImporter:
   - name: Text
     spriteName: 
     isGroup: 1
-    parentIndex: 134
+    parentIndex: 135
     spriteID: edaae2c113fed28409b240645b7cd95d
     layerID: 705
     mosaicPosition: {x: 0, y: 0}
@@ -2565,7 +2597,7 @@ ScriptedImporter:
   - name: "Bane Fuldf\xF8rt"
     spriteName: 
     isGroup: 0
-    parentIndex: 145
+    parentIndex: 146
     spriteID: 5a84ba22f6138624895b2af14e392e84
     layerID: 215
     mosaicPosition: {x: 0, y: 0}
@@ -2575,7 +2607,7 @@ ScriptedImporter:
   - name: Genstart Bane
     spriteName: 
     isGroup: 0
-    parentIndex: 145
+    parentIndex: 146
     spriteID: d516cb11f67acba43a78ca24ade440f2
     layerID: 703
     mosaicPosition: {x: 0, y: 0}
@@ -2585,7 +2617,7 @@ ScriptedImporter:
   - name: "V\xE6lg Bane"
     spriteName: 
     isGroup: 0
-    parentIndex: 145
+    parentIndex: 146
     spriteID: 3b64b40b0e757604197d1366e1ddd461
     layerID: 659
     mosaicPosition: {x: 0, y: 0}
@@ -2595,7 +2627,7 @@ ScriptedImporter:
   - name: Hovedmenu
     spriteName: 
     isGroup: 0
-    parentIndex: 145
+    parentIndex: 146
     spriteID: fb5e604b5ba895f41b4f2f07aa657a3e
     layerID: 658
     mosaicPosition: {x: 0, y: 0}
@@ -2605,7 +2637,7 @@ ScriptedImporter:
   - name: 3
     spriteName: 
     isGroup: 0
-    parentIndex: 145
+    parentIndex: 146
     spriteID: 1df9a230b3420a54f95899777abcd004
     layerID: 660
     mosaicPosition: {x: 0, y: 0}
@@ -2615,7 +2647,7 @@ ScriptedImporter:
   - name: "Du er seri\xF8st bare  den bedste, Nikolaj!"
     spriteName: 
     isGroup: 0
-    parentIndex: 145
+    parentIndex: 146
     spriteID: 0368ac07232b65042bd1edc3138cf12e
     layerID: 697
     mosaicPosition: {x: 0, y: 0}
@@ -2625,7 +2657,7 @@ ScriptedImporter:
   - name: "Antal Tr\xE6k"
     spriteName: 
     isGroup: 0
-    parentIndex: 145
+    parentIndex: 146
     spriteID: 0ac6aa8031a146a4eb8efaa6ff679d4d
     layerID: 652
     mosaicPosition: {x: 0, y: 0}
@@ -2635,7 +2667,7 @@ ScriptedImporter:
   - name: Banner
     spriteName: Banner
     isGroup: 0
-    parentIndex: 134
+    parentIndex: 135
     spriteID: 4f1ce102e56825c4f861a78e765ddc44
     layerID: 701
     mosaicPosition: {x: 2698, y: 2900}
@@ -2645,7 +2677,7 @@ ScriptedImporter:
   - name: "Antal Tr\xE6k Baggrund"
     spriteName: "Antal Tr\xE6k Baggrund"
     isGroup: 0
-    parentIndex: 134
+    parentIndex: 135
     spriteID: 3b3304ee35a087547b2d6e824a957c56
     layerID: 704
     mosaicPosition: {x: 3416, y: 1072}
@@ -2655,7 +2687,7 @@ ScriptedImporter:
   - name: Knap
     spriteName: 
     isGroup: 0
-    parentIndex: 134
+    parentIndex: 135
     spriteID: abd5b9e4b061d5a48a8b36f6c32cc267
     layerID: 702
     mosaicPosition: {x: 0, y: 0}
@@ -2665,7 +2697,7 @@ ScriptedImporter:
   - name: Knap
     spriteName: 
     isGroup: 0
-    parentIndex: 134
+    parentIndex: 135
     spriteID: f3ff2975f1caf0e4e8f3bc007ddb9cc1
     layerID: 656
     mosaicPosition: {x: 0, y: 0}
@@ -2675,7 +2707,7 @@ ScriptedImporter:
   - name: Knap
     spriteName: 
     isGroup: 0
-    parentIndex: 134
+    parentIndex: 135
     spriteID: 297468be645bec44eaf85cf87bac8a85
     layerID: 655
     mosaicPosition: {x: 0, y: 0}
@@ -2685,7 +2717,7 @@ ScriptedImporter:
   - name: Frame
     spriteName: Frame
     isGroup: 0
-    parentIndex: 134
+    parentIndex: 135
     spriteID: cc76d3f9496f0cc438283199ff0edb00
     layerID: 223
     mosaicPosition: {x: 4, y: 4200}
@@ -2695,7 +2727,7 @@ ScriptedImporter:
   - name: Frame
     spriteName: Frame
     isGroup: 0
-    parentIndex: 134
+    parentIndex: 135
     spriteID: 63f653db111342447972eedb899469e1
     layerID: 707
     mosaicPosition: {x: 4, y: 6568}
@@ -2715,7 +2747,7 @@ ScriptedImporter:
   - name: Text
     spriteName: 
     isGroup: 1
-    parentIndex: 160
+    parentIndex: 161
     spriteID: 3d38ac22eb93d4047978d148769879cb
     layerID: 189
     mosaicPosition: {x: 0, y: 0}
@@ -2725,7 +2757,7 @@ ScriptedImporter:
   - name: x
     spriteName: 
     isGroup: 0
-    parentIndex: 161
+    parentIndex: 162
     spriteID: 59ca1d37e6feb2f45b47c2ef4ac842c4
     layerID: 197
     mosaicPosition: {x: 0, y: 0}
@@ -2735,7 +2767,7 @@ ScriptedImporter:
   - name: Hovedmenu
     spriteName: 
     isGroup: 0
-    parentIndex: 161
+    parentIndex: 162
     spriteID: bbcd687bef3ff6e469ca5ba52b534ab7
     layerID: 185
     mosaicPosition: {x: 0, y: 0}
@@ -2745,7 +2777,7 @@ ScriptedImporter:
   - name: Genstart Bane
     spriteName: 
     isGroup: 0
-    parentIndex: 161
+    parentIndex: 162
     spriteID: aa60f13e1fbed0244a68be287f04ac48
     layerID: 182
     mosaicPosition: {x: 0, y: 0}
@@ -2755,7 +2787,7 @@ ScriptedImporter:
   - name: Musik
     spriteName: 
     isGroup: 0
-    parentIndex: 161
+    parentIndex: 162
     spriteID: 50123220f88289249980ab0fc0ff9850
     layerID: 181
     mosaicPosition: {x: 0, y: 0}
@@ -2765,7 +2797,7 @@ ScriptedImporter:
   - name: Indstillinger
     spriteName: 
     isGroup: 0
-    parentIndex: 161
+    parentIndex: 162
     spriteID: 237e274aad80f6847a424a9317717c61
     layerID: 180
     mosaicPosition: {x: 0, y: 0}
@@ -2775,7 +2807,7 @@ ScriptedImporter:
   - name: "V\xE6lg Bane"
     spriteName: 
     isGroup: 0
-    parentIndex: 161
+    parentIndex: 162
     spriteID: 3314149e66e21af41a18e0d39a3d7ef8
     layerID: 184
     mosaicPosition: {x: 0, y: 0}
@@ -2785,7 +2817,7 @@ ScriptedImporter:
   - name: MusicSlider
     spriteName: 
     isGroup: 0
-    parentIndex: 160
+    parentIndex: 161
     spriteID: 91145e30f7f1a144ebe01d402364443a
     layerID: 431
     mosaicPosition: {x: 0, y: 0}
@@ -2795,7 +2827,7 @@ ScriptedImporter:
   - name: Knap
     spriteName: 
     isGroup: 0
-    parentIndex: 160
+    parentIndex: 161
     spriteID: 154a388c6f842f741a173f32aad02349
     layerID: 430
     mosaicPosition: {x: 0, y: 0}
@@ -2805,7 +2837,7 @@ ScriptedImporter:
   - name: Knap
     spriteName: 
     isGroup: 0
-    parentIndex: 160
+    parentIndex: 161
     spriteID: 17c073b21e41ac649aad9bbe6a89dc43
     layerID: 429
     mosaicPosition: {x: 0, y: 0}
@@ -2815,7 +2847,7 @@ ScriptedImporter:
   - name: Knap
     spriteName: 
     isGroup: 0
-    parentIndex: 160
+    parentIndex: 161
     spriteID: 080051f141b8b144ca67f804189e5ec7
     layerID: 178
     mosaicPosition: {x: 0, y: 0}
@@ -2825,7 +2857,7 @@ ScriptedImporter:
   - name: Bar
     spriteName: 
     isGroup: 0
-    parentIndex: 160
+    parentIndex: 161
     spriteID: 12365b8b60cc48548b717e1aace46ee0
     layerID: 202
     mosaicPosition: {x: 0, y: 0}
@@ -2835,7 +2867,7 @@ ScriptedImporter:
   - name: Bar
     spriteName: 
     isGroup: 0
-    parentIndex: 160
+    parentIndex: 161
     spriteID: a76cc1bb46841dd4e9e575c48db91d07
     layerID: 203
     mosaicPosition: {x: 0, y: 0}
@@ -2845,7 +2877,7 @@ ScriptedImporter:
   - name: Bar
     spriteName: 
     isGroup: 0
-    parentIndex: 160
+    parentIndex: 161
     spriteID: 79286b39c8a82474b9bce2f27f6c863a
     layerID: 201
     mosaicPosition: {x: 0, y: 0}
@@ -2855,7 +2887,7 @@ ScriptedImporter:
   - name: Bar
     spriteName: 
     isGroup: 0
-    parentIndex: 160
+    parentIndex: 161
     spriteID: 78ff1a560689fa241b09d72fe0664908
     layerID: 200
     mosaicPosition: {x: 0, y: 0}
@@ -2865,7 +2897,7 @@ ScriptedImporter:
   - name: Bar
     spriteName: 
     isGroup: 0
-    parentIndex: 160
+    parentIndex: 161
     spriteID: dd5dba3e528940046ae51554437feb2b
     layerID: 199
     mosaicPosition: {x: 0, y: 0}
@@ -2875,7 +2907,7 @@ ScriptedImporter:
   - name: Bar
     spriteName: 
     isGroup: 0
-    parentIndex: 160
+    parentIndex: 161
     spriteID: feba8fa157e86ee4c8cd957159463b87
     layerID: 188
     mosaicPosition: {x: 0, y: 0}
@@ -2885,7 +2917,7 @@ ScriptedImporter:
   - name: Frame
     spriteName: Frame
     isGroup: 0
-    parentIndex: 160
+    parentIndex: 161
     spriteID: e1207d2ef684bf64b8026bc82b4f1d9c
     layerID: 166
     mosaicPosition: {x: 1738, y: 4200}
@@ -2895,7 +2927,7 @@ ScriptedImporter:
   - name: CloseButton
     spriteName: 
     isGroup: 0
-    parentIndex: 160
+    parentIndex: 161
     spriteID: 523e2bd3d1f933342a7b89e81f8e72d3
     layerID: 709
     mosaicPosition: {x: 0, y: 0}
@@ -2905,7 +2937,7 @@ ScriptedImporter:
   - name: CloseButtonBorder
     spriteName: 
     isGroup: 0
-    parentIndex: 160
+    parentIndex: 161
     spriteID: bfccf78147419c048ad250ef10b45fe8
     layerID: 195
     mosaicPosition: {x: 0, y: 0}
@@ -2915,7 +2947,7 @@ ScriptedImporter:
   - name: Frame
     spriteName: Frame
     isGroup: 0
-    parentIndex: 160
+    parentIndex: 161
     spriteID: 8e03f4dd252712349ab404be4e7779c0
     layerID: 708
     mosaicPosition: {x: 3212, y: 1452}
@@ -2925,7 +2957,7 @@ ScriptedImporter:
   - name: Menu Background
     spriteName: Menu Background
     isGroup: 0
-    parentIndex: 160
+    parentIndex: 161
     spriteID: 9dd129dfcf712934c948bf3db9bd16b5
     layerID: 205
     mosaicPosition: {x: 4, y: 4}

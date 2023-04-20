@@ -4,7 +4,10 @@ using System;
 
 public class MathInput : MonoBehaviour
 {
+    bool rightHandlePulled;
     public static EquationLevel Equation;
+    [SerializeField] GameObject bulgeR;
+    [SerializeField] GameObject bulgeL;
     [SerializeField] SolvedScreen equationSolvedScreen;
     [SerializeField] EquationDisplay display;
     [SerializeField] FindElement[] input;
@@ -18,8 +21,13 @@ public class MathInput : MonoBehaviour
         HandleEvents.RightHandlePulled += RightHandlePulled;
     }
 
-    void RightHandlePulled() {
-        Send();
+    void RightHandlePulled()
+    {
+        if(rightHandlePulled) return;
+        rightHandlePulled = true;
+        bulgeL.SetActive(true);
+        bulgeR.SetActive(true);
+        Invoke(nameof(Send), 2.5f);
     }
 
     void LeftHandlePulled() {
@@ -44,6 +52,7 @@ public class MathInput : MonoBehaviour
     }
 
     public void Send(){
+        rightHandlePulled = false;
         if (ViableOutput()) {
             audioSource.PlayOneShot(audioClip[1]);
             display.Apply(output);
