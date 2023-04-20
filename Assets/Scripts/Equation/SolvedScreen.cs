@@ -12,7 +12,7 @@ public class SolvedScreen : MonoBehaviour {
     public void ActiveScreen(int score, double valueOfX){
         equationSolvedScreen.SetActive(true);
         scoreText.text = score.ToString();
-        xValueText.text = valueOfX.ToString();
+        xValueText.text = "x = " + valueOfX;
         for (int i = 0; i < stars.Count; i++) {
             if (i+1>score)
                 return;
