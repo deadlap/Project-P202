@@ -823,7 +823,7 @@ PrefabInstance:
     - target: {fileID: 9080435794401569037, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: level
       value: 
-      objectReference: {fileID: 11400000, guid: ffcf78677f78f7145b8f8a4dbed70296, type: 2}
+      objectReference: {fileID: 11400000, guid: ae65a7aac355aa046b35b25e0a9fe97d, type: 2}
     - target: {fileID: 9080435794401569037, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: playLevelButton
       value: 
@@ -1664,7 +1664,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1535076573}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 816759554}
+        m_TargetAssemblyTypeName: SceneManagement, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MainMenu
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1535076573
 MonoBehaviour:
   m_ObjectHideFlags: 0
