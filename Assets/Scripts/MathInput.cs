@@ -23,11 +23,11 @@ public class MathInput : MonoBehaviour
 
     void RightHandlePulled()
     {
-        if(rightHandlePulled) return;
+        if (rightHandlePulled) return;
         rightHandlePulled = true;
         bulgeL.SetActive(true);
         bulgeR.SetActive(true);
-        Invoke(nameof(Send), 2.5f);
+        Invoke(nameof(Send), 1.5f);
     }
 
     void LeftHandlePulled() {
@@ -52,12 +52,11 @@ public class MathInput : MonoBehaviour
     }
 
     public void Send(){
-        rightHandlePulled = false;
         if (ViableOutput()) {
             audioSource.PlayOneShot(audioClip[1]);
             display.Apply(output);
         }
-
+        rightHandlePulled = false;
         if (Equation.Solution(out _)) {
             Invoke(nameof(EquationSolved), 1f);
         }
