@@ -51,9 +51,9 @@ public class HandleInteraction : MonoBehaviour, IDragHandler, IEndDragHandler {
     void RightHandle(PointerEventData eventData) {
         if (isLeftHandle) return;
         //The handle can be dragged 'up' and 'down'.
-        if (eventData.delta is { x: > 0, y: < 0 }) //Merged pattern of x and y values of eventData.delta.
+        if (eventData.delta is {y: < 0 }) //Merged pattern of x and y values of eventData.delta.
             mousePos = -eventData.delta.magnitude / dragStabilizer;
-        if (eventData.delta is {x: < 0, y: > 0})
+        if (eventData.delta is {y: > 0})
             mousePos = eventData.delta.magnitude / dragStabilizer;
 
         handle.Rotate(0,0,mousePos);
@@ -66,9 +66,9 @@ public class HandleInteraction : MonoBehaviour, IDragHandler, IEndDragHandler {
     
     void LeftHandle(PointerEventData eventData) {
         if (!isLeftHandle) return;
-        if (eventData.delta is {x: < 0, y: < 0 })
+        if (eventData.delta is {y: < 0 })
             mousePos = eventData.delta.magnitude / dragStabilizer;
-        if (eventData.delta is {x: > 0, y: > 0})
+        if (eventData.delta is {y: > 0})
             mousePos = -eventData.delta.magnitude / dragStabilizer;
 
         handle.Rotate(0,0,mousePos);

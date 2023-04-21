@@ -16230,7 +16230,7 @@ PrefabInstance:
       objectReference: {fileID: 2018693158}
     - target: {fileID: 8282667160962781843, guid: 8762f7a93bd6a814ebcf8ee507307056, type: 3}
       propertyPath: maxRotation
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8282667160962781843, guid: 8762f7a93bd6a814ebcf8ee507307056, type: 3}
       propertyPath: returnSpeed
@@ -16242,7 +16242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8282667160962781843, guid: 8762f7a93bd6a814ebcf8ee507307056, type: 3}
       propertyPath: dragStabilizer
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8282667160962781843, guid: 8762f7a93bd6a814ebcf8ee507307056, type: 3}
       propertyPath: audioClip.Array.size
@@ -16720,7 +16720,7 @@ PrefabInstance:
       objectReference: {fileID: 2018693158}
     - target: {fileID: 8282667160962781843, guid: 8762f7a93bd6a814ebcf8ee507307056, type: 3}
       propertyPath: maxRotation
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8282667160962781843, guid: 8762f7a93bd6a814ebcf8ee507307056, type: 3}
       propertyPath: returnSpeed
@@ -16728,7 +16728,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8282667160962781843, guid: 8762f7a93bd6a814ebcf8ee507307056, type: 3}
       propertyPath: dragStabilizer
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8282667160962781843, guid: 8762f7a93bd6a814ebcf8ee507307056, type: 3}
       propertyPath: audioClip.Array.size
