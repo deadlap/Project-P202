@@ -21,8 +21,7 @@ public class MathInput : MonoBehaviour
         HandleEvents.RightHandlePulled += RightHandlePulled;
     }
 
-    void RightHandlePulled()
-    {
+    void RightHandlePulled() {
         if (rightHandlePulled) return;
         rightHandlePulled = true;
         bulgeL.SetActive(true);
