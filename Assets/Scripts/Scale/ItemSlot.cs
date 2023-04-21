@@ -7,7 +7,7 @@ public class ItemSlot : MonoBehaviour, IDropHandler {
     GameObject currentItem;
     TextMeshProUGUI itemValue;
     [SerializeField] TextMeshProUGUI currentValue;
-    public GameObject correctParent;
+    [HideInInspector] public GameObject correctParent;
     bool noChildren;
 
 

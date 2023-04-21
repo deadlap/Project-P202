@@ -1,8 +1,11 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class ScaleCombine : MonoBehaviour {
+public class ScaleCombine : MonoBehaviour
+{
+    [SerializeField] TextMeshProUGUI equalityText;
     [SerializeField] ScaleMath leftValueOfTerm;
     [SerializeField] ScaleMath rightValueOfTerm;
     [SerializeField] GameObject pole;
@@ -19,13 +22,14 @@ public class ScaleCombine : MonoBehaviour {
     void Update(){
         if(leftValueOfTerm.CalculateSum(out double leftSum) && rightValueOfTerm.CalculateSum(out double rightSum)) {
             finishButton.SetActive(leftSum == rightSum);
-
+            equalityText.text = "";
             switch (leftSum, rightSum) {
                 case (0, 0):
                     targetRotation = 0;
                     break;
                 case (_,_) when leftSum == rightSum:
                     targetRotation = 0;
+                    equalityText.text = "=";
                     break;
                 case (0, _):
                     targetRotation = (leftSum > rightSum ? (float)(1/rightSum)*rotationModifier : targetRotation);
@@ -38,6 +42,7 @@ public class ScaleCombine : MonoBehaviour {
                 default:
                     targetRotation = (leftSum > rightSum ? (float)(leftSum/rightSum)*rotationModifier : targetRotation);
                     targetRotation = (leftSum < rightSum ? -(float)(rightSum/leftSum)*rotationModifier : targetRotation);
+                    equalityText.text = "≠";
                     break;
             }
             if (leftSum < 0 || rightSum < 0) {
