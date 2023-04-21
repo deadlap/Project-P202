@@ -27,6 +27,10 @@ public class MathInput : MonoBehaviour
         rightHandlePulled = true;
         bulgeL.SetActive(true);
         bulgeR.SetActive(true);
+        output = new string[3];
+        for (int i = 0; i < input.Length; i++) {
+            output[i] = input[i].elementInfo;
+        }
         Invoke(nameof(Send), 1.5f);
     }
 
@@ -45,10 +49,6 @@ public class MathInput : MonoBehaviour
     }
 
     void FixedUpdate() {
-        output = new string[3];
-        for (int i = 0; i < input.Length; i++) {
-            output[i] = input[i].elementInfo;
-        }
     }
 
     public void Send(){

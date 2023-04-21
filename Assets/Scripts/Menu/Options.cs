@@ -9,7 +9,6 @@ public class Options : MonoBehaviour {
     [SerializeField] GameObject optionsMenu;
     [SerializeField] GameObject resetButton;
     [SerializeField] MathInput mathInput;
-    [SerializeField] AudioSource musicSource;
     [SerializeField] Image soundButton;
     [SerializeField] Color enableColor;
     [SerializeField] Color disableColor;
