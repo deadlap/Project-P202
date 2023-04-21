@@ -2472,6 +2472,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6954586918824838166, guid: a4ddf9129dd211a4d8bb5760e9749132, type: 3}
+      propertyPath: soundButton
+      value: 
+      objectReference: {fileID: 1705266235}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4ddf9129dd211a4d8bb5760e9749132, type: 3}
 --- !u!224 &2063854388 stripped

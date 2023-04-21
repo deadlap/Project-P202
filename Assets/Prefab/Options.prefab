@@ -1310,6 +1310,9 @@ MonoBehaviour:
   resetButton: {fileID: 6954586919864122161}
   mathInput: {fileID: 0}
   musicSource: {fileID: 6587005326976900612}
+  soundButton: {fileID: 6954586920054873841}
+  enableColor: {r: 0.39215687, g: 1, b: 0.39215687, a: 0.39215687}
+  disableColor: {r: 1, g: 0.39215687, b: 0.39215687, a: 0.39215687}
 --- !u!82 &6587005326976900612
 AudioSource:
   m_ObjectHideFlags: 0
