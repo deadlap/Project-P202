@@ -22,35 +22,19 @@ public class ScaleCombine : MonoBehaviour
     void Update(){
         if(leftValueOfTerm.CalculateSum(out double leftSum) && rightValueOfTerm.CalculateSum(out double rightSum)) {
             finishButton.SetActive(leftSum == rightSum);
-            equalityText.text = "";
-            switch (leftSum, rightSum) {
-                case (0, 0):
-                    targetRotation = 0;
-                    break;
-                case (_,_) when leftSum == rightSum:
-                    targetRotation = 0;
-                    equalityText.text = "=";
-                    break;
-                case (0, _):
-                    targetRotation = (leftSum > rightSum ? (float)(1/rightSum)*rotationModifier : targetRotation);
-                    targetRotation = (leftSum < rightSum ? -(float)(rightSum/1)*rotationModifier : targetRotation);
-                    break;
-                case (_, 0):
-                    targetRotation = (leftSum > rightSum ? (float)(leftSum/1)*rotationModifier : targetRotation);
-                    targetRotation = (leftSum < rightSum ? -(float)(1/leftSum)*rotationModifier : targetRotation);
-                    break;
-                default:
-                    targetRotation = (leftSum > rightSum ? (float)(leftSum/rightSum)*rotationModifier : targetRotation);
-                    targetRotation = (leftSum < rightSum ? -(float)(rightSum/leftSum)*rotationModifier : targetRotation);
-                    equalityText.text = "≠";
-                    break;
+            if (leftSum<rightSum) {
+                equalityText.text = "<";
+                targetRotation = -rotationMax;
+            } else if (leftSum>rightSum) {
+                equalityText.text = ">";
+                targetRotation = rotationMax;
+            } else {
+                targetRotation = 0;
+                equalityText.text = "=";
             }
-            if (leftSum < 0 || rightSum < 0) {
-                targetRotation = -targetRotation;
-            }
-            targetRotation = (targetRotation > rotationMax ? rotationMax : targetRotation);
-            targetRotation = (targetRotation < -rotationMax ? -rotationMax : targetRotation);
         } else {
+            finishButton.SetActive(false);
+            equalityText.text = "≠";
             targetRotation = 0;
         }
         float currentRotation = pole.transform.localEulerAngles.z > 180 ? -360+pole.transform.localEulerAngles.z : pole.transform.localEulerAngles.z;
