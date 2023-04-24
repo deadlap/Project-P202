@@ -13,11 +13,11 @@ public class Options : MonoBehaviour {
     [SerializeField] Color enableColor;
     [SerializeField] Color disableColor;
     public static bool soundState {get; private set;} = true;
+    [SerializeField] bool isLevelScene;
     string mainMenuName = "MainMenu";
 
     void Start(){
-        if (mathInput == null)
-            resetButton.SetActive(false);
+        resetButton.SetActive(isLevelScene);
         AudioListener.volume = Convert.ToSingle(soundState);
         enableColor = new Color32(100,255,100,200);
         disableColor = new Color32(255,100,100,200);
@@ -33,7 +33,7 @@ public class Options : MonoBehaviour {
 
     public void ToggleMenu() {
         optionsMenu.SetActive(!optionsMenu.activeSelf);
-        resetButton.SetActive(mathInput != null && mathInput.gameObject.activeSelf);
+        // resetButton.SetActive(isLevelScene);
     }
 
     public static void ToggleSound() {
@@ -42,8 +42,8 @@ public class Options : MonoBehaviour {
     }
 
     public void CallReset(){
-        if (mathInput != null) {
-            mathInput.Reset();
+        if (isLevelScene) {
+            LevelManager.ResetActiveLevel();
             ToggleMenu();
         }
     }

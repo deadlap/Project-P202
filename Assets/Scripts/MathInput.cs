@@ -89,8 +89,4 @@ public class MathInput : MonoBehaviour
     public void Undo(){
         display.Previous();
     }
-
-    public void Reset() {
-        Equation.Reset();
-    }
 }

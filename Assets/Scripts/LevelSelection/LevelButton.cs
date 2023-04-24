@@ -20,7 +20,7 @@ public class LevelButton : MonoBehaviour
 
     public void SendToLevel(){
         if (level.CalculateScore() > 0) {
-            level.equation.Reset();
+            level.Reset();
         }
         SceneManagement.GoToLevel(level);
     }

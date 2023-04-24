@@ -1684,6 +1684,10 @@ PrefabInstance:
       propertyPath: mathInput
       value: 
       objectReference: {fileID: 1414773436}
+    - target: {fileID: 6954586918824838166, guid: a4ddf9129dd211a4d8bb5760e9749132, type: 3}
+      propertyPath: isLevelScene
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6954586919810802403, guid: a4ddf9129dd211a4d8bb5760e9749132, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

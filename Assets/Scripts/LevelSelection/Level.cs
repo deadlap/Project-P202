@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System;
 
 [CreateAssetMenu(fileName = "Level", menuName = "Project-P202/Level", order = 0)]
@@ -22,6 +23,15 @@ public class Level : ScriptableObject {
 
     public void SetEquation(Equation _equation){
         equation = EquationLevel.CreateEquationLevel(_equation, DefaultStepsPerStar);
+    }
+
+    public void Reset(){
+        if (numbersForScale.Count == 0) {
+            equation.Reset();
+        } else {
+            equation = null;
+            SceneManagement.GoToLevel(this);
+        }
     }
 
     public int CalculateScore(){

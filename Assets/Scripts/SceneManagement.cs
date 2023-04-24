@@ -4,8 +4,20 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneManagement : MonoBehaviour {
-    static string EquationSceneName = "EquationRandom";
-    static string ScaleSceneName = "Scale";
+    public static string EquationSceneName = "EquationRandom";
+    public static string ScaleSceneName = "Scale";
+    public static bool ReloadScale;
+
+    void Start(){
+        if(ReloadScale){
+            ReloadScale = false;
+            GoToLevel(LevelManager.ActiveLevel);
+        }
+    }
+    public static void ResetScaleScene(){
+        ReloadScale = true;
+        StaticChangeScene("MainMenu");
+    }
 
     public static void StaticChangeScene(string scene) {
         SceneManager.LoadScene(scene);
