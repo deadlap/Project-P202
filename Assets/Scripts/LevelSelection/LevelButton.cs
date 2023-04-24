@@ -19,9 +19,13 @@ public class LevelButton : MonoBehaviour
     }
 
     public void SendToLevel(){
-        if (level.CalculateScore() > 0) {
-            level.Reset();
+        if (level.unlocked) {
+            if (level.CalculateScore() > 0) {
+                level.Reset();
+            }
+            SceneManagement.GoToLevel(level);
+        } else {
+            //Indsæt ryste-animation-ting
         }
-        SceneManagement.GoToLevel(level);
     }
 }
