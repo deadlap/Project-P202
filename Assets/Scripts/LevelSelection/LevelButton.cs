@@ -6,13 +6,9 @@ public class LevelButton : MonoBehaviour
 {
     [SerializeField] public Level level;
     [SerializeField] public List<GameObject> stars;
-    public GameObject playLevelButton;
-
-    void Start() {
-        if (level.equation == null)
-            return;
+    void Awake() {
         for (int i = 0; i < stars.Count; i++) {
-            if (i+1>level.CalculateScore())
+            if (i+1>level.score)
                 return;
             stars[i].SetActive(true);
         }
@@ -20,9 +16,7 @@ public class LevelButton : MonoBehaviour
 
     public void SendToLevel(){
         if (level.unlocked) {
-            if (level.CalculateScore() > 0) {
-                level.Reset();
-            }
+            level.Reset();
             SceneManagement.GoToLevel(level);
         } else {
             //Indsæt ryste-animation-ting

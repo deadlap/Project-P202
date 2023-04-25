@@ -30,13 +30,15 @@ public class Level : ScriptableObject {
             equation.Reset();
         } else {
             equation = null;
-            SceneManagement.GoToLevel(this);
         }
+        SetScore();
     }
 
-    public int CalculateScore(){
-        if (equation == null)
-            return 0;
-        return equation.CalculateScore();
+    public void SetScore(){
+        if (equation == null) {
+            score = 0;
+            return;
+        }
+        score = equation.CalculateScore();
     }
 }

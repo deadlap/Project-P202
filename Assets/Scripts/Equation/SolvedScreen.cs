@@ -20,4 +20,9 @@ public class SolvedScreen : MonoBehaviour {
             stars[i].SetActive(true);
         }
     }
+
+    public void CloseLevel(string scene) {
+        LevelManager.ActiveLevel.SetScore();
+        SceneManagement.StaticChangeScene(scene);
+    }
 }

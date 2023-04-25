@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Level_1
   m_EditorClassIdentifier: 
   equationToLoad: {fileID: 11400000, guid: cc2ea37721d51534caf6ac5fbf6bbc08, type: 2}
-  equation: {fileID: 0}
   numbersForScale: []
   xValue: 
   unlocked: 1

@@ -62,8 +62,9 @@ public class MathInput : MonoBehaviour
     }
 
     void EquationSolved() {
+        LevelManager.ActiveLevel.SetScore();
         Equation.Solution(out double valueOfX);
-        equationSolvedScreen.ActiveScreen(Equation.CalculateScore(),valueOfX);
+        equationSolvedScreen.ActiveScreen(LevelManager.ActiveLevel.score,valueOfX);
         audioSource.PlayOneShot(audioClip[2]);
         audioSource.PlayOneShot(audioClip[3]);
     }

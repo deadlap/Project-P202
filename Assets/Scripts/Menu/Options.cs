@@ -14,7 +14,6 @@ public class Options : MonoBehaviour {
     [SerializeField] Color disableColor;
     public static bool soundState {get; private set;} = true;
     [SerializeField] bool isLevelScene;
-    string mainMenuName = "MainMenu";
 
     void Start(){
         resetButton.SetActive(isLevelScene);
@@ -33,7 +32,6 @@ public class Options : MonoBehaviour {
 
     public void ToggleMenu() {
         optionsMenu.SetActive(!optionsMenu.activeSelf);
-        // resetButton.SetActive(isLevelScene);
     }
 
     public static void ToggleSound() {
@@ -44,11 +42,12 @@ public class Options : MonoBehaviour {
     public void CallReset(){
         if (isLevelScene) {
             LevelManager.ResetActiveLevel();
-            ToggleMenu();
+            SceneManagement.GoToLevel(LevelManager.ActiveLevel);
         }
     }
 
-    public void ReturnToMainMenu(){
-        SceneManagement.StaticChangeScene(mainMenuName);
+    public void ReturnToScene(String scene){
+        LevelManager.ResetActiveLevel();
+        SceneManagement.StaticChangeScene(scene);
     }
 }
