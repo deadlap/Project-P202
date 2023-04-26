@@ -10,7 +10,8 @@ public class Level : ScriptableObject {
     public EquationLevel equation {get; private set;}
     [SerializeField] public List<string> numbersForScale;
     [SerializeField] public string xValue;
-    [SerializeField] public bool unlocked = false;
+    [SerializeField] public bool unlocked;
+    [SerializeField] public bool completed;
     [SerializeField] public int score;
 
     [SerializeField] public static List<int> DefaultStepsPerStar = new List<int>() {4,8};
@@ -33,7 +34,10 @@ public class Level : ScriptableObject {
         }
         SetScore();
     }
-
+    public void Complete(){
+        completed = true;
+        SetScore();
+    }
     public void SetScore(){
         if (equation == null) {
             score = 0;

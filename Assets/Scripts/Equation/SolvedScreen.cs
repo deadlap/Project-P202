@@ -22,7 +22,7 @@ public class SolvedScreen : MonoBehaviour {
     }
 
     public void CloseLevel(string scene) {
-        LevelManager.ActiveLevel.SetScore();
+        LevelManager.ActiveLevel.Complete();
         SceneManagement.StaticChangeScene(scene);
     }
 }
