@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,8 +6,19 @@ using UnityEngine;
 public class LevelButton : MonoBehaviour
 {
     [SerializeField] public Level level;
-    [SerializeField] public List<GameObject> stars;
-    void Awake() {
+    [SerializeField] List<GameObject> stars;
+    [SerializeField] GameObject lockOnLevel;
+    Animator levelAnimator;
+    AudioSource levelAudioSource;
+
+    void Awake()
+    {
+        levelAnimator = GetComponent<Animator>();
+        levelAudioSource = GetComponent<AudioSource>();
+    }
+
+    void Start() {
+        lockOnLevel.SetActive(!level.unlocked);
         for (int i = 0; i < stars.Count; i++) {
             if (i+1>level.score)
                 return;
@@ -19,6 +31,8 @@ public class LevelButton : MonoBehaviour
             level.Reset();
             SceneManagement.GoToLevel(level);
         } else {
+            levelAnimator.Play("LevelLocked");
+            levelAudioSource.Play(); //OneShot(levelAudioSource.clip));
             //Indsæt ryste-animation-ting
         }
     }

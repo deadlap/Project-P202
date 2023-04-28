@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MoveBulge : MonoBehaviour {
@@ -16,7 +17,6 @@ public class MoveBulge : MonoBehaviour {
         if (currentWP == waypoints.Length) {
             currentWP = 0;
             ReturnToOriginalPosition();
-            return;
         }
         if (Vector3.Distance(waypoints[currentWP].transform.position, transform.position) <= 0.01) {
             currentWP++;
@@ -25,6 +25,7 @@ public class MoveBulge : MonoBehaviour {
             else
                 transform.Rotate(0,0,90);
         }
+        if (currentWP >= waypoints.Length) return;
         transform.position = Vector3.MoveTowards(transform.position, waypoints[currentWP].transform.position,
             Time.deltaTime * moveSpeed);
     }

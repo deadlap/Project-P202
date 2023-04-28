@@ -56,8 +56,10 @@ public class MathInput : MonoBehaviour
             display.Apply(output);
         }
         rightHandlePulled = false;
-        if (Equation.Solution(out _)) {
-            Invoke(nameof(EquationSolved), 1f);
+        if (Equation.Solution(out _))
+        {
+            var delay = 1f;
+            Invoke(nameof(EquationSolved), delay);
         }
     }
 
@@ -74,7 +76,7 @@ public class MathInput : MonoBehaviour
             audioSource.PlayOneShot(audioClip[0]);
             return false;
         } if (String.Join("", output).Length == 1) {
-            errorAnimator.SetTrigger("ErrorOnValues");
+            errorAnimator.Play("ErrorOnx");
             audioSource.PlayOneShot(audioClip[0]);
             return false;
         }
