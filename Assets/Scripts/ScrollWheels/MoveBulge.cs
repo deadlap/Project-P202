@@ -13,9 +13,10 @@ public class MoveBulge : MonoBehaviour {
     }
 
     void Move() {
-        if (currentWP == 3) {
+        if (currentWP == waypoints.Length) {
             currentWP = 0;
             ReturnToOriginalPosition();
+            return;
         }
         if (Vector3.Distance(waypoints[currentWP].transform.position, transform.position) <= 0.01) {
             currentWP++;

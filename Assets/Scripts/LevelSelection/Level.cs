@@ -27,12 +27,10 @@ public class Level : ScriptableObject {
     }
 
     public void Reset(){
-        if (numbersForScale.Count == 0) {
+        if (numbersForScale.Count == 0)
             equation.Reset();
-        } else {
+        else
             equation = null;
-        }
-        SetScore();
     }
     public void Complete(){
         completed = true;
@@ -40,9 +38,10 @@ public class Level : ScriptableObject {
     }
     public void SetScore(){
         if (equation == null) {
-            score = 0;
             return;
         }
-        score = equation.CalculateScore();
+        int newScore = equation.CalculateScore();
+        if (newScore > score)
+            score = newScore;
     }
 }

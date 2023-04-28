@@ -28,8 +28,8 @@ public class EquationDisplay : MonoBehaviour {
         return equationLevel;
     }
     
-    public bool Previous(){
-        return equationLevel.Previous();
+    public void Previous(){
+        equationLevel.Previous();
     }
 
     public void SetActiveEquation(EquationLevel _equation) {

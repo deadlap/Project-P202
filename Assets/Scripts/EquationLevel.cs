@@ -10,9 +10,8 @@ public class EquationLevel : ScriptableObject {
     [SerializeField] Equation equation;
     [SerializeField] string[] eqToDisplay = new string[2];
     [SerializeField] public List<int> stepsPerStar;
-    [SerializeField] public EquationLevel previous {get; private set;}
-    
-    [SerializeField] public int steps {get; private set;}
+    public EquationLevel previous {get; private set;}
+    public int steps {get; private set;}
 
     void Awake() {
         if (equation != null && stepsPerStar.Count != 0)
@@ -37,13 +36,13 @@ public class EquationLevel : ScriptableObject {
     }
     
     public void Reset(){
-        while(Previous());
+        while (Previous());
         steps = 0;
     }
 
     public bool Previous(){
         if (previous is not null){
-            steps += 1;
+            steps += 1; // gør så unddo tæller som et træk
             equation = previous.equation;
             previous = previous.previous;
             ConvertToText();
