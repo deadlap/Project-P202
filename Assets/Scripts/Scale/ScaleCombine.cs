@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -15,7 +16,9 @@ public class ScaleCombine : MonoBehaviour
     [SerializeField] float rotationPerSecond;
     [SerializeField] float targetRotation = 0;
     [SerializeField] float rotationThreshold;
-    void Start(){
+    Animator createEquationAnimator;
+    void Start() {
+        createEquationAnimator = GetComponent<Animator>();
         finishButton.SetActive(false);
     }
 
@@ -62,7 +65,15 @@ public class ScaleCombine : MonoBehaviour
         }
     }
 
-    public void CreateEquation(){
+    public void CreateEquation() {
+        StartCoroutine(CreateEquationAnimation());
+    }
+
+    IEnumerator CreateEquationAnimation() {
+        createEquationAnimator.SetTrigger("Complete");
+        var animationTime = 2;
+        yield return new WaitForSeconds(animationTime);
+        
         leftValueOfTerm.returnTerms(out double _leftXTerm, out double leftTerm);
         rightValueOfTerm.returnTerms(out double _rightXTerm, out double rightTerm);
         Equation equation = new Equation(_leftXTerm, leftTerm, _rightXTerm, rightTerm);

@@ -1,14 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class SceneManagement : MonoBehaviour {
     public static string EquationSceneName = "EquationRandom";
     public static string ScaleSceneName = "Scale";
 
+    Animator sceneloadScreen;
+    void Awake() {
+        sceneloadScreen = GameObject.FindWithTag("Sceneload_Screen").GetComponent<Animator>();
+    }
+
     public static void StaticChangeScene(string scene) {
         SceneManager.LoadScene(scene);
+
     }
 
     public static void GoToCOOP(){
@@ -16,8 +24,17 @@ public class SceneManagement : MonoBehaviour {
         SceneManager.LoadScene(ScaleSceneName);
     }
     public void ChangeScene(string scene) {
+        StartCoroutine(SceneLoadScreen(scene));
+    }
+
+    IEnumerator SceneLoadScreen(string scene) {
+        sceneloadScreen.SetTrigger("LoadLevel");
+        var delay = 1;
+        yield return new WaitForSeconds(delay);
         SceneManager.LoadScene(scene);
     }
+    
+    
     public void EndGame() {
         Application.Quit();
     }
