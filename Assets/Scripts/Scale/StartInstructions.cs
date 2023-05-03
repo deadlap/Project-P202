@@ -6,6 +6,7 @@ using TMPro;
 public class StartInstructions : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI textDisplay;
+
     [SerializeField] string[] instructionText = new string[3];
     int i = 0;
 
@@ -19,7 +20,7 @@ public class StartInstructions : MonoBehaviour
     public void ChangeText()
     {
         i++;
-        if(i == 3)
+        if(i == instructionText.Length)
         {
             Destroy(this.gameObject);
         }
