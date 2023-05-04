@@ -1,19 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
 public class StartInstructions : MonoBehaviour
 {
+    [SerializeField] GameObject tubeEntrance;
     [SerializeField] TextMeshProUGUI textDisplay;
 
     [SerializeField] string[] instructionText = new string[3];
-    int i = 0;
+    int i;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        tubeEntrance.SetActive(false);
         textDisplay.text = instructionText[i];
     }
 
@@ -22,7 +22,8 @@ public class StartInstructions : MonoBehaviour
         i++;
         if(i == instructionText.Length)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
+            tubeEntrance.SetActive(true);
         }
         else
         {
