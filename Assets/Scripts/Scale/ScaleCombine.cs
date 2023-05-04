@@ -27,17 +27,21 @@ public class ScaleCombine : MonoBehaviour
             finishButton.SetActive(leftSum == rightSum);
             if (leftSum<rightSum) {
                 equalityText.text = "<";
+                equalityText.color = Color.red;
                 targetRotation = -rotationMax;
             } else if (leftSum>rightSum) {
                 equalityText.text = ">";
                 targetRotation = rotationMax;
+                equalityText.color = Color.red;
             } else {
                 targetRotation = 0;
                 equalityText.text = "=";
+                equalityText.color = Color.green;
+
             }
         } else {
             finishButton.SetActive(false);
-            equalityText.text = "≠";
+            equalityText.text = "";
             targetRotation = 0;
         }
         float currentRotation = pole.transform.localEulerAngles.z > 180 ? -360+pole.transform.localEulerAngles.z : pole.transform.localEulerAngles.z;

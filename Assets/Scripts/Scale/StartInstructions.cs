@@ -3,7 +3,7 @@ using TMPro;
 
 public class StartInstructions : MonoBehaviour
 {
-    [SerializeField] GameObject tubeEntrance;
+    [SerializeField] GameObject entranceAnimation;
     [SerializeField] TextMeshProUGUI textDisplay;
 
     [SerializeField] string[] instructionText = new string[3];
@@ -13,8 +13,8 @@ public class StartInstructions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        tubeEntrance.SetActive(false);
         textDisplay.text = instructionText[i];
+        entranceAnimation.SetActive(false);
     }
 
     public void ChangeText()
@@ -23,7 +23,7 @@ public class StartInstructions : MonoBehaviour
         if(i == instructionText.Length)
         {
             Destroy(gameObject);
-            tubeEntrance.SetActive(true);
+            entranceAnimation.SetActive(true);
         }
         else
         {

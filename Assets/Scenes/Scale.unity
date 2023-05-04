@@ -5355,7 +5355,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00012207031, y: 0.000061035156}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1140284645
@@ -5370,7 +5370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a0f64e72fa6784191e9678d612a4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tubeEntrance: {fileID: 0}
+  entranceAnimation: {fileID: 0}
   textDisplay: {fileID: 1723409113}
   instructionText:
   - "Lighedstegnet \"=\" fort\xE6ller at talv\xE6rdien <br> af det, det st\xE5r p\xE5

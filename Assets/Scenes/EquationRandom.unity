@@ -3371,7 +3371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75a0f64e72fa6784191e9678d612a4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tubeEntrance: {fileID: 1879205496}
+  entranceAnimation: {fileID: 1879205496}
   textDisplay: {fileID: 1667434958}
   instructionText:
   - "En ligning kan omskrives ved at foretage <br> den samme regneoperation p\xE5
@@ -4201,6 +4201,10 @@ PrefabInstance:
       propertyPath: snapMultiplier
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 1408147048318593426, guid: 17a36636d6d43a049b9f881e1fea54a1, type: 3}
+      propertyPath: elementValue.Array.data[0]
+      value: ...
+      objectReference: {fileID: 0}
     - target: {fileID: 1408147048318593427, guid: 17a36636d6d43a049b9f881e1fea54a1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -4271,7 +4275,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1408147048527884487, guid: 17a36636d6d43a049b9f881e1fea54a1, type: 3}
       propertyPath: elementValue.Array.data[1]
-      value: _
+      value: ...
       objectReference: {fileID: 0}
     - target: {fileID: 1408147048527884487, guid: 17a36636d6d43a049b9f881e1fea54a1, type: 3}
       propertyPath: elementValue.Array.data[2]
