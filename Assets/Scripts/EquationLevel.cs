@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 public class EquationLevel : ScriptableObject {
     
     [SerializeField] Equation equation;
-    [SerializeField] string[] eqToDisplay = new string[2];
+    [HideInInspector] string[] eqToDisplay = new string[2];
     [SerializeField] public List<int> stepsPerStar;
     public EquationLevel previous {get; private set;}
     public int steps {get; private set;}

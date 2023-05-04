@@ -16,5 +16,5 @@ MonoBehaviour:
   numbersForScale: []
   xValue: 
   unlocked: 1
-  completed: 1
-  score: 3
+  completed: 0
+  score: 0
