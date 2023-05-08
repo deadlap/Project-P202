@@ -68,14 +68,10 @@ public class MathInput : MonoBehaviour
         if (ViableOutput()) {
             audioSource.PlayOneShot(audioClip[1]);
             display.Apply(output);
-<<<<<<< Updated upstream
         } else {
             errorAnimator.Play("ErrorOnSign");
             audioSource.PlayOneShot(audioClip[0]);
             errorAnimator.Play("ErrorOnx");
-=======
-            
->>>>>>> Stashed changes
         }
         rightHandlePulled = false;
         if (Equation.Solution(out _))
