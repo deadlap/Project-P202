@@ -33,4 +33,6 @@ public class Equation {
     public Equation Copy(){
         return new Equation(leftXTerm, leftTerm, rightXTerm, rightTerm);
     }
+
+    
 }

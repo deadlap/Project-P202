@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 [CreateAssetMenu(fileName = "EquationLevel", menuName = "Project-P202/EquationLevel", order = 0)]
 public class EquationLevel : ScriptableObject {
     
-    [SerializeField] Equation equation;
+    [SerializeField] public Equation equation;
     [HideInInspector] string[] eqToDisplay = new string[2];
     [SerializeField] public List<int> stepsPerStar;
     public EquationLevel previous {get; private set;}
