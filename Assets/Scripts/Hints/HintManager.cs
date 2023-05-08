@@ -110,8 +110,8 @@ public class HintManager : MonoBehaviour {
         return (equation.leftXTerm == 0 || equation.rightXTerm==0);
     }
     public bool ID3(Equation equation){
-        return ((Math.Abs(equation.leftXTerm) > 0 && Math.Abs(equation.rightTerm) > 0)
-            || (Math.Abs(equation.rightXTerm) > 0 && Math.Abs(equation.leftTerm) > 0)); 
+        return ((Math.Abs(equation.leftXTerm) > 1 && Math.Abs(equation.rightTerm) > 0 && Math.Abs(equation.leftTerm) == 0 && Math.Abs(equation.rightXTerm) == 0)
+            || (Math.Abs(equation.rightXTerm) > 1 && Math.Abs(equation.leftTerm) > 0  && Math.Abs(equation.rightTerm) == 0 && Math.Abs(equation.leftXTerm) == 0)); 
     }
     public bool ID4(Equation equation){
         return (equation.leftTerm > 0 || equation.rightTerm > 0);
