@@ -7,14 +7,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 15e10de5e36644a4db15cf58af1cd53b, type: 3}
-  m_Name: Level_1
+  m_Name: Level_7
   m_EditorClassIdentifier: 
-  equationToLoad: {fileID: 11400000, guid: 71de0a529b0404040bd0a0d9c78d2887, type: 2}
+  equationToLoad: {fileID: 0}
   numbersForScale: []
-  xValue: 0
-  unlocked: 1
+  xValue: 
+  unlocked: 0
   completed: 0
   score: 0

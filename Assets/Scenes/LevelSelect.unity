@@ -253,7 +253,7 @@ PrefabInstance:
     - target: {fileID: 9080435794401569037, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: level
       value: 
-      objectReference: {fileID: 11400000, guid: ffcf78677f78f7145b8f8a4dbed70296, type: 2}
+      objectReference: {fileID: 11400000, guid: 593d76ca8819495458ac9ebb85590a21, type: 2}
     - target: {fileID: 9080435794401569037, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: playLevelButton
       value: 
@@ -482,7 +482,7 @@ PrefabInstance:
       objectReference: {fileID: 346747701}
     - target: {fileID: 9080435794401569032, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_Name
-      value: Level 2 (4)
+      value: Level 6
       objectReference: {fileID: 0}
     - target: {fileID: 9080435794401569032, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_IsActive
@@ -595,7 +595,7 @@ PrefabInstance:
     - target: {fileID: 9080435794401569037, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: level
       value: 
-      objectReference: {fileID: 11400000, guid: acf48f12a2ee46149ba789736600dfb9, type: 2}
+      objectReference: {fileID: 11400000, guid: 6564cb0314271f445b23c10392751b4e, type: 2}
     - target: {fileID: 9080435794401569037, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: playLevelButton
       value: 
@@ -711,7 +711,7 @@ PrefabInstance:
       objectReference: {fileID: 372504440}
     - target: {fileID: 9080435794401569032, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_Name
-      value: Level 2 (8)
+      value: Level 10
       objectReference: {fileID: 0}
     - target: {fileID: 9080435794401569032, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_IsActive
@@ -1082,7 +1082,7 @@ PrefabInstance:
       objectReference: {fileID: 489371584}
     - target: {fileID: 9080435794401569032, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_Name
-      value: Level 2 (5)
+      value: Level 7
       objectReference: {fileID: 0}
     - target: {fileID: 9080435794401569032, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_IsActive
@@ -1195,7 +1195,7 @@ PrefabInstance:
     - target: {fileID: 9080435794401569037, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: level
       value: 
-      objectReference: {fileID: 11400000, guid: acf48f12a2ee46149ba789736600dfb9, type: 2}
+      objectReference: {fileID: 11400000, guid: 01b4e8282c91b1f468188aa5c9f6f028, type: 2}
     - target: {fileID: 9080435794401569037, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: playLevelButton
       value: 
@@ -1311,7 +1311,7 @@ PrefabInstance:
       objectReference: {fileID: 562684498}
     - target: {fileID: 9080435794401569032, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_Name
-      value: Level 2 (2)
+      value: Level 4
       objectReference: {fileID: 0}
     - target: {fileID: 9080435794401569032, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_IsActive
@@ -1424,7 +1424,7 @@ PrefabInstance:
     - target: {fileID: 9080435794401569037, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: level
       value: 
-      objectReference: {fileID: 11400000, guid: acf48f12a2ee46149ba789736600dfb9, type: 2}
+      objectReference: {fileID: 11400000, guid: d298bf413ea9a1c4d96f87134db7c114, type: 2}
     - target: {fileID: 9080435794401569037, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: playLevelButton
       value: 
@@ -1540,7 +1540,7 @@ PrefabInstance:
       objectReference: {fileID: 603939655}
     - target: {fileID: 9080435794401569032, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_Name
-      value: Level 2 (6)
+      value: Level 8
       objectReference: {fileID: 0}
     - target: {fileID: 9080435794401569032, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_IsActive
@@ -2326,7 +2326,7 @@ PrefabInstance:
       objectReference: {fileID: 935024915}
     - target: {fileID: 9080435794401569032, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_Name
-      value: Level 2 (7)
+      value: Level 9
       objectReference: {fileID: 0}
     - target: {fileID: 9080435794401569032, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_IsActive
@@ -2732,7 +2732,7 @@ PrefabInstance:
       objectReference: {fileID: 1446063968}
     - target: {fileID: 9080435794401569032, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_Name
-      value: Level 2 (1)
+      value: Level 3
       objectReference: {fileID: 0}
     - target: {fileID: 9080435794401569032, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_IsActive
@@ -2845,38 +2845,42 @@ PrefabInstance:
     - target: {fileID: 9080435794401569037, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: level
       value: 
-      objectReference: {fileID: 11400000, guid: acf48f12a2ee46149ba789736600dfb9, type: 2}
+      objectReference: {fileID: 11400000, guid: b55745477fd6ab4428977da3720f0a15, type: 2}
     - target: {fileID: 9080435794401569037, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: playLevelButton
       value: 
       objectReference: {fileID: 1446063964}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_text
-      value: Coming soon
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontSize
-      value: 35
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontColor.b
-      value: 0.6509434
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontColor.g
-      value: 0.6509434
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontColor.r
-      value: 0.6509434
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontSizeBase
-      value: 35
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4289111718
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_VerticalAlignment
@@ -3671,7 +3675,7 @@ PrefabInstance:
       objectReference: {fileID: 2033470321}
     - target: {fileID: 9080435794401569032, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_Name
-      value: Level 2 (3)
+      value: Level 5
       objectReference: {fileID: 0}
     - target: {fileID: 9080435794401569032, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_IsActive
@@ -3784,7 +3788,7 @@ PrefabInstance:
     - target: {fileID: 9080435794401569037, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: level
       value: 
-      objectReference: {fileID: 11400000, guid: acf48f12a2ee46149ba789736600dfb9, type: 2}
+      objectReference: {fileID: 11400000, guid: cb22b9ccdd693634aa45f9369c3ef9ea, type: 2}
     - target: {fileID: 9080435794401569037, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: playLevelButton
       value: 

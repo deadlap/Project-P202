@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 15e10de5e36644a4db15cf58af1cd53b, type: 3}
-  m_Name: Level_1
+  m_Name: old_Level_1
   m_EditorClassIdentifier: 
-  equationToLoad: {fileID: 11400000, guid: 71de0a529b0404040bd0a0d9c78d2887, type: 2}
+  equationToLoad: {fileID: 11400000, guid: cc2ea37721d51534caf6ac5fbf6bbc08, type: 2}
   numbersForScale: []
-  xValue: 0
+  xValue: 
   unlocked: 1
   completed: 0
   score: 0
