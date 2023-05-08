@@ -17,7 +17,7 @@ namespace ScrollWheels {
             text = other.gameObject.GetComponent<TextMeshProUGUI>();
             oldAlpha = text.alpha;
             text.alpha = 1;
-            if (elementInfo != "_") return;
+            if (elementInfo != "...") return;
             elementInfo = "";
         }
         

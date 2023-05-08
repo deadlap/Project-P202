@@ -14,11 +14,12 @@ public class MathInput : MonoBehaviour
     [SerializeField] Animator errorAnimator;
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip[] audioClip;
-    string[] output;
+    public string[] output;
 
     void OnEnable() {
         HandleEvents.LeftHandlePulled += LeftHandlePulled;
         HandleEvents.RightHandlePulled += RightHandlePulled;
+        output = new string[3];
     }
 
     void RightHandlePulled() {
@@ -26,11 +27,11 @@ public class MathInput : MonoBehaviour
         rightHandlePulled = true;
         bulgeL.SetActive(true);
         bulgeR.SetActive(true);
+        Invoke(nameof(Send), 1.5f);
         output = new string[3];
         for (int i = 0; i < input.Length; i++) {
             output[i] = input[i].elementInfo;
         }
-        Invoke(nameof(Send), 1.5f);
     }
 
     void LeftHandlePulled() {
@@ -47,7 +48,10 @@ public class MathInput : MonoBehaviour
         output = new string[3];
     }
 
-    void FixedUpdate() {
+    void Update() {
+        for (int i = 0; i < input.Length; i++) {
+            output[i] = input[i].elementInfo;
+        }
     }
 
     public void Send(){
@@ -71,7 +75,7 @@ public class MathInput : MonoBehaviour
         audioSource.PlayOneShot(audioClip[3]);
     }
     public bool ViableOutput(){
-        if (output[2].Contains("x")  && !(output[0].Contains('+') || output[0].Contains('-'))) {
+        if (output[2].Contains("x") && !(output[0].Contains('+') || output[0].Contains('-'))) {
             errorAnimator.Play("ErrorOnSign");
             audioSource.PlayOneShot(audioClip[0]);
             return false;
