@@ -21,8 +21,8 @@ public class HintManager : MonoBehaviour {
         hintText = new List<string>();
         index = -1;
         if (IsScaleScene){
-            hintText = new List<string>{"Husk reglen for lighedstegnet: \n talværdien af det, som står på begge sider \n af lighedstegnet, skal være den samme.", 
-            "Der kan stå et regnestykke på hver side \n af lighedstegnet, hvis blot de begge giver det \n samme resultat. For eksempel er \n 4 + 2 * 3 = 3 * 3 + 1 \n da begge sider giver talværdien 10"};
+            hintText = new List<string>{"Husk reglen for lighedstegnet: talværdien af det, som står på begge sider af lighedstegnet, skal være den samme.", 
+            "Der kan stå et regnestykke på hver side af lighedstegnet, hvis blot de begge giver det samme resultat. For eksempel er \n 4 + 2 * 3 = 3 * 3 + 1 \n da begge sider giver talværdien 10"};
             hintPanel.SetActive(true);
             ChangeText();
         } else {
@@ -62,30 +62,30 @@ public class HintManager : MonoBehaviour {
         // \n
         switch(ID){
             case 1:
-                hintText = new List<string>{"Start med at samle de led, som indeholder \"x\", \n på en af siderne af lighedstegnet. \n Husk du kan altid fortryde ved at trækkke i venstre håndtag",
-                "\"Led\" er opdelt af plusser (+) og minusser (-). \n Ligningen 2x+4=10-x består af fire led. \n 2x er et led. \n +4 er et led. \n 10 er et led. \n og -x er et led. \n "
+                hintText = new List<string>{"Start med at samle de led, som indeholder \"x\", på en af siderne af lighedstegnet. Husk du kan altid fortryde ved at trækkke i venstre håndtag",
+                "\"Led\" er opdelt af plusser (+) og minusser (-). Ligningen 2x+4=10-x består af fire led. \n 2x er et led. \n +4 er et led. \n 10 er et led. \n og -x er et led. \n "
                 };
                 break;
             case 2:
-                hintText = new List<string>{"Tillykke, du har samlet x'erne på den ene side \n af lighedstegnet. Saml nu de led som ikke indeholder \n x på den anden side af lighedstegnet."};
+                hintText = new List<string>{"Tillykke, du har samlet x'erne på den ene side af lighedstegnet. Saml nu de led som ikke indeholder x på den anden side af lighedstegnet."};
                 break;
             case 3:
-                hintText = new List<string>{"Godt gået. Du er der næsten. Brug division \n til finde talværdien af x."};
+                hintText = new List<string>{"Godt gået. Du er der næsten. Brug division til finde talværdien af x."};
                 break;
             case 4:
-                hintText = new List<string>{"Denne ligning indeholder et positivt led med en kendt talværdi. \n Du kan rykke denne på den anden side af lighedstegnet, \n ved at trække samme talværdi fra på begge sider."};
+                hintText = new List<string>{"Denne ligning indeholder et positivt led med en kendt talværdi. Du kan rykke denne på den anden side af lighedstegnet, ved at trække samme talværdi fra på begge sider."};
                 break;
             case 5:
-                hintText = new List<string>{"Denne ligning indeholder et negativt led med en kendt talværdi. \n Du kan rykke denne på den anden side af lighedstegnet, \n ved at ligge samme talværdi til på begge sider."};
+                hintText = new List<string>{"Denne ligning indeholder et negativt led med en kendt talværdi. Du kan rykke denne på den anden side af lighedstegnet, ved at ligge samme talværdi til på begge sider."};
                 break;
             case 6:
-                hintText = new List<string>{"Denne linging indeholder et positivt led med ukendt talværdi. \n Du kan rykke på dette ved at trække samme antal af \"x\"'er fra på begge sider. \n Dette led kan måske også ændres ved division."};
+                hintText = new List<string>{"Denne linging indeholder et positivt led med ukendt talværdi. Du kan rykke på dette ved at trække samme antal af \"x\"'er fra på begge sider. Dette led kan måske også ændres ved division."};
                 break;
             case 7:
-                hintText = new List<string>{"Denne linging indeholder et negativt led med ukendt talværdi. \n Du kan rykke på dette ved at ligge samme antal af \"x\"'er til på begge sider."};
+                hintText = new List<string>{"Denne linging indeholder et negativt led med ukendt talværdi. Du kan rykke på dette ved at ligge samme antal af \"x\"'er til på begge sider."};
                 break;
             case 8:
-                hintText = new List<string>{"Denne ligning indeholder en eller flere brøker. \n Brøker kan \"fjernes\" ved at gange med tallet i nævneren på begge sider af lighedstegnet"};
+                hintText = new List<string>{"Denne ligning indeholder en eller flere brøker. Brøker kan \"fjernes\" ved at gange med tallet i nævneren på begge sider af lighedstegnet"};
                 break;
         }
     }
