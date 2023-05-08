@@ -64,13 +64,14 @@ public class MathInput : MonoBehaviour
     {
         smokeOnApplyR.Play();
         smokeOnApplyL.Play();
+        //audioSource.PlayOneShot(audioClip[3]); lydklip til røg der kommer ud
     }
     void LeftHandlePulled() {
         Undo();
     }
     public void Send(){
         if (ViableOutput()) {
-            audioSource.PlayOneShot(audioClip[1]);
+            //audioSource.PlayOneShot(audioClip[1]); dont use
             display.Apply(output);
         } else {
             errorAnimator.Play("ErrorOnSign");
@@ -88,8 +89,9 @@ public class MathInput : MonoBehaviour
         LevelManager.ActiveLevel.Complete();
         Equation.Solution(out double valueOfX);
         equationSolvedScreen.ActiveScreen(valueOfX);
+        audioSource.volume = .5f;     //Changing the volume since the sound effect is pretty loud and I'm pretty lazy.
+        audioSource.PlayOneShot(audioClip[1]);
         audioSource.PlayOneShot(audioClip[2]);
-        audioSource.PlayOneShot(audioClip[3]);
     }
     public bool ViableOutput(){
         if (output[2].Contains("x") && !(output[0].Contains('+') || output[0].Contains('-'))) {

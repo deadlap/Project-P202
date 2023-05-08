@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -8,8 +9,13 @@ public class ItemSlot : MonoBehaviour, IDropHandler {
     TextMeshProUGUI itemValue;
     [SerializeField] TextMeshProUGUI currentValue;
     [HideInInspector] public GameObject correctParent;
+    AudioSource audioSource;
     bool noChildren;
 
+    void Awake()
+    {
+        audioSource = GameObject.Find("Scale").GetComponent<AudioSource>();
+    }
 
     public void OnDrop(PointerEventData eventData) {
         draggedItem = eventData.pointerDrag.GetComponent<ItemDrag>();
@@ -37,8 +43,9 @@ public class ItemSlot : MonoBehaviour, IDropHandler {
         }
     }
 
-    public void InsertItem() {
+    void InsertItem() {
         noChildren = false;
+        audioSource.PlayOneShot(audioSource.clip);
         currentItem = draggedItem.gameObject;
         draggedItem.newParent = transform;
         draggedItem.transform.SetParent(draggedItem.newParent);

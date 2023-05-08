@@ -16,8 +16,10 @@ public class ScaleCombine : MonoBehaviour
     [SerializeField] float targetRotation = 0;
     [SerializeField] float rotationThreshold;
     Animator createEquationAnimator;
+    AudioSource tubeSuck;
     void Start() {
         createEquationAnimator = GetComponent<Animator>();
+        tubeSuck = GameObject.Find("TubeL").GetComponent<AudioSource>();
         finishButton.SetActive(false);
     }
 
@@ -82,5 +84,10 @@ public class ScaleCombine : MonoBehaviour
         Equation equation = new Equation(_leftXTerm, leftTerm, _rightXTerm, rightTerm);
         LevelManager.ActiveLevel.SetEquation(equation);
         SceneManagement.GoToLevel(LevelManager.ActiveLevel);
+    }
+
+    void TubeSuck()
+    {
+        tubeSuck.PlayOneShot(tubeSuck.clip);
     }
 }
