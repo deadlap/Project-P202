@@ -21,7 +21,7 @@ public class MathInput : MonoBehaviour
     void OnEnable() {
         HandleEvents.LeftHandlePulled += LeftHandlePulled;
         HandleEvents.RightHandlePulled += RightHandlePulled;
-        output = new string[3];
+        //output = new string[3]; En identisk linje bliver også kaldt i Awake().
     }
 
 
@@ -35,25 +35,29 @@ public class MathInput : MonoBehaviour
         output = new string[3];
     }
 
-    void Update() {
-        for (int i = 0; i < input.Length; i++) {
-            output[i] = input[i].elementInfo;
-        }
-    }
+    // void Update() {
+    //     for (int i = 0; i < input.Length; i++) {
+    //         output[i] = input[i].elementInfo;
+    //     }
+    // }    LAD VÆR MED AT KØRE I UPDATE. Ellers kommer den der bug med scroll wheel.
 
     void RightHandlePulled() {
         if (rightHandlePulled) return;
         rightHandlePulled = true;
+        output = new string[3];
+        for (int i = 0; i < input.Length; i++) {
+            output[i] = input[i].elementInfo;
+        }
+        if (!ViableOutput()) {
+            Send(); 
+            return;
+        }
         bulgeL.SetActive(true);
         bulgeR.SetActive(true);
         var smokeDelay = 1.5f;
         Invoke(nameof(SmokeOnPull), smokeDelay);
         var delay = 2.1f; //Let the smoke cover the numbers before they change.
         Invoke(nameof(Send), delay);
-        output = new string[3];
-        for (int i = 0; i < input.Length; i++) {
-            output[i] = input[i].elementInfo;
-        }
     }
 
     void SmokeOnPull()
@@ -74,9 +78,8 @@ public class MathInput : MonoBehaviour
             errorAnimator.Play("ErrorOnx");
         }
         rightHandlePulled = false;
-        if (Equation.Solution(out _))
-        {
-            var delay = 1f;
+        if (Equation.Solution(out _)) {
+            var delay = 1.5f;
             Invoke(nameof(EquationSolved), delay);
         }
     }
