@@ -50,12 +50,6 @@ public class HintManager : MonoBehaviour {
             hintIDs.Add(4);
         if (ID5(equation))
             hintIDs.Add(5);
-        if (ID6(equation))
-            hintIDs.Add(6);
-        if (ID7(equation))
-            hintIDs.Add(7);
-        if (ID8(equation))
-            hintIDs.Add(8);
     }
 
     public void ActivateHint(int ID){
@@ -67,25 +61,16 @@ public class HintManager : MonoBehaviour {
                 };
                 break;
             case 2:
-                hintText = new List<string>{"Tillykke, du har samlet x'erne på den ene side af lighedstegnet. Saml nu de led som ikke indeholder x på den anden side af lighedstegnet."};
+                hintText = new List<string>{"x'erne er samlet på den ene side af lighedstegnet. Saml nu de led som ikke indeholder x på den modsatte side af lighedstegnet."};
                 break;
             case 3:
-                hintText = new List<string>{"Godt gået. Du er der næsten. Brug division til finde talværdien af x."};
+                hintText = new List<string>{"Du er der næsten! Du kan bruge division til finde talværdien af x."};
                 break;
             case 4:
-                hintText = new List<string>{"Denne ligning indeholder et positivt led med en kendt talværdi. Du kan rykke denne på den anden side af lighedstegnet, ved at trække samme talværdi fra på begge sider."};
-                break;
+                hintText = new List<string>{"Du kan <b>flytte et positivt led</b> til den modsatte side af lighedstegnet, ved at trække det fra på begge sider. Et negativt led kan flyttes ved at plusse med det."};
+                break;           
             case 5:
-                hintText = new List<string>{"Denne ligning indeholder et negativt led med en kendt talværdi. Du kan rykke denne på den anden side af lighedstegnet, ved at ligge samme talværdi til på begge sider."};
-                break;
-            case 6:
-                hintText = new List<string>{"Denne linging indeholder et positivt led med ukendt talværdi. Du kan rykke på dette ved at trække samme antal af \"x\"'er fra på begge sider. Dette led kan måske også ændres ved division."};
-                break;
-            case 7:
-                hintText = new List<string>{"Denne linging indeholder et negativt led med ukendt talværdi. Du kan rykke på dette ved at ligge samme antal af \"x\"'er til på begge sider."};
-                break;
-            case 8:
-                hintText = new List<string>{"Denne ligning indeholder en eller flere brøker. Brøker kan \"fjernes\" ved at gange med tallet i nævneren på begge sider af lighedstegnet"};
+                hintText = new List<string>{"Ligningen indeholder en eller flere brøker. Brøker kan \"fjernes\" ved at gange med tallet i nævneren på begge sider af lighedstegnet."};
                 break;
         }
     }
@@ -114,19 +99,9 @@ public class HintManager : MonoBehaviour {
             || (Math.Abs(equation.rightXTerm) > 1 && Math.Abs(equation.leftTerm) > 0  && Math.Abs(equation.rightTerm) == 0 && Math.Abs(equation.leftXTerm) == 0)); 
     }
     public bool ID4(Equation equation){
-        return (equation.leftTerm > 0 || equation.rightTerm > 0);
+        return (equation.leftTerm > 0 || equation.rightTerm > 0) || (equation.leftTerm < 0 || equation.rightTerm < 0) || (equation.leftXTerm > 0 || equation.rightXTerm > 0) || (equation.leftXTerm < 0 || equation.rightXTerm < 0);
     }
     public bool ID5(Equation equation){
-        return (equation.leftTerm < 0 || equation.rightTerm < 0);
-    }
-    public bool ID6(Equation equation){
-        return (equation.leftXTerm > 0 || equation.rightXTerm > 0);
-    }
-
-    public bool ID7(Equation equation){
-        return (equation.leftXTerm < 0 || equation.rightXTerm < 0);
-    }
-    public bool ID8(Equation equation){
         return (equation.leftTerm % 1 != 0 ||
             equation.leftXTerm % 1 != 0 ||
             equation.rightTerm % 1 != 0 ||
