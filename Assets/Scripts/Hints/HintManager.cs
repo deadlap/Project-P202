@@ -29,7 +29,7 @@ public class HintManager : MonoBehaviour {
             SelectPossibleSolveHints();
             if (hintIDs.Count > 0) {
                 hintPanel.SetActive(true);
-                ActivateHint(hintIDs[UnityEngine.Random.Range(0,hintIDs.Count-1)]);
+                ActivateHint(hintIDs[UnityEngine.Random.Range(0,hintIDs.Count)]);
                 ChangeText();
             } else {
                 //spil error animation/lyd fordi vi ikke har nogen hints at give
@@ -41,33 +41,52 @@ public class HintManager : MonoBehaviour {
         Equation equation = LevelManager.ActiveLevel.equation.equation;
 
         if (ID1(equation))
+        {
             hintIDs.Add(1);
+            Debug.Log("ID1 active");
+
+        }
         if (ID2(equation))
+        {
+            Debug.Log("ID2 active");
             hintIDs.Add(2);
+        }
+           
         if (ID3(equation))
+        {
             hintIDs.Add(3);
+            Debug.Log("ID3 active");
+        }
         if (ID4(equation))
+        {
             hintIDs.Add(4);
+            Debug.Log("ID4 active");
+        }
         if (ID5(equation))
+        {
             hintIDs.Add(5);
+            Debug.Log("ID5 active");
+        }
+            
     }
 
     public void ActivateHint(int ID){
         // \n
         switch(ID){
             case 1:
-                hintText = new List<string>{"Start med at samle de led, som indeholder \"x\", på en af siderne af lighedstegnet. Husk du kan altid fortryde ved at trækkke i venstre håndtag",
-                "\"Led\" er opdelt af plusser (+) og minusser (-). Ligningen 2x+4=10-x består af fire led. \n 2x er et led. \n +4 er et led. \n 10 er et led. \n og -x er et led. \n "
+                hintText = new List<string>{"Start med at <b>samle de led, som indeholder \"x\"</b>,<br> på en af siderne af lighedstegnet.<br>",
+                "<b>\"Led\"</b> er opdelt af plusser (+) og minusser (-).<br> Ligningen 2x+4=10-x består af fire led. \n 2x er et led. +4 er et led. \n 10 er et led.  og -x er et led."
                 };
                 break;
             case 2:
-                hintText = new List<string>{"x'erne er samlet på den ene side af lighedstegnet. Saml nu de led som ikke indeholder x på den modsatte side af lighedstegnet."};
+                hintText = new List<string>{"X'erne er samlet på den ene side af lighedstegnet.<br> <b>Saml nu de led som ikke indeholder x</b> på den <br> modsatte side af lighedstegnet.",
+                 "\"Led\" er opdelt af plusser (+) og minusser (-).<br> Ligningen 2x+4=10-x består af fire led. \n 2x er et led. +4 er et led. \n 10 er et led.  og -x er et led."};
                 break;
             case 3:
-                hintText = new List<string>{"Du er der næsten! Du kan bruge division til finde talværdien af x."};
+                hintText = new List<string>{"Du kan bruge <b>division</b> til at fjerne <br> et tal som ganges på x."};
                 break;
             case 4:
-                hintText = new List<string>{"Du kan <b>flytte et positivt led</b> til den modsatte side af lighedstegnet, ved at trække det fra på begge sider. Et negativt led kan flyttes ved at plusse med det."};
+                hintText = new List<string>{"Du kan <b>flytte et positivt led</b> til den modsatte<br> side af lighedstegnet, ved at <b>trække det fra på <br>begge sider</b>. Et <b>negativt led</b> kan <br><b>flyttes ved at plusse med det</b>."};
                 break;           
             case 5:
                 hintText = new List<string>{"Ligningen indeholder en eller flere brøker. Brøker kan \"fjernes\" ved at gange med tallet i nævneren på begge sider af lighedstegnet."};
@@ -88,24 +107,27 @@ public class HintManager : MonoBehaviour {
         return (Math.Abs(equation.leftTerm) > 0 &&
         Math.Abs(equation.leftXTerm) > 0 &&
         Math.Abs(equation.rightTerm) > 0 &&
-        Math.Abs(equation.rightXTerm) > 0
-        );
+        Math.Abs(equation.rightXTerm) > 0);
     }
     public bool ID2(Equation equation){
-        return (equation.leftXTerm == 0 || equation.rightXTerm==0);
+        return (equation.leftXTerm == 0 && equation.rightTerm != 0 || equation.rightXTerm==0 && equation.leftTerm != 0);
     }
     public bool ID3(Equation equation){
         return ((Math.Abs(equation.leftXTerm) > 1 && Math.Abs(equation.rightTerm) > 0 && Math.Abs(equation.leftTerm) == 0 && Math.Abs(equation.rightXTerm) == 0)
-            || (Math.Abs(equation.rightXTerm) > 1 && Math.Abs(equation.leftTerm) > 0  && Math.Abs(equation.rightTerm) == 0 && Math.Abs(equation.leftXTerm) == 0)); 
+            || (Math.Abs(equation.rightXTerm) > 1 && Math.Abs(equation.leftTerm) > 0  && Math.Abs(equation.rightTerm) == 0 && Math.Abs(equation.leftXTerm) == 0));
     }
     public bool ID4(Equation equation){
-        return (equation.leftTerm > 0 || equation.rightTerm > 0) || (equation.leftTerm < 0 || equation.rightTerm < 0) || (equation.leftXTerm > 0 || equation.rightXTerm > 0) || (equation.leftXTerm < 0 || equation.rightXTerm < 0);
+        return (equation.leftXTerm == 0 && equation.rightTerm != 0 || equation.rightXTerm == 0 && equation.leftTerm != 0) ||
+            (Math.Abs(equation.leftTerm) > 0 &&
+        Math.Abs(equation.leftXTerm) > 0 &&
+        Math.Abs(equation.rightTerm) > 0 &&
+        Math.Abs(equation.rightXTerm) > 0);
+            //(equation.leftTerm > 0 || equation.rightTerm > 0) || (equation.leftTerm < 0 || equation.rightTerm < 0) || (equation.leftXTerm > 0 || equation.rightXTerm > 0) || (equation.leftXTerm < 0 || equation.rightXTerm < 0);
     }
     public bool ID5(Equation equation){
         return (equation.leftTerm % 1 != 0 ||
             equation.leftXTerm % 1 != 0 ||
             equation.rightTerm % 1 != 0 ||
-            equation.rightXTerm % 1 != 0
-        );
+            equation.rightXTerm % 1 != 0);
     }
 }

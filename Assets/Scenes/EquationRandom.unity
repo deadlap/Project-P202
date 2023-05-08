@@ -7644,7 +7644,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &525702017
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7662,7 +7662,7 @@ RectTransform:
   - {fileID: 670519567}
   - {fileID: 984465872}
   m_Father: {fileID: 1180470597}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -15501,8 +15501,8 @@ RectTransform:
   - {fileID: 1154874718}
   - {fileID: 427032662}
   - {fileID: 318337741}
-  - {fileID: 1191115644}
   - {fileID: 525702017}
+  - {fileID: 1191115644}
   - {fileID: 673678925}
   - {fileID: 1994499600}
   m_Father: {fileID: 0}
@@ -15655,7 +15655,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4457361249076812292, guid: 80d187a33b253ad44b2fa73601b0edb7, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 4457361249076812292, guid: 80d187a33b253ad44b2fa73601b0edb7, type: 3}
       propertyPath: m_AnchorMax.x
@@ -15680,18 +15680,6 @@ PrefabInstance:
     - target: {fileID: 4457361249076812292, guid: 80d187a33b253ad44b2fa73601b0edb7, type: 3}
       propertyPath: m_SizeDelta.y
       value: 130
-      objectReference: {fileID: 0}
-    - target: {fileID: 4457361249076812292, guid: 80d187a33b253ad44b2fa73601b0edb7, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.21
-      objectReference: {fileID: 0}
-    - target: {fileID: 4457361249076812292, guid: 80d187a33b253ad44b2fa73601b0edb7, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.1255815
-      objectReference: {fileID: 0}
-    - target: {fileID: 4457361249076812292, guid: 80d187a33b253ad44b2fa73601b0edb7, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.21
       objectReference: {fileID: 0}
     - target: {fileID: 4457361249076812292, guid: 80d187a33b253ad44b2fa73601b0edb7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15741,14 +15729,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4457361249076812292, guid: 80d187a33b253ad44b2fa73601b0edb7, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7430362855722117246, guid: 80d187a33b253ad44b2fa73601b0edb7, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -8255707905695170683, guid: a1defae3d75477f4cb1673fb6130da71, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80d187a33b253ad44b2fa73601b0edb7, type: 3}
 --- !u!224 &1191115644 stripped
