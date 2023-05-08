@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15e10de5e36644a4db15cf58af1cd53b, type: 3}
   m_Name: Level_6
   m_EditorClassIdentifier: 
-  equationToLoad: {fileID: 0}
+  equationToLoad: {fileID: 11400000, guid: 256b6e93f7a7a6f429a8d59a2e467fc0, type: 2}
   numbersForScale: []
   xValue: 
   unlocked: 0

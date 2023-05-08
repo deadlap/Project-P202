@@ -13,8 +13,13 @@ MonoBehaviour:
   m_Name: Level_7
   m_EditorClassIdentifier: 
   equationToLoad: {fileID: 0}
-  numbersForScale: []
-  xValue: 
-  unlocked: 0
+  numbersForScale:
+  - 2
+  - 4
+  - 5
+  - 8
+  - 9
+  xValue: 3
+  unlocked: 1
   completed: 0
   score: 0

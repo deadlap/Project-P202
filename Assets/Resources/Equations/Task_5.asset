@@ -9,16 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15e10de5e36644a4db15cf58af1cd53b, type: 3}
-  m_Name: Level_4
+  m_Script: {fileID: 11500000, guid: 75ccdd43041d1d645a9448e4d6e69592, type: 3}
+  m_Name: Task_5
   m_EditorClassIdentifier: 
-  equationToLoad: {fileID: 0}
-  numbersForScale:
-  - 2
-  - 2
-  - 4
-  - 6
-  xValue: 2
-  unlocked: 0
-  completed: 0
-  score: 0
+  equation:
+    leftXTerm: 4
+    leftTerm: 3
+    rightXTerm: 0
+    rightTerm: 11
+  stepsPerStar: 0400000008000000

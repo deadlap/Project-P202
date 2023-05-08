@@ -602,31 +602,31 @@ PrefabInstance:
       objectReference: {fileID: 346747700}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_text
-      value: Coming soon
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontSize
-      value: 35
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontColor.b
-      value: 0.6509434
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontColor.g
-      value: 0.6509434
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontColor.r
-      value: 0.6509434
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontSizeBase
-      value: 35
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4289111718
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_VerticalAlignment
@@ -831,31 +831,31 @@ PrefabInstance:
       objectReference: {fileID: 372504439}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_text
-      value: Coming soon
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontSize
-      value: 35
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontColor.b
-      value: 0.6509434
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontColor.g
-      value: 0.6509434
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontColor.r
-      value: 0.6509434
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontSizeBase
-      value: 35
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4289111718
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_VerticalAlignment
@@ -1202,31 +1202,31 @@ PrefabInstance:
       objectReference: {fileID: 489371583}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_text
-      value: Coming soon
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontSize
-      value: 35
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontColor.b
-      value: 0.6509434
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontColor.g
-      value: 0.6509434
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontColor.r
-      value: 0.6509434
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontSizeBase
-      value: 35
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4289111718
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_VerticalAlignment
@@ -1431,31 +1431,35 @@ PrefabInstance:
       objectReference: {fileID: 562684497}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_text
-      value: Coming soon
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontSize
-      value: 35
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontColor.b
-      value: 0.6509434
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontColor.g
-      value: 0.6509434
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontColor.r
-      value: 0.6509434
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontSizeBase
-      value: 35
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4289111718
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_VerticalAlignment
@@ -1660,31 +1664,31 @@ PrefabInstance:
       objectReference: {fileID: 603939654}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_text
-      value: Coming soon
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontSize
-      value: 35
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontColor.b
-      value: 0.6509434
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontColor.g
-      value: 0.6509434
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontColor.r
-      value: 0.6509434
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontSizeBase
-      value: 35
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4289111718
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_VerticalAlignment
@@ -2446,31 +2450,31 @@ PrefabInstance:
       objectReference: {fileID: 935024914}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_text
-      value: Coming soon
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontSize
-      value: 35
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontColor.b
-      value: 0.6509434
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontColor.g
-      value: 0.6509434
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontColor.r
-      value: 0.6509434
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontSizeBase
-      value: 35
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4289111718
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_VerticalAlignment
@@ -3795,31 +3799,31 @@ PrefabInstance:
       objectReference: {fileID: 2033470320}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_text
-      value: Coming soon
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontSize
-      value: 35
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontColor.b
-      value: 0.6509434
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontColor.g
-      value: 0.6509434
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontColor.r
-      value: 0.6509434
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontSizeBase
-      value: 35
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4289111718
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 9080435795048231128, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: m_VerticalAlignment
