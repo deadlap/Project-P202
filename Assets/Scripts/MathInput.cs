@@ -89,6 +89,7 @@ public class MathInput : MonoBehaviour
         LevelManager.ActiveLevel.Complete();
         Equation.Solution(out double valueOfX);
         equationSolvedScreen.ActiveScreen(valueOfX);
+        audioSource.volume = .5f;     //Changing the volume since the sound effect is pretty loud and I'm pretty lazy.
         audioSource.PlayOneShot(audioClip[1]);
         audioSource.PlayOneShot(audioClip[2]);
     }
