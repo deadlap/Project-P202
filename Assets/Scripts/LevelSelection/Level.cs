@@ -1,8 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using System;
 
 [CreateAssetMenu(fileName = "Level", menuName = "Project-P202/Level", order = 0)]
 public class Level : ScriptableObject {

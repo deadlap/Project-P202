@@ -6,6 +6,8 @@ public class MathInput : MonoBehaviour
 {
     bool rightHandlePulled;
     public static EquationLevel Equation;
+    [SerializeField] ParticleSystem smokeOnApplyR;
+    [SerializeField] ParticleSystem smokeOnApplyL;
     [SerializeField] GameObject bulgeR;
     [SerializeField] GameObject bulgeL;
     [SerializeField] SolvedScreen equationSolvedScreen;
@@ -22,21 +24,6 @@ public class MathInput : MonoBehaviour
         output = new string[3];
     }
 
-    void RightHandlePulled() {
-        if (rightHandlePulled) return;
-        rightHandlePulled = true;
-        bulgeL.SetActive(true);
-        bulgeR.SetActive(true);
-        Invoke(nameof(Send), 1.5f);
-        output = new string[3];
-        for (int i = 0; i < input.Length; i++) {
-            output[i] = input[i].elementInfo;
-        }
-    }
-
-    void LeftHandlePulled() {
-        Undo();
-    }
 
     void OnDisable() {
         HandleEvents.LeftHandlePulled -= LeftHandlePulled;
@@ -54,14 +41,41 @@ public class MathInput : MonoBehaviour
         }
     }
 
+    void RightHandlePulled() {
+        if (rightHandlePulled) return;
+        rightHandlePulled = true;
+        bulgeL.SetActive(true);
+        bulgeR.SetActive(true);
+        var smokeDelay = 1.5f;
+        Invoke(nameof(SmokeOnPull), smokeDelay);
+        var delay = 2.1f; //Let the smoke cover the numbers before they change.
+        Invoke(nameof(Send), delay);
+        output = new string[3];
+        for (int i = 0; i < input.Length; i++) {
+            output[i] = input[i].elementInfo;
+        }
+    }
+
+    void SmokeOnPull()
+    {
+        smokeOnApplyR.Play();
+        smokeOnApplyL.Play();
+    }
+    void LeftHandlePulled() {
+        Undo();
+    }
     public void Send(){
         if (ViableOutput()) {
             audioSource.PlayOneShot(audioClip[1]);
             display.Apply(output);
+<<<<<<< Updated upstream
         } else {
             errorAnimator.Play("ErrorOnSign");
             audioSource.PlayOneShot(audioClip[0]);
             errorAnimator.Play("ErrorOnx");
+=======
+            
+>>>>>>> Stashed changes
         }
         rightHandlePulled = false;
         if (Equation.Solution(out _))
