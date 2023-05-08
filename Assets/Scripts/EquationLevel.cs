@@ -13,7 +13,7 @@ public class EquationLevel : ScriptableObject {
     public EquationLevel previous {get; private set;}
     public int steps {get; private set;}
 
-    void Awake() {
+    void OnEnable() {
         if (equation != null && stepsPerStar.Count != 0)
             ConvertToText();
     }
@@ -35,7 +35,7 @@ public class EquationLevel : ScriptableObject {
         equation = _equation;
     }
     
-    public void Reset(){
+    public void ResetLevel(){
         while (Previous());
         steps = 0;
     }

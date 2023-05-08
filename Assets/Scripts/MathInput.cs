@@ -58,6 +58,10 @@ public class MathInput : MonoBehaviour
         if (ViableOutput()) {
             audioSource.PlayOneShot(audioClip[1]);
             display.Apply(output);
+        } else {
+            errorAnimator.Play("ErrorOnSign");
+            audioSource.PlayOneShot(audioClip[0]);
+            errorAnimator.Play("ErrorOnx");
         }
         rightHandlePulled = false;
         if (Equation.Solution(out _))
@@ -76,12 +80,8 @@ public class MathInput : MonoBehaviour
     }
     public bool ViableOutput(){
         if (output[2].Contains("x") && !(output[0].Contains('+') || output[0].Contains('-'))) {
-            errorAnimator.Play("ErrorOnSign");
-            audioSource.PlayOneShot(audioClip[0]);
             return false;
         } if (String.Join("", output).Length == 1) {
-            errorAnimator.Play("ErrorOnx");
-            audioSource.PlayOneShot(audioClip[0]);
             return false;
         }
         if (output[1].Length == 0)

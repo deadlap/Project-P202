@@ -22,7 +22,7 @@ public class LevelManager : MonoBehaviour {
         
     }
     public static void ResetActiveLevel(){
-        ActiveLevel.Reset();
+        ActiveLevel.ResetLevel();
     }
 
     public static void SetActiveLevel(Level _level) {

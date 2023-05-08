@@ -10,9 +10,9 @@ public class Level : ScriptableObject {
     public EquationLevel equation {get; private set;}
     [SerializeField] public List<string> numbersForScale;
     [SerializeField] public string xValue;
-    [SerializeField] public bool unlocked;
-    [SerializeField] public bool completed;
-    [SerializeField] public int score;
+    public bool unlocked;
+    public bool completed;
+    public int score;
 
     [SerializeField] public static List<int> DefaultStepsPerStar = new List<int>() {4,8};
 
@@ -26,9 +26,9 @@ public class Level : ScriptableObject {
         equation = EquationLevel.CreateEquationLevel(_equation, DefaultStepsPerStar);
     }
 
-    public void Reset(){
+    public void ResetLevel(){
         if (numbersForScale.Count == 0)
-            equation.Reset();
+            equation.ResetLevel();
         else
             equation = null;
     }
@@ -41,7 +41,8 @@ public class Level : ScriptableObject {
             return;
         }
         int newScore = equation.CalculateScore();
-        if (newScore > score)
+        if (newScore > score) {
             score = newScore;
+        }
     }
 }

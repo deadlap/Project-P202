@@ -28,7 +28,7 @@ public class LevelButton : MonoBehaviour
 
     public void SendToLevel(){
         if (level.unlocked) {
-            level.Reset();
+            level.ResetLevel();
             SceneManagement.GoToLevel(level);
         } else {
             levelAnimator.Play("LevelLocked");
