@@ -4,7 +4,7 @@ using System;
 
 public class MathInput : MonoBehaviour
 {
-    bool rightHandlePulled;
+    [HideInInspector] public bool rightHandlePulled;
     public static EquationLevel Equation;
     [SerializeField] ParticleSystem smokeOnApplyR;
     [SerializeField] ParticleSystem smokeOnApplyL;

@@ -45,17 +45,17 @@ public class SceneManagement : MonoBehaviour {
     public void EndGame() {
         Application.Quit();
     }
-    public void ChangeToRandomEquation() {
-        EquationLevel[] AllEquations =  (Resources.LoadAll<EquationLevel>("Equations/") as EquationLevel[]);
-        MathInput.Equation = Instantiate(AllEquations[Random.Range(0,AllEquations.Length-1)]);
-        SceneManager.LoadScene(EquationSceneName);
-    }
-    public static void ChangeToEquation(Equation equation) {
-        EquationLevel eq = Instantiate(Resources.Load("CompleteEquation") as EquationLevel);
-        eq.ResetTo(equation);
-        MathInput.Equation = Instantiate(eq);
-        SceneManager.LoadScene(EquationSceneName);
-    }
+    // public void ChangeToRandomEquation() {
+    //     EquationLevel[] AllEquations =  (Resources.LoadAll<EquationLevel>("Equations/") as EquationLevel[]);
+    //     MathInput.Equation = Instantiate(AllEquations[Random.Range(0,AllEquations.Length-1)]);
+    //     SceneManager.LoadScene(EquationSceneName);
+    // }
+    // public static void ChangeToEquation(Equation equation) {
+    //     EquationLevel eq = Instantiate(Resources.Load("CompleteEquation") as EquationLevel);
+    //     eq.ResetTo(equation);
+    //     MathInput.Equation = Instantiate(eq);
+    //     SceneManager.LoadScene(EquationSceneName);
+    // }
     
     public static void GoToLevel(Level level) {
         LevelManager.SetActiveLevel(level);

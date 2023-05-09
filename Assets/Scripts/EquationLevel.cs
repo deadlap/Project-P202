@@ -28,11 +28,11 @@ public class EquationLevel : ScriptableObject {
         return equationLevel;
     }
 
-    public void ResetTo(Equation _equation){
-        //previous = null; //den fik levels til at resette når man klaret det næste.
-        steps = 0;
-        equation = _equation;
-    }
+    // public void ResetTo(Equation _equation){
+    //     previous = null; //den fik levels til at resette når man klaret det næste.
+    //     steps = 0;
+    //     equation = _equation;
+    // }
     
     public void ResetLevel(){
         while (Previous());
@@ -91,7 +91,7 @@ public class EquationLevel : ScriptableObject {
     }
 
     public void Apply(string operation, double input, bool containsX){
-        steps += 1;
+        steps++;
         switch (operation){
             case "+":
                 if (containsX){
