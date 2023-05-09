@@ -64,7 +64,8 @@ public class MathInput : MonoBehaviour
     {
         smokeOnApplyR.Play();
         smokeOnApplyL.Play();
-        //audioSource.PlayOneShot(audioClip[3]); lydklip til røg der kommer ud
+        audioSource.volume = .5f; //justere lydniveau;
+        audioSource.PlayOneShot(audioClip[3]); //lydklip til røg der kommer ud
     }
     void LeftHandlePulled() {
         Undo();
