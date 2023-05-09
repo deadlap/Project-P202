@@ -2953,6 +2953,10 @@ PrefabInstance:
       propertyPath: soundButton
       value: 
       objectReference: {fileID: 1705266235}
+    - target: {fileID: 6954586918824838166, guid: a4ddf9129dd211a4d8bb5760e9749132, type: 3}
+      propertyPath: levelSelectButton
+      value: 
+      objectReference: {fileID: 2063854390}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4ddf9129dd211a4d8bb5760e9749132, type: 3}
 --- !u!224 &2063854388 stripped
@@ -2971,6 +2975,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aae5e6732853f8e4093c80ff002a6c4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2063854390 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6874676156379745204, guid: a4ddf9129dd211a4d8bb5760e9749132, type: 3}
+  m_PrefabInstance: {fileID: 2063854387}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2103701278
 GameObject:
   m_ObjectHideFlags: 0

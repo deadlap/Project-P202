@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class Options : MonoBehaviour {
     [SerializeField] GameObject optionsMenu;
     [SerializeField] GameObject resetButton;
+    [SerializeField] GameObject levelSelectButton;
     [SerializeField] MathInput mathInput;
     [SerializeField] Image soundButton;
     [SerializeField] Color enableColor;
@@ -20,6 +21,14 @@ public class Options : MonoBehaviour {
         AudioListener.volume = Convert.ToSingle(soundState);
         enableColor = new Color32(100,255,100,200);
         disableColor = new Color32(255,100,100,200);
+        if (GameMode.coopModeActive)
+        {
+            levelSelectButton.SetActive(false);
+        }
+        else
+        {
+            levelSelectButton.SetActive(true);
+        }
     }
 
     void Update(){

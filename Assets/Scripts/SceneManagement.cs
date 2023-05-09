@@ -22,9 +22,15 @@ public class SceneManagement : MonoBehaviour {
     public static void GoToCOOP(){
         LevelManager.RemoveActiveLevel();
         GameMode.coopModeActive = true;
+        Debug.Log("Game mode changed to Coop-mode");
         SceneManager.LoadScene(ScaleSceneName);
     }
     public void ChangeScene(string scene) {
+        if (scene == "LevelSelect")
+        {
+            GameMode.coopModeActive = false;
+            Debug.Log("Game mode changed to Solo-mode");
+        }
         StartCoroutine(SceneLoadScreen(scene));
     }
 
