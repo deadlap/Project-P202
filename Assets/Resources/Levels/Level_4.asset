@@ -19,6 +19,6 @@ MonoBehaviour:
   - 4
   - 6
   xValue: 2
-  unlocked: 0
-  completed: 0
-  score: 0
+  unlocked: 1
+  completed: 1
+  score: 3
