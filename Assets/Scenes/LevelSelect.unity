@@ -4058,10 +4058,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: Options
       objectReference: {fileID: 0}
+    - target: {fileID: 6954586918824838166, guid: a4ddf9129dd211a4d8bb5760e9749132, type: 3}
+      propertyPath: levelSelectButton
+      value: 
+      objectReference: {fileID: 2130683204}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4ddf9129dd211a4d8bb5760e9749132, type: 3}
 --- !u!224 &2130683203 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6954586918824838162, guid: a4ddf9129dd211a4d8bb5760e9749132, type: 3}
+  m_PrefabInstance: {fileID: 2130683202}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2130683204 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6874676156379745204, guid: a4ddf9129dd211a4d8bb5760e9749132, type: 3}
   m_PrefabInstance: {fileID: 2130683202}
   m_PrefabAsset: {fileID: 0}
