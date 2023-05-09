@@ -824,7 +824,7 @@ PrefabInstance:
     - target: {fileID: 9080435794401569037, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: level
       value: 
-      objectReference: {fileID: 11400000, guid: acf48f12a2ee46149ba789736600dfb9, type: 2}
+      objectReference: {fileID: 11400000, guid: d0500cb0cf86447468ec7b5f9991665e, type: 2}
     - target: {fileID: 9080435794401569037, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: playLevelButton
       value: 
@@ -2443,7 +2443,7 @@ PrefabInstance:
     - target: {fileID: 9080435794401569037, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: level
       value: 
-      objectReference: {fileID: 11400000, guid: acf48f12a2ee46149ba789736600dfb9, type: 2}
+      objectReference: {fileID: 11400000, guid: c37904e06629f46498c5db577f701b6a, type: 2}
     - target: {fileID: 9080435794401569037, guid: e99795f7ca75a5845b92ae07cb810884, type: 3}
       propertyPath: playLevelButton
       value: 
