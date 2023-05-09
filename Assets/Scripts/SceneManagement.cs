@@ -21,6 +21,7 @@ public class SceneManagement : MonoBehaviour {
 
     public static void GoToCOOP(){
         LevelManager.RemoveActiveLevel();
+        GameMode.coopModeActive = true;
         SceneManager.LoadScene(ScaleSceneName);
     }
     public void ChangeScene(string scene) {

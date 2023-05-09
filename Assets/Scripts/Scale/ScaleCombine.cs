@@ -10,13 +10,19 @@ public class ScaleCombine : MonoBehaviour
     [SerializeField] ScaleMath rightValueOfTerm;
     [SerializeField] GameObject pole;
     [SerializeField] GameObject finishButton;
+    [SerializeField] GameObject waitingPrompt;
+    [SerializeField] GameObject promptButton;
     [SerializeField] float rotationMax;
     [SerializeField] float rotationModifier;
     [SerializeField] float rotationPerSecond;
     [SerializeField] float targetRotation = 0;
     [SerializeField] float rotationThreshold;
+
+    bool waitingForOtherPlayer;
     Animator createEquationAnimator;
     AudioSource tubeSuck;
+
+
     void Start() {
         createEquationAnimator = GetComponent<Animator>();
         tubeSuck = GameObject.Find("TubeL").GetComponent<AudioSource>();
@@ -83,11 +89,26 @@ public class ScaleCombine : MonoBehaviour
         rightValueOfTerm.returnTerms(out double _rightXTerm, out double rightTerm);
         Equation equation = new Equation(_leftXTerm, leftTerm, _rightXTerm, rightTerm);
         LevelManager.ActiveLevel.SetEquation(equation);
-        SceneManagement.GoToLevel(LevelManager.ActiveLevel);
+
+        if (GameMode.coopModeActive == true)
+        {
+            waitingPrompt.SetActive(true);  
+        }
+        else
+        {
+            SceneManagement.GoToLevel(LevelManager.ActiveLevel);
+        }
     }
 
     void TubeSuck()
     {
         tubeSuck.PlayOneShot(tubeSuck.clip);
     }
+
+    public void playersReady()
+    {
+        SceneManagement.GoToLevel(LevelManager.ActiveLevel);
+    }
+
+
 }
