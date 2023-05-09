@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Level", menuName = "Project-P202/Level", order = 0)]
-public class Level : ScriptableObject {
+// [CreateAssetMenu(fileName = "Level", menuName = "Project-P202/Level", order = 0)]
+public class Level : MonoBehaviour {
     [SerializeField] public EquationLevel equationToLoad;
     public EquationLevel equation {get; private set;}
     [SerializeField] public List<string> numbersForScale;
