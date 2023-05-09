@@ -91,7 +91,7 @@ public class EquationLevel : ScriptableObject {
     }
 
     public void Apply(string operation, double input, bool containsX){
-        steps += 1;
+        steps++;
         switch (operation){
             case "+":
                 if (containsX){

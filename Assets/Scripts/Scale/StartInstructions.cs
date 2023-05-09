@@ -14,7 +14,8 @@ public class StartInstructions : MonoBehaviour
     void Start()
     {
         textDisplay.text = instructionText[i];
-        entranceAnimation.SetActive(false);
+        if (entranceAnimation)
+            entranceAnimation.SetActive(false);
     }
 
     public void ChangeText()
@@ -23,7 +24,8 @@ public class StartInstructions : MonoBehaviour
         if(i == instructionText.Length)
         {
             Destroy(gameObject);
-            entranceAnimation.SetActive(true);
+            if (entranceAnimation)
+                entranceAnimation.SetActive(true);
         }
         else
         {
