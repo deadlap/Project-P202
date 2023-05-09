@@ -15,6 +15,6 @@ MonoBehaviour:
   equationToLoad: {fileID: 11400000, guid: ba1ef2e51387c4045b5f732966f19c30, type: 2}
   numbersForScale: []
   xValue: 
-  unlocked: 1
-  completed: 1
-  score: 3
+  unlocked: 0
+  completed: 0
+  score: 0
