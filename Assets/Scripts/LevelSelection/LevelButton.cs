@@ -17,23 +17,24 @@ public class LevelButton : MonoBehaviour
         levelAudioSource = GetComponent<AudioSource>();
     }
 
-    void Start() {
-        lockOnLevel.SetActive(!level.unlocked);
-        for (int i = 0; i < stars.Count; i++) {
-            if (i+1>level.score)
-                return;
-            stars[i].SetActive(true);
-        }
-    }
+    // void Start() {
+    //     lockOnLevel.SetActive(!level.unlocked);
+    //     for (int i = 0; i < stars.Count; i++) {
+    //         if (i+1>level.score)
+    //             return;
+    //         stars[i].SetActive(true);
+    //     }
+    // }
 
     public void SendToLevel(){
-        if (level.unlocked) {
-            level.ResetLevel();
-            SceneManagement.GoToLevel(level);
-        } else {
-            levelAnimator.Play("LevelLocked");
-            levelAudioSource.Play(); //OneShot(levelAudioSource.clip));
-            //Indsæt ryste-animation-ting
-        }
+        // if (level.unlocked) {
+        level.ResetLevel();
+        SceneManagement.GoToLevel(level);
+        // } else {
+        //     levelAnimator.Play("LevelLocked");
+        //     levelAudioSource.Play(); //OneShot(levelAudioSource.clip));
+        //     //Indsæt ryste-animation-ting
+        // }
+
     }
 }
