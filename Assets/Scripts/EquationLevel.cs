@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 public class EquationLevel : ScriptableObject {
     
     [SerializeField] public Equation equation;
-    [HideInInspector] string[] eqToDisplay = new string[2];
+    string[] eqToDisplay = new string[2];
     [SerializeField] public List<int> stepsPerStar;
     public EquationLevel previous {get; private set;}
     public int steps {get; private set;}
@@ -29,7 +29,7 @@ public class EquationLevel : ScriptableObject {
     }
 
     public void ResetTo(Equation _equation){
-        previous = null;
+        //previous = null; //den fik levels til at resette når man klaret det næste.
         steps = 0;
         equation = _equation;
     }
@@ -41,7 +41,7 @@ public class EquationLevel : ScriptableObject {
 
     public bool Previous(){
         if (previous is not null){
-            steps += 1; // gør så unddo tæller som et træk
+            steps++; // gør så undo tæller som et træk
             equation = previous.equation;
             previous = previous.previous;
             ConvertToText();
