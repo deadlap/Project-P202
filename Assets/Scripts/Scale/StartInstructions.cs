@@ -13,6 +13,7 @@ public class StartInstructions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 0;
         textDisplay.text = instructionText[i];
         if (entranceAnimation)
             entranceAnimation.SetActive(false);
@@ -24,6 +25,7 @@ public class StartInstructions : MonoBehaviour
         if(i == instructionText.Length)
         {
             Destroy(gameObject);
+            Time.timeScale = 1;
             if (entranceAnimation)
                 entranceAnimation.SetActive(true);
         }

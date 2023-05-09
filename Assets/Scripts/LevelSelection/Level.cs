@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,8 +14,11 @@ public class Level : ScriptableObject {
 
     [SerializeField] public static List<int> DefaultStepsPerStar = new List<int>() {4,8};
 
-    void OnEnable() {
+    void Awake() {
         DontDestroyOnLoad(this);
+    }
+
+    void OnEnable() {
         if (equation == null && numbersForScale.Count == 0) {
             equation = Instantiate(equationToLoad);
         }

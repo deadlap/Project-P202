@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equationToLoad: {fileID: 11400000, guid: 71de0a529b0404040bd0a0d9c78d2887, type: 2}
   numbersForScale: []
-  xValue: 0
+  xValue: 
   unlocked: 1
   completed: 0
   score: 0

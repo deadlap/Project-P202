@@ -26,12 +26,13 @@ public class ValueOfX : MonoBehaviour
     }
     void Update()
     {
+        if(Time.timeScale == 0) return;
         StartCoroutine(ChangeLetter());
     }
 
     IEnumerator ChangeLetter()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         if (hasChanged) yield break;
         var localScale = transform.localScale;
         if (text.text == xText)
