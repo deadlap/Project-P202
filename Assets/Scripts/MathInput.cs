@@ -17,13 +17,12 @@ public class MathInput : MonoBehaviour
     [SerializeField] AudioSource audioSource;
     [SerializeField] AudioClip[] audioClip;
     public string[] output;
+    public string[] outputPreview;
 
     void OnEnable() {
         HandleEvents.LeftHandlePulled += LeftHandlePulled;
         HandleEvents.RightHandlePulled += RightHandlePulled;
-        //output = new string[3]; En identisk linje bliver også kaldt i Awake().
     }
-
 
     void OnDisable() {
         HandleEvents.LeftHandlePulled -= LeftHandlePulled;
@@ -33,13 +32,14 @@ public class MathInput : MonoBehaviour
     void Awake() {
         SetActiveEquation();
         output = new string[3];
+        outputPreview = output;
     }
 
-    // void Update() {
-    //     for (int i = 0; i < input.Length; i++) {
-    //         output[i] = input[i].elementInfo;
-    //     }
-    // }    LAD VÆR MED AT KØRE I UPDATE. Ellers kommer den der bug med scroll wheel.
+    void Update() {
+         for (int i = 0; i < input.Length; i++) {
+             outputPreview[i] = input[i].elementInfo;
+         }
+    }
 
     void RightHandlePulled() {
         if (rightHandlePulled) return;
@@ -93,14 +93,35 @@ public class MathInput : MonoBehaviour
         audioSource.PlayOneShot(audioClip[1]);
         audioSource.PlayOneShot(audioClip[2]);
     }
-    public bool ViableOutput(){
+
+    public bool ViableOutput()
+    {
         if (output[2].Contains("x") && !(output[0].Contains('+') || output[0].Contains('-'))) {
             return false;
-        } if (String.Join("", output).Length == 1) {
+        }
+
+        if (String.Join("", output).Length == 1){
             return false;
         }
-        if (output[1].Length == 0)
+
+        if (output[1].Length == 0){
             output[1] = "1";
+        }
+        return true;
+    }
+    public bool ViableOutputPreview() //Bliver brugt til at preview hvad man har på scroll wheel (i OutputVisualizer.cs)
+    {
+        if (outputPreview[2].Contains("x") && !(outputPreview[0].Contains('+') || outputPreview[0].Contains('-'))) {
+            return false;
+        }
+
+        if (String.Join("", outputPreview).Length == 1){
+            return false;
+        }
+
+        if (outputPreview[1].Length == 0){
+            outputPreview[1] = "1";
+        }
         return true;
     }
 
