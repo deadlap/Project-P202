@@ -28,11 +28,11 @@ public class EquationLevel : ScriptableObject {
         return equationLevel;
     }
 
-    public void ResetTo(Equation _equation){
-        //previous = null; //den fik levels til at resette når man klaret det næste.
-        steps = 0;
-        equation = _equation;
-    }
+    // public void ResetTo(Equation _equation){
+    //     previous = null; //den fik levels til at resette når man klaret det næste.
+    //     steps = 0;
+    //     equation = _equation;
+    // }
     
     public void ResetLevel(){
         while (Previous());
