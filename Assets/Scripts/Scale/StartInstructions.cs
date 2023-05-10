@@ -1,37 +1,49 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UIElements;
 
 public class StartInstructions : MonoBehaviour
 {
     [SerializeField] GameObject entranceAnimation;
     [SerializeField] TextMeshProUGUI textDisplay;
+    
+    [TextArea][SerializeField] string[] instructionText = new string[3];
+    [SerializeField] GameObject[] tutorialImages;
 
-    [SerializeField] string[] instructionText = new string[3];
-    int i;
-
-
-    // Start is called before the first frame update
+    GameObject currentGraphic, prevGraphic;
+    int playerClicks;
+    bool playerHasClicked;
+    
     void Start()
     {
         Time.timeScale = 0;
-        textDisplay.text = instructionText[i];
+        textDisplay.text = instructionText[playerClicks];
+        currentGraphic = Instantiate(tutorialImages[playerClicks], transform);
+        currentGraphic.transform.SetAsLastSibling();
         if (entranceAnimation)
             entranceAnimation.SetActive(false);
     }
 
     public void ChangeText()
     {
-        i++;
-        if(i == instructionText.Length)
+        // currentGraphic = prevGraphic;
+        // if(playerHasClicked)
+        //     prevGraphic.SetActive(false);
+        playerClicks++;
+        playerHasClicked = true;
+        if(playerClicks == instructionText.Length)
         {
-            Destroy(gameObject);
             Time.timeScale = 1;
             if (entranceAnimation)
                 entranceAnimation.SetActive(true);
+            Destroy(gameObject);
         }
         else
         {
-            textDisplay.text = instructionText[i];
+            currentGraphic.SetActive(false);
+            currentGraphic = Instantiate(tutorialImages[playerClicks], transform);
+            currentGraphic.transform.SetAsLastSibling();
+            textDisplay.text = instructionText[playerClicks];
         }
     }
 
