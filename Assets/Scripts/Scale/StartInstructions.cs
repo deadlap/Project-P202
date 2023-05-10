@@ -1,6 +1,5 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.UIElements;
 
 public class StartInstructions : MonoBehaviour
 {
@@ -26,9 +25,6 @@ public class StartInstructions : MonoBehaviour
 
     public void ChangeText()
     {
-        // currentGraphic = prevGraphic;
-        // if(playerHasClicked)
-        //     prevGraphic.SetActive(false);
         playerClicks++;
         playerHasClicked = true;
         if(playerClicks == instructionText.Length)
@@ -47,7 +43,11 @@ public class StartInstructions : MonoBehaviour
         }
     }
 
-
-
-
+    public void Skip()
+    {
+        Time.timeScale = 1;
+        if (entranceAnimation)
+            entranceAnimation.SetActive(true);
+        Destroy(gameObject);
+    }
 }
