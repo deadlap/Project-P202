@@ -6250,7 +6250,10 @@ MonoBehaviour:
   - "Dette kan sammenlignes med en v\xE6gt, <br> som er i balance"
   - "Udfyld de tomme pladser p\xE5 hver v\xE6gtsk\xE5l, <br> s\xE5 v\xE6gten er i
     balance"
-  tutorialImages: []
+  tutorialImages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!224 &1206390392 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 798643770554796784, guid: bfb3d68f914ca804eae7bb37554e35a0, type: 3}

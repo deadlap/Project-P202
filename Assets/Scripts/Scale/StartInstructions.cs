@@ -13,8 +13,7 @@ public class StartInstructions : MonoBehaviour
     int playerClicks;
     bool playerHasClicked;
     
-    void Start()
-    {
+    void Start() {
         Time.timeScale = 0;
         textDisplay.text = instructionText[playerClicks];
         currentGraphic = Instantiate(tutorialImages[playerClicks], transform);
@@ -23,18 +22,16 @@ public class StartInstructions : MonoBehaviour
             entranceAnimation.SetActive(false);
     }
 
-    public void ChangeText()
-    {
+    public void ChangeText() {
         playerClicks++;
         playerHasClicked = true;
-        if(playerClicks == instructionText.Length)
-        {
+        if(playerClicks == instructionText.Length) {
             Time.timeScale = 1;
             if (entranceAnimation)
                 entranceAnimation.SetActive(true);
             Destroy(gameObject);
         }
-        else
+        else 
         {
             currentGraphic.SetActive(false);
             currentGraphic = Instantiate(tutorialImages[playerClicks], transform);
@@ -43,8 +40,7 @@ public class StartInstructions : MonoBehaviour
         }
     }
 
-    public void Skip()
-    {
+    public void Skip() {
         Time.timeScale = 1;
         if (entranceAnimation)
             entranceAnimation.SetActive(true);
