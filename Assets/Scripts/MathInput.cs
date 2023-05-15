@@ -70,9 +70,8 @@ public class MathInput : MonoBehaviour
     void LeftHandlePulled() {
         Undo();
     }
-    public void Send(){
+    public void Send() {
         if (ViableOutput()) {
-            //audioSource.PlayOneShot(audioClip[1]); dont use
             display.Apply(output);
         } else {
             errorAnimator.Play("ErrorOnSign");
@@ -86,6 +85,19 @@ public class MathInput : MonoBehaviour
         }
     }
 
+    bool ViableOutput() {
+        if (output[2].Contains("x") && !(output[0].Contains('+') || output[0].Contains('-'))) {
+            return false;
+        }
+        if (String.Join("", output).Length == 1) {
+            return false;
+        }
+        if (output[1].Length == 0) {
+            output[1] = "1";
+        }
+        return true;
+    }
+    
     void EquationSolved() {
         LevelManager.ActiveLevel.Complete();
         Equation.Solution(out double valueOfX);
@@ -95,21 +107,6 @@ public class MathInput : MonoBehaviour
         audioSource.PlayOneShot(audioClip[2]);
     }
 
-    public bool ViableOutput()
-    {
-        if (output[2].Contains("x") && !(output[0].Contains('+') || output[0].Contains('-'))) {
-            return false;
-        }
-
-        if (String.Join("", output).Length == 1){
-            return false;
-        }
-
-        if (output[1].Length == 0){
-            output[1] = "1";
-        }
-        return true;
-    }
     public bool ViableOutputPreview() //Bliver brugt til at preview hvad man har på scroll wheel (i OutputVisualizer.cs)
     {
         if (outputPreview[2].Contains("x") && !(outputPreview[0].Contains('+') || outputPreview[0].Contains('-'))) {
