@@ -16,12 +16,7 @@ public class ItemSlot : MonoBehaviour, IDropHandler {
     {
         audioSource = GameObject.Find("Scale").GetComponent<AudioSource>();
     }
-
-    public void OnDrop(PointerEventData eventData) {
-        draggedItem = eventData.pointerDrag.GetComponent<ItemDrag>();
-        Invoke(nameof(CorrectItemType), .0000000000000001f); //Needs delay to get component. 
-    }
-
+    
     void Update() {
         if (transform.childCount == 0 && !noChildren) {
             currentValue.text = "";
@@ -30,6 +25,11 @@ public class ItemSlot : MonoBehaviour, IDropHandler {
         }
     }
 
+    public void OnDrop(PointerEventData eventData) {
+        draggedItem = eventData.pointerDrag.GetComponent<ItemDrag>();
+        Invoke(nameof(CorrectItemType), .0000000000000001f); //Needs delay to get component. 
+    }
+    
     void CorrectItemType() {
         if (!draggedItem.CompareTag(tag)) return;
         switch (transform.childCount) {
@@ -52,6 +52,6 @@ public class ItemSlot : MonoBehaviour, IDropHandler {
         itemValue = draggedItem.GetComponentInChildren<TextMeshProUGUI>();
         currentValue.text = itemValue.text;
         correctParent = GameObject.FindGameObjectWithTag(itemValue.text);
-        draggedItem.count = 1;
+        draggedItem.count++;
     }
 }

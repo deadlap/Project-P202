@@ -17,7 +17,6 @@ public class ItemDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void OnBeginDrag(PointerEventData eventData) {
         transform.SetParent(transform.root);
-        transform.SetAsLastSibling();
         cg.alpha = .7f;
         cg.blocksRaycasts = false;
     }
